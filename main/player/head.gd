@@ -4,7 +4,7 @@ extends Node3D
 @export var crosshair: TextureRect
 @export var sensitivity: float = 0.25
 
-
+# test
 var can_move: bool = true:
 	set(value):
 		can_move = value
