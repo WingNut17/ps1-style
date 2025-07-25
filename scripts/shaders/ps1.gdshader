@@ -26,8 +26,8 @@ uniform vec3 uv1_offset;
 uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 
-uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
+uniform vec4 albedo : source_color = vec4(1,1,1,1);
+uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_enable;
 
 uniform ivec2 resolution = ivec2(320, 240);
 uniform bool affine_mapping = true;
