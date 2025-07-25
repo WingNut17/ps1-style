@@ -63,8 +63,6 @@ func _init(data: Dictionary = {}) -> void:
 		next_id = data.next_id
 		type = data.type
 		extra_game_states = data.get("extra_game_states", [])
-		
-		print(data)
 
 		match type:
 			DMConstants.TYPE_DIALOGUE:

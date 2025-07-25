@@ -27,7 +27,7 @@ var crouch_collision_height: float = 0.375
 
 func _ready() -> void:
 	shape = collision_shape.shape
-	normal_height = shape.size.y  # Use size instead of extents for newer Godot versions
+	normal_height = shape.size.y
 	target_height = normal_height
 
 func _input(event: InputEvent) -> void:
@@ -55,13 +55,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	# Get the input direction and handle the movement/deceleration
+	# Horizontal basis ensures the player is moving the direction they are looking.
 	var horizontal_basis = Basis(Vector3.UP, head.rotation.y)
 	var direction := (horizontal_basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
 	
 	var current_speed = SPEED
 	if crouching:
-		current_speed *= 0.5  # Slower movement when crouching
+		current_speed *= 0.5
 	
 	if direction:
 		velocity.x = direction.x * current_speed
@@ -72,10 +72,10 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func jump():
+func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 
-func crouch():
+func crouch() -> void:
 	if not crouching:
 		crouching = true
 		target_height = crouch_height
@@ -85,5 +85,8 @@ func crouch():
 		target_height = normal_height
 		target_collision_height = normal_collision_height
 
-func interact_ended():
-	can_move = !can_move
+func dialogue_end() -> void:
+	can_move = true
+
+func dialogue_start() -> void:
+	can_move = false

@@ -1,8 +1,7 @@
 extends Node3D
 
 
-@onready var crosshair: TextureRect = $Camera3D/CanvasLayer/Crosshair
-
+@export var crosshair: TextureRect
 @export var sensitivity: float = 0.25
 
 
@@ -31,7 +30,6 @@ func _input(event: InputEvent) -> void:
 		rotation_degrees.x = clampf(rotation_degrees.x, -90, 90)
 
 func look_at_object(object_position: Vector3, duration: float):
-	# Create a temporary transform to get the target rotation
 	var head_transform = global_transform
 	head_transform = head_transform.looking_at(object_position, Vector3.UP)
 	
