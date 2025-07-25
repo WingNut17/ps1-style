@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=12 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://opmftn7c8q3n" path="res://main/player/interact_ray.gd" id="4_4bbr4"]
 [ext_resource type="Texture2D" uid="uid://c15ais4d1hqmw" path="res://assets/textures/items/flashlight.png" id="4_f8m1i"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="4_l6plr"]
+[ext_resource type="Script" uid="uid://dmqxpu2mhi8lp" path="res://scripts/other/debug.gd" id="5_boii2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_howr1"]
 size = Vector3(0.75, 2, 0.75)
@@ -36,7 +37,7 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 [node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("crosshair")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("1_vuxkg")
-crosshair = NodePath("../CanvasLayer/Crosshair")
+crosshair = NodePath("../UI/Game/Crosshair")
 sensitivity = 0.35
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
@@ -47,7 +48,7 @@ collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("4_4bbr4")
 player = NodePath("../..")
-crosshair = NodePath("../../CanvasLayer/Crosshair")
+crosshair = NodePath("../../UI/Game/Crosshair")
 
 [node name="FlashLight" type="SpotLight3D" parent="Head"]
 transform = Transform3D(0.996195, 0.00759612, 0.0868241, 0, 0.996195, -0.0871557, -0.0871557, 0.0868241, 0.992404, 0.375, -0.375, 0)
@@ -56,9 +57,15 @@ light_projector = ExtResource("4_f8m1i")
 shadow_enabled = true
 spot_angle = 20.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Crosshair" type="TextureRect" parent="CanvasLayer"]
+[node name="Game" type="CanvasLayer" parent="UI"]
+
+[node name="Crosshair" type="TextureRect" parent="UI/Game"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -73,7 +80,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_l6plr")
 stretch_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="UI/Game"]
 material = SubResource("ShaderMaterial_4bbr4")
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,7 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DialogueLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="DialogueLabel" type="RichTextLabel" parent="UI/Game"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -90,3 +97,17 @@ grow_vertical = 2
 script = ExtResource("4_l6plr")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 metadata/_custom_type_script = "uid://g32um0mltv5d"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="DebugPanel" type="PanelContainer" parent="UI/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_boii2")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CanvasLayer/DebugPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CanvasLayer/DebugPanel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
