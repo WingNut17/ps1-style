@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://68qw0y5t63jl"]
+
+[ext_resource type="FontFile" uid="uid://sci6uvpk7sue" path="res://assets/fonts/mythic-pixels.ttf" id="1_5kmd8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jq1i8"]
+
+[resource]
+default_font = ExtResource("1_5kmd8")
+default_font_size = 5
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_jq1i8")

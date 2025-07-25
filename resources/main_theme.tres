@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dll61qqaxobn6"]
+
+[ext_resource type="FontFile" uid="uid://sci6uvpk7sue" path="res://assets/fonts/mythic-pixels.ttf" id="1_ols5k"]
+
+[resource]
+default_font = ExtResource("1_ols5k")
+default_font_size = 5
