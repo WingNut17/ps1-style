@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://13s5spsk34qu"]
+[gd_scene load_steps=7 format=3 uid="uid://13s5spsk34qu"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_s2gbs"]
 [ext_resource type="Theme" uid="uid://68qw0y5t63jl" path="res://resources/dialogue_theme.tres" id="2_6b6c8"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_hfvdi"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_1j1j0"]
+[ext_resource type="Script" uid="uid://cxlmr3gydwj11" path="res://scripts/other/dialogue_audio.gd" id="5_2q4kx"]
+[ext_resource type="AudioStream" uid="uid://cmgq184wid4uf" path="res://assets/audio/sound/Blip.mp3" id="5_qcu78"]
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
@@ -90,5 +92,16 @@ size_flags_vertical = 6
 text = "Response Example"
 alignment = 2
 
+[node name="DialogueAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qcu78")
+volume_db = -20.0
+bus = &"Dialogue"
+script = ExtResource("5_2q4kx")
+
+[node name="DialogueUIAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qcu78")
+bus = &"Sfx"
+
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="spoke" from="Balloon/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/DialogueLabel" to="DialogueAudio" method="_on_dialogue_label_spoke"]
 [connection signal="response_selected" from="Balloon/MarginContainer2/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

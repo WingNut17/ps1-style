@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bf2o12lvvrosu"
-path="res://.godot/imported/male_character_ps1-style.glb-42d3bf278991fe5d38b7508b607c8b64.scn"
+uid="uid://j8a2dlg6vba5"
+path="res://.godot/imported/low_poly_fox_mulder_xfiles_ps1_style.glb-46e51bc558e05bbb8550f7f05af71f99.scn"
 
 [deps]
 
-source_file="res://assets/models/male_character_ps1-style.glb"
-dest_files=["res://.godot/imported/male_character_ps1-style.glb-42d3bf278991fe5d38b7508b607c8b64.scn"]
+source_file="res://assets/models/characters/low_poly_fox_mulder_xfiles_ps1_style.glb"
+dest_files=["res://.godot/imported/low_poly_fox_mulder_xfiles_ps1_style.glb-46e51bc558e05bbb8550f7f05af71f99.scn"]
 
 [params]
 

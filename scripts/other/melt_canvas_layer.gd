@@ -20,8 +20,8 @@ var level_text: String
 
 # for debugging. just to test how the transition works. 
 # eventually this transition manager will be able to be called from something like DoorInteractable which extends Interactable objects
-const LEVEL_1 = preload("res://level_1.tscn")
-const LEVEL_2 = preload("res://level_2.tscn")
+const LEVEL_1 = preload("res://scenes/levels/level_1.tscn")
+const LEVEL_2 = preload("res://scenes/levels/level_2.tscn")
 
 
 func _ready() -> void:

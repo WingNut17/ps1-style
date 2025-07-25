@@ -17,6 +17,9 @@ signal response_selected(response)
 ## Hide any responses where [code]is_allowed[/code] is false
 @export var hide_failed_responses: bool = false
 
+## Used for playing audio when navigating the dialogue options
+@onready var dialogue_ui_audio: AudioStreamPlayer = $"../../../DialogueUIAudio"
+
 ## The list of dialogue responses.
 var responses: Array = []:
 	get:
@@ -55,7 +58,7 @@ var responses: Array = []:
 					item.text = response.text
 
 				item.set_meta("response", response)
-
+				
 				add_child(item)
 
 			_configure_focus()
@@ -85,8 +88,6 @@ func get_menu_items() -> Array:
 
 
 #region Internal
-
-
 # Prepare the menu for keyboard and mouse navigation.
 func _configure_focus() -> void:
 	var items = get_menu_items()
@@ -120,15 +121,16 @@ func _configure_focus() -> void:
 		item.gui_input.connect(_on_response_gui_input.bind(item, item.get_meta("response")))
 
 	items[0].grab_focus()
-
-
 #endregion
 
+
 #region Signals
-
-
 func _on_response_mouse_entered(item: Control) -> void:
 	if "Disallowed" in item.name: return
+	
+	dialogue_ui_audio.stream # = Hover Button Audio
+	dialogue_ui_audio.pitch_scale = randf_range(0.8, 1.2)
+	dialogue_ui_audio.play()
 
 	item.grab_focus()
 
@@ -138,10 +140,18 @@ func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		get_viewport().set_input_as_handled()
+		
+		dialogue_ui_audio.stream # = Select Button Audio
+		dialogue_ui_audio.pitch_scale = randf_range(0.8, 1.2)
+		dialogue_ui_audio.play()
+		
 		response_selected.emit(response)
 	elif event.is_action_pressed(&"ui_accept" if next_action.is_empty() else next_action) and item in get_menu_items():
 		get_viewport().set_input_as_handled()
+		
+		dialogue_ui_audio.stream # = Select Button Audio
+		dialogue_ui_audio.pitch_scale = randf_range(0.8, 1.2)
+		dialogue_ui_audio.play()
+		
 		response_selected.emit(response)
-
-
 #endregion

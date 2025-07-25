@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://j8a2dlg6vba5"
-path="res://.godot/imported/low_poly_fox_mulder_xfiles_ps1_style.glb-2c58df0799dc23f20e64a7bd1436511b.scn"
+uid="uid://bmmjj6amwb5pi"
+path="res://.godot/imported/hotel_potted_plant.fbx-d4f0211b66211dc89a88388671a50921.scn"
 
 [deps]
 
-source_file="res://assets/models/low_poly_fox_mulder_xfiles_ps1_style.glb"
-dest_files=["res://.godot/imported/low_poly_fox_mulder_xfiles_ps1_style.glb-2c58df0799dc23f20e64a7bd1436511b.scn"]
+source_file="res://assets/models/props/hotel_potted_plant.fbx"
+dest_files=["res://.godot/imported/hotel_potted_plant.fbx-d4f0211b66211dc89a88388671a50921.scn"]
 
 [params]
 
@@ -28,10 +28,11 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

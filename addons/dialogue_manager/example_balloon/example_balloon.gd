@@ -55,6 +55,9 @@ var mutation_cooldown: Timer = Timer.new()
 ## The margin container
 @onready var margin_container: MarginContainer = %MarginContainer
 
+## Used for playing audio when navigating the dialogue options
+@onready var dialogue_ui_audio: AudioStreamPlayer = $DialogueUIAudio
+
 
 func _ready() -> void:
 	balloon.hide()
@@ -78,10 +81,18 @@ func animate_dialogue_menu(state: String):
 		"open":
 			margin_container.scale = Vector2(1,0)
 			
+			dialogue_ui_audio.stream # = Open Audio
+			dialogue_ui_audio.pitch_scale = randf_range(0.8, 1.2)
+			dialogue_ui_audio.play()
+			
 			tween.tween_property(margin_container, "scale", Vector2.ONE, 0.75).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 			tween.parallel().tween_property(responses_menu, "scale", Vector2.ONE, 0.75).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 		"close":
 			margin_container.scale = Vector2.ONE
+			
+			dialogue_ui_audio.stream # = Close Audio
+			dialogue_ui_audio.pitch_scale = randf_range(0.8, 1.2)
+			dialogue_ui_audio.play()
 			
 			tween.connect("finished", _end_close_tween)
 			tween.tween_property(margin_container, "scale", Vector2(1,0), 0.75).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)

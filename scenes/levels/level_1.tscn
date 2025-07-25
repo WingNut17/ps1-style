@@ -1,13 +1,16 @@
-[gd_scene load_steps=23 format=4 uid="uid://chimn3gxcbey7"]
+[gd_scene load_steps=26 format=4 uid="uid://chimn3gxcbey7"]
 
-[ext_resource type="PackedScene" uid="uid://b5k7b61oxm2pt" path="res://main/player/player.tscn" id="1_bjebc"]
-[ext_resource type="PackedScene" uid="uid://j8a2dlg6vba5" path="res://assets/models/low_poly_fox_mulder_xfiles_ps1_style.glb" id="2_5rr72"]
-[ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="3_gyffv"]
-[ext_resource type="Texture2D" uid="uid://b83cmrj4lqv27" path="res://assets/models/low_poly_fox_mulder_xfiles_ps1_style_0.png" id="4_1pe0h"]
-[ext_resource type="Script" uid="uid://dkok0pec8hqa2" path="res://scripts/systems/interaction/dialogue_interact.gd" id="5_27bay"]
-[ext_resource type="Resource" uid="uid://da28sdbmslnto" path="res://resources/dialogue/dialogue_test.dialogue" id="6_sof0w"]
-[ext_resource type="PackedScene" uid="uid://bs8emq6dkn2cr" path="res://scenes/Characters/man_with_animations.tscn" id="7_ggavl"]
-[ext_resource type="Animation" uid="uid://b6bubv8n7f3" path="res://resources/cutscene_talk.res" id="8_ubhxj"]
+[ext_resource type="PackedScene" uid="uid://b5k7b61oxm2pt" path="res://main/player/player.tscn" id="1_qxy0u"]
+[ext_resource type="PackedScene" uid="uid://j8a2dlg6vba5" path="res://assets/models/characters/low_poly_fox_mulder_xfiles_ps1_style.glb" id="2_excbq"]
+[ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="3_iav0o"]
+[ext_resource type="Texture2D" uid="uid://b83cmrj4lqv27" path="res://assets/textures/characters/low_poly_fox_mulder_xfiles_ps1_style_0.png" id="4_dnkej"]
+[ext_resource type="Script" uid="uid://dkok0pec8hqa2" path="res://scripts/systems/interaction/dialogue_interact.gd" id="5_mm8aj"]
+[ext_resource type="Resource" uid="uid://da28sdbmslnto" path="res://resources/dialogue/dialogue_test.dialogue" id="6_wtwp4"]
+[ext_resource type="PackedScene" uid="uid://bs8emq6dkn2cr" path="res://scenes/characters/man_with_animations.tscn" id="7_iwr0g"]
+[ext_resource type="Animation" uid="uid://b6bubv8n7f3" path="res://resources/cutscene_talk.res" id="8_bahl2"]
+[ext_resource type="PackedScene" uid="uid://dxwxlleq4ru1n" path="res://scenes/props/wet_floor_sign.tscn" id="9_np2pn"]
+[ext_resource type="PackedScene" uid="uid://b0bc112urjy4d" path="res://scenes/props/vending_machine.tscn" id="10_v6ha0"]
+[ext_resource type="PackedScene" uid="uid://b2hb080o1cg8j" path="res://scenes/props/potted_plant.tscn" id="11_excbq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_53q0u"]
 
@@ -22,7 +25,7 @@ reflected_light_source = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_grrlh"]
 render_priority = 0
-shader = ExtResource("3_gyffv")
+shader = ExtResource("3_iav0o")
 shader_parameter/point_size = 0.0
 shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
@@ -35,7 +38,7 @@ shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("4_1pe0h")
+shader_parameter/texture_albedo = ExtResource("4_dnkej")
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/affine_mapping = true
 shader_parameter/alpha_scissor = 0.5
@@ -198,12 +201,12 @@ tracks/4/keys = {
 _data = {
 &"RESET": SubResource("Animation_67ri8"),
 &"cutscene": SubResource("Animation_4dugh"),
-&"cutscene_talk": ExtResource("8_ubhxj")
+&"cutscene_talk": ExtResource("8_bahl2")
 }
 
 [node name="Level1" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_bjebc")]
+[node name="Player" parent="." instance=ExtResource("1_qxy0u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.166, 1.5, -1.009)
 
 [node name="Geometry" type="Node3D" parent="."]
@@ -220,15 +223,15 @@ environment = SubResource("Environment_xwkvk")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_5rr72")]
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_excbq")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -5, 0.513237, -5)
 
 [node name="Object_2" parent="Sketchfab_Scene/Sketchfab_model/mulder_obj_cleaner_materialmerger_gles" index="0"]
 mesh = SubResource("ArrayMesh_0i4oc")
 
 [node name="DialogueInteractable" type="Area3D" parent="Sketchfab_Scene"]
-script = ExtResource("5_27bay")
-dialogue_id = ExtResource("6_sof0w")
+script = ExtResource("5_mm8aj")
+dialogue_id = ExtResource("6_wtwp4")
 metadata/_custom_type_script = "uid://dkok0pec8hqa2"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/DialogueInteractable"]
@@ -248,8 +251,8 @@ shape = SubResource("BoxShape3D_3wy1v")
 mesh = SubResource("BoxMesh_kfbq2")
 
 [node name="Interactable" type="Area3D" parent="StaticBody3D"]
-script = ExtResource("5_27bay")
-dialogue_id = ExtResource("6_sof0w")
+script = ExtResource("5_mm8aj")
+dialogue_id = ExtResource("6_wtwp4")
 metadata/_custom_type_script = "uid://dkok0pec8hqa2"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Interactable"]
@@ -258,37 +261,37 @@ shape = SubResource("BoxShape3D_4dugh")
 [node name="LookPos" type="Marker3D" parent="StaticBody3D/Interactable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="man_with_animations" parent="." instance=ExtResource("7_ggavl")]
+[node name="man_with_animations" parent="." instance=ExtResource("7_iwr0g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62263, 0.58709, -7.18273)
 
 [node name="rig" parent="man_with_animations" index="0"]
 transform = Transform3D(0.997699, 0.067785, 0.00118822, -0.0671409, 0.985487, 0.15591, 0.00939739, -0.155631, 0.987771, -0.122044, -0.000217896, 0.196117)
 
 [node name="Skeleton3D" parent="man_with_animations/rig" index="0"]
-bones/1/rotation = Quaternion(-0.0830025, 0.00655365, 0.0196495, 0.996334)
-bones/2/rotation = Quaternion(-0.0375695, 0.00613834, 0.040753, 0.998444)
-bones/3/rotation = Quaternion(0.308172, -0.0214079, 0.0179748, 0.95092)
-bones/4/rotation = Quaternion(-0.12654, -0.0190028, 0.020501, 0.991568)
-bones/6/rotation = Quaternion(-0.45344, -0.487606, -0.538049, 0.516852)
-bones/7/rotation = Quaternion(-0.287828, 0.64817, -0.555323, 0.434334)
-bones/8/rotation = Quaternion(0.0736622, 0.0993399, 0.00107906, 0.992323)
-bones/9/rotation = Quaternion(0.0359966, 0.12059, 0.008538, 0.992013)
-bones/10/rotation = Quaternion(0.16351, 0.957104, 0.165143, -0.173046)
-bones/11/rotation = Quaternion(0.000146886, -0.0717671, 0.013246, 0.997333)
-bones/13/rotation = Quaternion(0.0757461, 0.995666, 0.0237129, -0.0484712)
-bones/15/rotation = Quaternion(-0.568043, 0.347156, 0.52411, 0.531148)
-bones/16/rotation = Quaternion(-0.178881, -0.719923, 0.500121, 0.446757)
-bones/17/rotation = Quaternion(0.109494, -0.0990114, -0.00160363, 0.989043)
-bones/18/rotation = Quaternion(0.0808505, 0.039322, 0.0719787, 0.993346)
-bones/19/rotation = Quaternion(-0.168516, 0.959112, 0.142602, 0.17712)
-bones/20/rotation = Quaternion(0.0245549, 0.0735361, -0.0193578, 0.996802)
-bones/22/rotation = Quaternion(-0.0580283, 0.997048, 0.00491397, 0.0500335)
-bones/24/rotation = Quaternion(0.958592, 0.123482, -0.196019, 0.165619)
-bones/25/rotation = Quaternion(0.218298, -0.00876704, 0.0116455, 0.975773)
-bones/26/rotation = Quaternion(-0.623151, -0.0545156, 0.0406164, 0.779141)
-bones/28/rotation = Quaternion(0.988234, 0.0169734, -0.0856077, 0.125609)
-bones/29/rotation = Quaternion(0.198515, 0.0761465, -0.0567156, 0.975488)
-bones/30/rotation = Quaternion(-0.643922, 0.19834, 0.137134, 0.726099)
+bones/1/rotation = Quaternion(-0.101338, 1.17954e-07, -1.19358e-08, 0.994852)
+bones/2/rotation = Quaternion(-0.074354, -1.21466e-07, -8.05495e-09, 0.997232)
+bones/3/rotation = Quaternion(0.278844, -1.1201e-07, -3.53972e-08, 0.960337)
+bones/4/rotation = Quaternion(-0.157084, -2.41651e-09, 3.7898e-08, 0.987585)
+bones/6/rotation = Quaternion(-0.548249, -0.38587, -0.504344, 0.54421)
+bones/7/rotation = Quaternion(-0.395783, 0.625566, -0.398086, 0.541803)
+bones/8/rotation = Quaternion(0.180519, 0.0979546, -0.0197805, 0.978482)
+bones/9/rotation = Quaternion(-0.0582455, -0.122909, 0.00387666, 0.9907)
+bones/10/rotation = Quaternion(0.201509, 0.906105, 0.346647, -0.13492)
+bones/11/rotation = Quaternion(0.240372, -0.0743285, -0.026991, 0.967454)
+bones/13/rotation = Quaternion(0.180722, 0.982129, 0.0155506, -0.0502125)
+bones/15/rotation = Quaternion(-0.548249, 0.38587, 0.504344, 0.54421)
+bones/16/rotation = Quaternion(-0.395783, -0.625566, 0.398086, 0.541803)
+bones/17/rotation = Quaternion(0.180519, -0.0979545, 0.0197804, 0.978482)
+bones/18/rotation = Quaternion(-0.0582455, 0.122909, -0.00387666, 0.9907)
+bones/19/rotation = Quaternion(-0.201509, 0.906105, 0.346647, 0.13492)
+bones/20/rotation = Quaternion(0.240372, 0.0743285, 0.026991, 0.967454)
+bones/22/rotation = Quaternion(-0.180722, 0.982129, 0.0155506, 0.0502125)
+bones/24/rotation = Quaternion(0.994955, 0.0504046, -0.012434, 0.0858463)
+bones/25/rotation = Quaternion(-0.0223584, 0.00774296, 0.0174275, 0.999568)
+bones/26/rotation = Quaternion(-0.570644, -0.0217079, 0.0246259, 0.820541)
+bones/28/rotation = Quaternion(0.994955, -0.0504046, 0.012434, 0.0858463)
+bones/29/rotation = Quaternion(-0.0223584, -0.00774296, -0.0174275, 0.999568)
+bones/30/rotation = Quaternion(-0.570644, 0.0217079, -0.0246259, 0.820541)
 
 [node name="AnimationPlayer" parent="man_with_animations" index="1"]
 autoplay = "walk"
@@ -296,8 +299,8 @@ autoplay = "walk"
 [node name="DialogueInteract" type="Area3D" parent="man_with_animations"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929249, 0)
 monitorable = false
-script = ExtResource("5_27bay")
-dialogue_id = ExtResource("6_sof0w")
+script = ExtResource("5_mm8aj")
+dialogue_id = ExtResource("6_wtwp4")
 metadata/_custom_type_script = "uid://dkok0pec8hqa2"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="man_with_animations/DialogueInteract"]
@@ -312,6 +315,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_grrlh")
 }
 autoplay = "cutscene"
+
+[node name="Node3D" parent="." instance=ExtResource("9_np2pn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.691668, 0.5, 1.08541)
+
+[node name="VendingMachine" parent="." instance=ExtResource("10_v6ha0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0573, 1.7, -2.2371)
+
+[node name="PottedPlant" parent="." instance=ExtResource("11_excbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.566769, 0.723292, -2.78704)
 
 [editable path="Player"]
 [editable path="Sketchfab_Scene"]

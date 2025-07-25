@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b83cmrj4lqv27"
-path.s3tc="res://.godot/imported/low_poly_fox_mulder_xfiles_ps1_style_0.png-72280bbee55ac828e3615dfc00732493.s3tc.ctex"
+uid="uid://d30elixe5beuh"
+path.s3tc="res://.godot/imported/plant_pot.png-730f85aae3121e7a607002f9c596e50d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "c29c089d4ecb1148979b75dd102a5ed7"
-}
 
 [deps]
 
-source_file="res://assets/models/low_poly_fox_mulder_xfiles_ps1_style_0.png"
-dest_files=["res://.godot/imported/low_poly_fox_mulder_xfiles_ps1_style_0.png-72280bbee55ac828e3615dfc00732493.s3tc.ctex"]
+source_file="res://assets/textures/props/plant_pot.png"
+dest_files=["res://.godot/imported/plant_pot.png-730f85aae3121e7a607002f9c596e50d.s3tc.ctex"]
 
 [params]
 

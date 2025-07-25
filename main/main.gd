@@ -3,8 +3,8 @@ extends Node3D
 
 @onready var transition_manager: CanvasLayer = $TransitionManager
 
-const LEVEL_1 = preload("res://level_1.tscn")
-const LEVEL_2 = preload("res://level_2.tscn")
+const LEVEL_1 = preload("res://scenes/levels/level_1.tscn")
+const LEVEL_2 = preload("res://scenes/levels/level_2.tscn")
 
 var level_instance
 
