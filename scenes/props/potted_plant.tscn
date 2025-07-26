@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://b2hb080o1cg8j"]
+[gd_scene load_steps=12 format=4 uid="uid://b2hb080o1cg8j"]
 
 [ext_resource type="PackedScene" uid="uid://bmmjj6amwb5pi" path="res://assets/models/props/hotel_potted_plant.fbx" id="1_toa06"]
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_fty0c"]
 [ext_resource type="Texture2D" uid="uid://d30elixe5beuh" path="res://assets/textures/props/plant_pot.png" id="3_oinab"]
 [ext_resource type="Texture2D" uid="uid://pb60gj03y1wr" path="res://assets/textures/environment/long_leaf.png" id="4_513gc"]
+[ext_resource type="Shader" uid="uid://1ss82e0edroh" path="res://scripts/shaders/ps1_no_cull.gdshader" id="4_fty0c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5hxga"]
 render_priority = 0
@@ -28,7 +29,7 @@ shader_parameter/jitter = 0.25
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tjkws"]
 render_priority = 0
-shader = ExtResource("2_fty0c")
+shader = ExtResource("4_fty0c")
 shader_parameter/point_size = 0.0
 shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
