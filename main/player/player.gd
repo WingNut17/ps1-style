@@ -41,9 +41,6 @@ func _input(event: InputEvent) -> void:
 	input_direction = Input.get_vector("left", "right", "forward", "backward")
 
 func _physics_process(delta: float) -> void:
-	# debug properties
-	Global.debug.add_property("on floor", is_on_floor(), 1)
-	
 	if !can_move:
 		return
 
