@@ -40,6 +40,9 @@ var dialogue_line: DialogueLine:
 ## A cooldown timer for delaying the balloon hide when encountering a mutation.
 var mutation_cooldown: Timer = Timer.new()
 
+const DIALOGUE_UI_CLOSE = preload("res://assets/audio/sound/ui/dialogue_ui_close.ogg")
+const DIALOGUE_UI_OPEN = preload("res://assets/audio/sound/ui/dialogue_ui_open.ogg")
+
 ## The base balloon anchor
 @onready var balloon: Control = %Balloon
 
@@ -81,7 +84,7 @@ func animate_dialogue_menu(state: String):
 		"open":
 			margin_container.scale = Vector2(1,0)
 			
-			dialogue_ui_audio.stream # = Open Audio
+			dialogue_ui_audio.stream = DIALOGUE_UI_OPEN
 			dialogue_ui_audio.pitch_scale = randf_range(0.8, 1.2)
 			dialogue_ui_audio.play()
 			
@@ -90,7 +93,7 @@ func animate_dialogue_menu(state: String):
 		"close":
 			margin_container.scale = Vector2.ONE
 			
-			dialogue_ui_audio.stream # = Close Audio
+			dialogue_ui_audio.stream = DIALOGUE_UI_CLOSE
 			dialogue_ui_audio.pitch_scale = randf_range(0.8, 1.2)
 			dialogue_ui_audio.play()
 			

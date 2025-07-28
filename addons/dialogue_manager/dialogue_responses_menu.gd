@@ -143,7 +143,7 @@ func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
 		
 		dialogue_ui_audio.stream # = Select Button Audio
 		dialogue_ui_audio.pitch_scale = randf_range(0.8, 1.2)
-		dialogue_ui_audio.play()
+		#dialogue_ui_audio.play()
 		
 		response_selected.emit(response)
 	elif event.is_action_pressed(&"ui_accept" if next_action.is_empty() else next_action) and item in get_menu_items():
@@ -151,7 +151,7 @@ func _on_response_gui_input(event: InputEvent, item: Control, response) -> void:
 		
 		dialogue_ui_audio.stream # = Select Button Audio
 		dialogue_ui_audio.pitch_scale = randf_range(0.8, 1.2)
-		dialogue_ui_audio.play()
+		#dialogue_ui_audio.play()
 		
 		response_selected.emit(response)
 #endregion

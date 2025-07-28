@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct7w2tqrbrf3e"]
+
+[ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="1_e8vbm"]
+[ext_resource type="Texture2D" uid="uid://bdnj40ovphhyh" path="res://assets/textures/props/vent_cover.png" id="2_a11ec"]
+[ext_resource type="AudioStream" uid="uid://c8pwbbwvnd8qa" path="res://assets/audio/sound/environment/ac_hum.ogg" id="3_a11ec"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rlo6w"]
+render_priority = 0
+shader = ExtResource("1_e8vbm")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("2_a11ec")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3t0md"]
+material = SubResource("ShaderMaterial_rlo6w")
+size = Vector2(1, 1)
+
+[node name="Vent_cover" type="Node3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.05, 0)
+mesh = SubResource("PlaneMesh_3t0md")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_a11ec")
+volume_db = -30.0
+autoplay = true
+bus = &"Sfx"

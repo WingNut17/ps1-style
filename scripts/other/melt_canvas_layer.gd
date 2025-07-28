@@ -18,11 +18,6 @@ var rng = RandomNumberGenerator.new()
 
 var level_text: String
 
-# for debugging. just to test how the transition works. 
-# eventually this transition manager will be able to be called from something like DoorInteractable which extends Interactable objects
-const LEVEL_1 = preload("res://scenes/levels/level_1.tscn")
-const LEVEL_2 = preload("res://scenes/levels/level_2.tscn")
-
 
 func _ready() -> void:
 	melt.visible = false
@@ -40,14 +35,22 @@ func _ready() -> void:
 func melt_transition(current_scene: Node3D, next_scene: PackedScene) -> void:
 	rng.randomize()
 	await get_tree().process_frame
+	
+	var current_scene_name = current_scene.name
+	current_scene.queue_free()
 
 	var image := get_viewport().get_texture().get_image()
 	
-	current_scene.queue_free()
 	var next_scene_instance = next_scene.instantiate()
-	level_text = next_scene_instance.editor_description
-	main.add_child(next_scene_instance)
-	main.level_instance = next_scene_instance
+	
+	level_text = next_scene_instance.level_name
+	main.level_node.add_child(next_scene_instance)
+	
+	next_scene_instance.floor_entered_from = current_scene_name
+	
+	main.player_instance.global_position = next_scene_instance.get_spawn_position(current_scene_name)
+		
+	main.current_level = next_scene_instance
 	
 	if not image.is_empty():
 		var freeze_frame := ImageTexture.create_from_image(image)

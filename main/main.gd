@@ -2,17 +2,23 @@ extends Node3D
 
 
 @onready var transition_manager: CanvasLayer = $TransitionManager
+@onready var level_node: Node3D = $Level
 
-const LEVEL_1 = preload("res://scenes/levels/level_1.tscn")
-const LEVEL_2 = preload("res://scenes/levels/level_2.tscn")
+var current_level: Node3D
+var player_instance: CharacterBody3D
 
-var level_instance
+const FLOOR_0 = preload("res://scenes/levels/floors/floor_0.tscn")
+const PLAYER = preload("res://main/player/player.tscn")
 
 
 func _ready() -> void:
-	level_instance = LEVEL_1.instantiate()
-	add_child(level_instance)
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("test"):
-		transition_manager.melt_transition(level_instance, LEVEL_2)
+	await get_tree().process_frame
+	
+	current_level = FLOOR_0.instantiate()
+	level_node.add_child(current_level)
+	
+	player_instance = PLAYER.instantiate()
+	add_child(player_instance)
+	player_instance.global_position = current_level.get_spawn_position("START")
+	
+	

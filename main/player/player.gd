@@ -2,10 +2,10 @@ extends CharacterBody3D
 
 
 @export var head : Node3D
+@export var collision_shape : CollisionShape3D
+@export var foot_cast : RayCast3D
 
-@onready var collision_shape: CollisionShape3D = $CollisionShape3D
-
-const SPEED = 5.0
+const SPEED = 3.5
 const JUMP_VELOCITY = 4.5
 const CROUCH_SPEED = 4.0  
 
@@ -35,8 +35,10 @@ func _input(event: InputEvent) -> void:
 		crouch()
 	if event.is_action_released("crouch"):
 		crouch()
-	if event.is_action_pressed("jump") and is_on_floor() and not crouching:
-		jump()
+	
+	# to be honest i dont think this game even needs a jump...
+	#if event.is_action_pressed("jump") and is_on_floor() and not crouching:
+	#	jump()
 	
 	input_direction = Input.get_vector("left", "right", "forward", "backward")
 
@@ -66,9 +68,14 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * current_speed
 		velocity.z = direction.z * current_speed
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
+	
+	# Try to play step sound if the player is wanting to move, and on the floor
+	if input_direction and is_on_floor():
+		foot_cast.try_to_play_audio()
 	
 	move_and_slide()
 

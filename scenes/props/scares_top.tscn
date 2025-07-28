@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcrfp44vgfbj1"]
+
+[ext_resource type="PackedScene" uid="uid://dbg8lw4g0il1i" path="res://scenes/props/stairwell_door.tscn" id="1_131c4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apq08"]
+size = Vector3(0.15033, 1.17773, 1.63879)
+
+[node name="ScaresTop" type="Node3D"]
+
+[node name="StairwellDoor" parent="." instance=ExtResource("1_131c4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 0)
+
+[node name="Collision" type="CSGCombiner3D" parent="."]
+editor_description = "stone"
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 1)
+size = Vector3(2, 0.5, 4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 2.75, -1.25)
+size = Vector3(9, 6.5, 0.5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 2.75, 3.25)
+size = Vector3(9, 6.5, 0.5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25, 2.75, 1)
+size = Vector3(0.5, 6.5, 5)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 2.75, 1)
+size = Vector3(0.5, 6.5, 5)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Collision/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -5.5, -1)
+operation = 2
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Collision/CSGBox3D7/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 4.093, 0)
+size = Vector3(3, 2.43555, 1.17554)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 5.75, 1)
+size = Vector3(9, 0.5, 4)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -2.39762, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57742, 2.98064, -1.18017)
+shape = SubResource("BoxShape3D_apq08")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.12238, -1)
+
+[node name="Railing" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 1.15)
+size = Vector3(0.1, 0.1, 2.3)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.587253, 0.05)
+size = Vector3(0.09, 1.075, 0.09)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.6, 2.25)
+size = Vector3(0.09, 1.1, 0.09)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.587, 1.15)
+size = Vector3(0.09, 1.075, 0.09)

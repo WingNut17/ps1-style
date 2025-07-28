@@ -15,6 +15,10 @@ run/main_scene="uid://bppi4xp10flhw"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dg2g5ug5ve58w"
+
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
@@ -96,10 +100,10 @@ dev_log={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://resources/dialogue/dialogue_test.dialogue")
+locale/translations_pot_files=PackedStringArray("res://resources/dialogue/dialogue_test.dialogue", "res://resources/dialogue/knock_dialogue_default.dialogue")
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_filter=3
 textures/decals/filter=0
 textures/light_projectors/filter=0

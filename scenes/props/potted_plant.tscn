@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://b2hb080o1cg8j"]
+[gd_scene load_steps=13 format=4 uid="uid://b2hb080o1cg8j"]
 
+[ext_resource type="Script" uid="uid://deykcfi82bjo7" path="res://scripts/props/potted_plant.gd" id="1_oinab"]
 [ext_resource type="PackedScene" uid="uid://bmmjj6amwb5pi" path="res://assets/models/props/hotel_potted_plant.fbx" id="1_toa06"]
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_fty0c"]
 [ext_resource type="Texture2D" uid="uid://d30elixe5beuh" path="res://assets/textures/props/plant_pot.png" id="3_oinab"]
@@ -11,17 +12,18 @@ render_priority = 0
 shader = ExtResource("2_fty0c")
 shader_parameter/point_size = 0.0
 shader_parameter/roughness = 0.0
-shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/specular = 0.0
 shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("3_oinab")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 0.0
-shader_parameter/uv1_scale = Vector3(0, 0, 0)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(0, 0, 0)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("3_oinab")
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/affine_mapping = true
 shader_parameter/alpha_scissor = 0.5
@@ -122,12 +124,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_34vnr")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_toa06"]
-size = Vector3(0.428467, 2, 0.40918)
+size = Vector3(0.428467, 2.09766, 0.40918)
 
 [node name="PottedPlant" type="Node3D"]
+script = ExtResource("1_oinab")
 
 [node name="hotel_potted_plant" parent="." instance=ExtResource("1_toa06")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="Cylinder" parent="hotel_potted_plant" index="0"]
 mesh = SubResource("ArrayMesh_ixade")
@@ -135,7 +138,7 @@ mesh = SubResource("ArrayMesh_ixade")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00280762, 0.805176, -0.00146484)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00280762, 0.756348, -0.00146484)
 shape = SubResource("BoxShape3D_toa06")
 
 [editable path="hotel_potted_plant"]

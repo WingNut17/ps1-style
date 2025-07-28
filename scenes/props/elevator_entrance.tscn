@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dncvwitn5tjh1"]
+
+[ext_resource type="PackedScene" uid="uid://bprdh5g3qq684" path="res://assets/models/structural/obj_ElevatorEntrance.fbx" id="1_vrbjt"]
+
+[node name="ElevatorEntrance" type="Node3D"]
+
+[node name="obj_ElevatorEntrance" parent="." instance=ExtResource("1_vrbjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3.8)
+
+[node name="Elevator Entrance_001" parent="obj_ElevatorEntrance" index="0"]
+transform = Transform3D(5.96046e-06, 1.50996e-05, -71.3078, 0, -100, -1.07672e-05, -100, 1.42109e-12, -8.50056e-06, -2, 1, -2.95433)
+
+[editable path="obj_ElevatorEntrance"]

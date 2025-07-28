@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=11 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
 [ext_resource type="Shader" uid="uid://drqr45oe5lnt1" path="res://scripts/shaders/dither.gdshader" id="3_ssv3l"]
 [ext_resource type="Script" uid="uid://opmftn7c8q3n" path="res://main/player/interact_ray.gd" id="4_4bbr4"]
 [ext_resource type="Texture2D" uid="uid://c15ais4d1hqmw" path="res://assets/textures/items/flashlight.png" id="4_f8m1i"]
+[ext_resource type="Script" uid="uid://di1x6n3vm2s6q" path="res://main/player/foot_cast.gd" id="5_f8m1i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_howr1"]
 size = Vector3(0.75, 2, 0.75)
@@ -24,9 +25,11 @@ shader_parameter/fog_color = Color(0, 0, 0, 1)
 shader_parameter/resolution_downsampling = 1.0
 shader_parameter/bit_depth = 16.0
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "collision_shape", "foot_cast")]
 script = ExtResource("1_howr1")
 head = NodePath("Head")
+collision_shape = NodePath("CollisionShape3D")
+foot_cast = NodePath("FootCast")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_howr1")
@@ -50,10 +53,21 @@ crosshair = NodePath("../../CanvasLayer/Crosshair")
 
 [node name="FlashLight" type="SpotLight3D" parent="Head"]
 transform = Transform3D(0.996195, 0.00759612, 0.0868241, 0, 0.996195, -0.0871557, -0.0871557, 0.0868241, 0.992404, 0.375, -0.375, 0)
-light_energy = 0.0
 light_projector = ExtResource("4_f8m1i")
 shadow_enabled = true
 spot_angle = 20.0
+
+[node name="FootCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, -1.25, 0)
+script = ExtResource("5_f8m1i")
+walk_audio_speed = 0.6
+
+[node name="WalkTimer" type="Timer" parent="FootCast"]
+one_shot = true
+
+[node name="WalkAudio" type="AudioStreamPlayer" parent="FootCast"]
+volume_db = -10.0
+bus = &"Sfx"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
