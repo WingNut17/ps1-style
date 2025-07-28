@@ -41,7 +41,9 @@ shadow_mesh = SubResource("ArrayMesh_jwkeo")
 [sub_resource type="BoxShape3D" id="BoxShape3D_eyu3o"]
 size = Vector3(0.5, 2.5, 1.3)
 
-[node name="StairwellDoor" type="Node3D"]
+[node name="StairwellDoor" type="Area3D"]
+script = ExtResource("2_ddkkn")
+metadata/_custom_type_script = "uid://d26jlfdvbp8v7"
 
 [node name="obj_DoorStairwell" parent="." instance=ExtResource("1_86f6i")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 2.16247, 0, -4.835)
@@ -49,11 +51,7 @@ transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 2.16247, 0, -4.835)
 [node name="Stair Door" parent="obj_DoorStairwell" index="0"]
 mesh = SubResource("ArrayMesh_r4gep")
 
-[node name="DoorInteract" type="Area3D" parent="."]
-script = ExtResource("2_ddkkn")
-metadata/_custom_type_script = "uid://d26jlfdvbp8v7"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorInteract"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 shape = SubResource("BoxShape3D_eyu3o")
 

@@ -1,4 +1,4 @@
-extends Node3D
+extends DoorInteract
 
 
 @onready var room_num_label: Label3D = $RoomNumLabel

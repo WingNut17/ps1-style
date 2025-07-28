@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bfbyqhce1rttv"]
+[gd_scene load_steps=15 format=4 uid="uid://bfbyqhce1rttv"]
 
 [ext_resource type="Script" uid="uid://5ro1iyind4xi" path="res://scripts/props/hotel_door_room.gd" id="1_48cxt"]
 [ext_resource type="PackedScene" uid="uid://bnj1vs52p0slv" path="res://assets/models/structural/obj_DoorHotelRoom2.fbx" id="1_i0abc"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cejphng3it085" path="res://assets/textures/props/tilesheet.png" id="3_48cxt"]
 [ext_resource type="Texture2D" uid="uid://brh6sioypemg1" path="res://assets/textures/general/wood.png" id="4_rvxki"]
 [ext_resource type="FontFile" uid="uid://bv0v1f5ps517b" path="res://assets/fonts/alagard.ttf" id="6_lpcxb"]
-[ext_resource type="Script" uid="uid://d26jlfdvbp8v7" path="res://scripts/systems/interaction/hotel_room_door_interactable.gd" id="7_kl8lw"]
 [ext_resource type="Resource" uid="uid://dth0xbtb7p3vx" path="res://resources/dialogue/knock_dialogue_default.dialogue" id="8_iyrwl"]
 [ext_resource type="AudioStream" uid="uid://excg4qkycsft" path="res://assets/audio/sound/props/knock_on_wood.ogg" id="9_ahef8"]
 
@@ -95,8 +94,10 @@ size = Vector3(0.2, 0.4, 0.6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kl8lw"]
 size = Vector3(0.5, 2.5, 1.3)
 
-[node name="HotelDoorRoom" type="Node3D"]
+[node name="HotelDoorRoom" type="Area3D"]
 script = ExtResource("1_48cxt")
+knock_dialogue = ExtResource("8_iyrwl")
+metadata/_custom_type_script = "uid://d26jlfdvbp8v7"
 
 [node name="obj_DoorHotelRoom2" parent="." instance=ExtResource("1_i0abc")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.0273187, 0, 0)
@@ -116,17 +117,11 @@ text = "200"
 font = ExtResource("6_lpcxb")
 font_size = 48
 
-[node name="DoorInteract" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.342, 0)
-script = ExtResource("7_kl8lw")
-knock_dialogue = ExtResource("8_iyrwl")
-metadata/_custom_type_script = "uid://d26jlfdvbp8v7"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorInteract"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0302734, -0.0765991, 0.00613403)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0302734, 1.2654, 0.00613403)
 shape = SubResource("BoxShape3D_kl8lw")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DoorInteract"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_ahef8")
 bus = &"Sfx"
 

@@ -301,6 +301,9 @@ level_name = "Floor 1"
 [node name="Stairwell" type="Marker3D" parent="Spawn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.25, 17)
 
+[node name="START" type="Marker3D" parent="Spawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+
 [node name="Geometry" type="Node3D" parent="."]
 
 [node name="CarpetFloor" type="CSGCombiner3D" parent="Geometry"]
