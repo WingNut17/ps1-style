@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://dbg8lw4g0il1i"]
 
 [ext_resource type="PackedScene" uid="uid://b6gv38jkjlc1i" path="res://assets/models/structural/obj_DoorStairwell.fbx" id="1_86f6i"]
-[ext_resource type="Script" uid="uid://d26jlfdvbp8v7" path="res://scripts/systems/interaction/hotel_room_door_interactable.gd" id="2_ddkkn"]
+[ext_resource type="Script" uid="uid://d26jlfdvbp8v7" path="res://scripts/systems/interaction/door_interactable.gd" id="2_ddkkn"]
 [ext_resource type="Texture2D" uid="uid://bdnj40ovphhyh" path="res://assets/textures/props/vent_cover.png" id="2_eyu3o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12jyr"]

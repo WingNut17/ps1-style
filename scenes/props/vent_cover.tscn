@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct7w2tqrbrf3e"]
+[gd_scene load_steps=11 format=3 uid="uid://ct7w2tqrbrf3e"]
 
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="1_e8vbm"]
 [ext_resource type="Texture2D" uid="uid://bdnj40ovphhyh" path="res://assets/textures/props/vent_cover.png" id="2_a11ec"]
 [ext_resource type="AudioStream" uid="uid://c8pwbbwvnd8qa" path="res://assets/audio/sound/environment/ac_hum.ogg" id="3_a11ec"]
+[ext_resource type="Script" uid="uid://ciaixkedip8gg" path="res://scripts/systems/one_shot_audio.gd" id="4_3rq06"]
+[ext_resource type="AudioStream" uid="uid://qof45vx5abb" path="res://assets/audio/sound/characters/step/vent1.ogg" id="5_vemug"]
+[ext_resource type="AudioStream" uid="uid://gcbpk8ue21vt" path="res://assets/audio/sound/characters/step/vent2.ogg" id="6_oqgxh"]
+[ext_resource type="AudioStream" uid="uid://qxd0t71f0s6v" path="res://assets/audio/sound/characters/step/vent3.ogg" id="7_m3gfy"]
+[ext_resource type="AudioStream" uid="uid://hoejt2bwu5e" path="res://assets/audio/sound/characters/step/vent4.ogg" id="8_cbye2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rlo6w"]
 render_priority = 0
@@ -41,3 +46,10 @@ stream = ExtResource("3_a11ec")
 volume_db = -20.0
 autoplay = true
 bus = &"Sfx"
+
+[node name="OneShotAudio" type="AudioStreamPlayer3D" parent="."]
+volume_db = -35.0
+script = ExtResource("4_3rq06")
+random_time = Array[float]([30.0, 120.0])
+random_sounds = Array[AudioStreamOggVorbis]([ExtResource("5_vemug"), ExtResource("6_oqgxh"), ExtResource("7_m3gfy"), ExtResource("8_cbye2")])
+metadata/_custom_type_script = "uid://ciaixkedip8gg"

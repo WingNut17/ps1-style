@@ -2,15 +2,13 @@ class_name DoorInteract
 extends Interactable
 
 
-@export var room_scene: PackedScene
+@export var scene: String
 @export var knock_dialogue: DialogueResource
 
 
 func interact(player: CharacterBody3D) -> void:
-	if room_scene:
-		main = get_tree().root.get_node("Main")
-		main.transition_manager.melt_transition(main.current_level, room_scene)
-		pass
+	if scene:
+		get_tree().get_first_node_in_group("World").switch_to_level(scene)
 	elif knock_dialogue:
 		$AudioStreamPlayer.pitch_scale = randf_range(0.9, 1.1)
 		$AudioStreamPlayer.play()

@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=4 uid="uid://d2e7mbxh6ea8b"]
 
 [ext_resource type="PackedScene" uid="uid://d0ujhbwk21ukk" path="res://assets/models/props/radiator.fbx" id="1_4ir8b"]
-[ext_resource type="Script" uid="uid://cxobujpwgskn" path="res://scripts/props/radiator.gd" id="1_yj2ga"]
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_cg2tr"]
 [ext_resource type="Texture2D" uid="uid://13grglwa01ay" path="res://assets/textures/general/plaster.png" id="4_aa01v"]
 [ext_resource type="AudioStream" uid="uid://bmquthmi07cps" path="res://assets/audio/sound/props/radiator_gurgle.ogg" id="5_ud21y"]
+[ext_resource type="Script" uid="uid://ciaixkedip8gg" path="res://scripts/systems/one_shot_audio.gd" id="5_yj2ga"]
 [ext_resource type="AudioStream" uid="uid://d3jbihdx1pvfu" path="res://assets/audio/sound/props/radiator_water.ogg" id="6_d508e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kdlx2"]
@@ -64,27 +64,25 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6bnr2")
 
 [node name="Radiator" type="Node3D"]
-script = ExtResource("1_yj2ga")
 
 [node name="radiator" parent="." instance=ExtResource("1_4ir8b")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="Cube" parent="radiator" index="0"]
 mesh = SubResource("ArrayMesh_hq5f8")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="GurgleSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_ud21y")
 volume_db = -40.0
 bus = &"Sfx"
+script = ExtResource("5_yj2ga")
+random_time = Array[float]([30.0, 240.0])
+metadata/_custom_type_script = "uid://ciaixkedip8gg"
 
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+[node name="DripSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_d508e")
 volume_db = -55.0
 autoplay = true
 bus = &"Sfx"
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="radiator"]
