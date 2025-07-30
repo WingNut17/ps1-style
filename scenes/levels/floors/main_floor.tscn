@@ -1,26 +1,21 @@
-[gd_scene load_steps=62 format=3 uid="uid://vu68h5sot7hb"]
+[gd_scene load_steps=59 format=3 uid="uid://vu68h5sot7hb"]
 
 [ext_resource type="Script" uid="uid://vwkuxg0soyj4" path="res://scripts/levels/main_floor.gd" id="1_8tiv6"]
 [ext_resource type="Texture2D" uid="uid://cjrmb5045exxr" path="res://assets/textures/general/carpet.png" id="2_l44tt"]
 [ext_resource type="Texture2D" uid="uid://brqvj38n7kb5l" path="res://assets/textures/general/brick_wall.png" id="4_b1yqc"]
 [ext_resource type="Texture2D" uid="uid://b86oughyxwtio" path="res://assets/textures/general/wallpaper.png" id="4_hmd3r"]
-[ext_resource type="Texture2D" uid="uid://dbjvb0xc5q1hd" path="res://assets/textures/general/carpet_normal.png" id="4_mwuba"]
+[ext_resource type="Texture2D" uid="uid://b55fwr8fp2lgj" path="res://assets/textures/general/carpet_height.png" id="4_mwuba"]
 [ext_resource type="PackedScene" uid="uid://b5p3q16xtccgf" path="res://scenes/props/wooden_door.tscn" id="5_l44tt"]
 [ext_resource type="Texture2D" uid="uid://brf6os2j77yjr" path="res://assets/textures/general/ceiling_tile.png" id="5_lht5a"]
 [ext_resource type="PackedScene" uid="uid://dncvwitn5tjh1" path="res://scenes/props/elevator_entrance.tscn" id="5_mwuba"]
 [ext_resource type="Texture2D" uid="uid://bwim6j0m6hgh8" path="res://assets/textures/general/pavement_blocks.png" id="6_iscbn"]
-[ext_resource type="PackedScene" uid="uid://b5k7b61oxm2pt" path="res://main/player/player.tscn" id="7_b1yqc"]
 [ext_resource type="Texture2D" uid="uid://chuy481gfh2sq" path="res://assets/textures/environment/road.png" id="7_rqwi2"]
 [ext_resource type="Texture2D" uid="uid://13grglwa01ay" path="res://assets/textures/general/plaster.png" id="7_xevkl"]
-[ext_resource type="Texture2D" uid="uid://dkstdl5u4ir4m" path="res://assets/textures/general/ceiling_tile_normal.png" id="8_71f7s"]
 [ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="8_qb5t8"]
 [ext_resource type="Texture2D" uid="uid://c3fvica7tu0ys" path="res://assets/textures/environment/building.png" id="8_rqwi2"]
 [ext_resource type="Texture2D" uid="uid://l85ug8kxod53" path="res://assets/textures/general/black_metal.png" id="9_6sqqu"]
 [ext_resource type="Texture2D" uid="uid://ddqxs28qhduyn" path="res://assets/textures/environment/building_2.png" id="9_c1apd"]
-[ext_resource type="Texture2D" uid="uid://bslb0csyj0ar2" path="res://assets/textures/general/brick_wall_normal.png" id="9_mwuba"]
-[ext_resource type="Texture2D" uid="uid://brtoejjewycon" path="res://assets/textures/general/pavement_blocks_normal.png" id="11_hvdss"]
 [ext_resource type="PackedScene" uid="uid://b6bg6vry86whs" path="res://scenes/props/streetlight.tscn" id="11_n0b5p"]
-[ext_resource type="Texture2D" uid="uid://d3em6bx6ph7uc" path="res://assets/textures/general/plaster_normal.png" id="13_0oube"]
 [ext_resource type="PackedScene" uid="uid://b2hb080o1cg8j" path="res://scenes/props/potted_plant.tscn" id="13_7tshs"]
 [ext_resource type="AudioStream" uid="uid://dtt0vlluoe6wx" path="res://assets/audio/sound/environment/police_siren.ogg" id="13_8tiv6"]
 [ext_resource type="AudioStream" uid="uid://bk303jx4e5ej0" path="res://assets/audio/sound/environment/city_ambience.ogg" id="13_htnn8"]
@@ -60,24 +55,17 @@ texture_filter = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sqqu"]
 albedo_texture = ExtResource("5_lht5a")
-normal_enabled = true
-normal_scale = 0.1
-normal_texture = ExtResource("8_71f7s")
 uv1_triplanar = true
 texture_filter = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb5t8"]
 albedo_texture = ExtResource("4_b1yqc")
-normal_enabled = true
-normal_texture = ExtResource("9_mwuba")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 texture_filter = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1apd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xot43"]
 albedo_texture = ExtResource("6_iscbn")
-normal_enabled = true
-normal_texture = ExtResource("11_hvdss")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 texture_filter = 2
@@ -87,9 +75,6 @@ transparency = 1
 albedo_color = Color(1, 1, 1, 0.0980392)
 albedo_texture = ExtResource("7_xevkl")
 roughness = 0.0
-normal_enabled = true
-normal_scale = 0.25
-normal_texture = ExtResource("13_0oube")
 uv1_triplanar = true
 texture_filter = 2
 
@@ -139,6 +124,18 @@ size = Vector3(3, 6, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_elhgw"]
 size = Vector3(1, 6, 6)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1apd"]
+albedo_texture = ExtResource("6_iscbn")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0b5p"]
+albedo_texture = ExtResource("6_iscbn")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+texture_filter = 2
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htnn8"]
 albedo_texture = ExtResource("7_rqwi2")
 uv1_scale = Vector3(-0.075, -0.075, -0.075)
@@ -185,7 +182,7 @@ orientation = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0oube"]
 albedo_texture = ExtResource("14_xot43")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 texture_filter = 2
 
@@ -215,14 +212,13 @@ size = Vector3(3, 2, 1)
 
 [node name="MainFloor" type="Node3D"]
 script = ExtResource("1_8tiv6")
-level_name = "Lobby"
 
-[node name="Player" parent="." instance=ExtResource("7_b1yqc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, 0)
+[node name="SpawnPoints" type="Node3D" parent="."]
 
-[node name="Spawn" type="Node3D" parent="."]
+[node name="Default" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Stairwell" type="Marker3D" parent="Spawn"]
+[node name="Stairwell" type="Marker3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.25, 17)
 
 [node name="Geometry" type="Node3D" parent="."]
@@ -539,7 +535,7 @@ material = SubResource("StandardMaterial3D_qb5t8")
 [node name="CSGBox3D8" type="CSGBox3D" parent="Geometry/Front/Brick"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 0, 0)
 size = Vector3(1, 0.25, 3)
-material = SubResource("StandardMaterial3D_c1apd")
+material = SubResource("StandardMaterial3D_xot43")
 
 [node name="Windows" type="CSGCombiner3D" parent="Geometry/Front"]
 
@@ -658,7 +654,7 @@ material = SubResource("StandardMaterial3D_c1apd")
 [node name="CSGBox3D2" type="CSGBox3D" parent="Geometry/Outside"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5, -0.5, 0)
 size = Vector3(10, 1, 100)
-material = SubResource("StandardMaterial3D_c1apd")
+material = SubResource("StandardMaterial3D_n0b5p")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Geometry/Outside"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, -0.75, 0)
