@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbjvb0xc5q1hd"
-path.s3tc="res://.godot/imported/carpet_normal.png-92c64b1ee247cd27438cd3122d8d2541.s3tc.ctex"
+uid="uid://bslb0csyj0ar2"
+path.s3tc="res://.godot/imported/brick_wall_normal.png-eed931b5aaf5bd1c3c2455c4936e38a3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/general/carpet_normal.png"
-dest_files=["res://.godot/imported/carpet_normal.png-92c64b1ee247cd27438cd3122d8d2541.s3tc.ctex"]
+source_file="res://assets/textures/general/brick_wall_normal.png"
+dest_files=["res://.godot/imported/brick_wall_normal.png-eed931b5aaf5bd1c3c2455c4936e38a3.s3tc.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://assets/textures/general/carpet_normal.png"
+roughness/src_normal="res://assets/textures/general/brick_wall_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
