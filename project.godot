@@ -13,7 +13,7 @@ config_version=5
 config/name="ps1 style"
 run/main_scene="uid://bppi4xp10flhw"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://db3511k12mtl4"
 
 [audio]
 

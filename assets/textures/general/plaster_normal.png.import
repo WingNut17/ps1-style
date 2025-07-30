@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbjvb0xc5q1hd"
-path.s3tc="res://.godot/imported/carpet_normal.png-92c64b1ee247cd27438cd3122d8d2541.s3tc.ctex"
+uid="uid://d3em6bx6ph7uc"
+path.s3tc="res://.godot/imported/plaster_normal.png-82d582d5c9dfcf33addfbe3bf378c2ed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/general/carpet_normal.png"
-dest_files=["res://.godot/imported/carpet_normal.png-92c64b1ee247cd27438cd3122d8d2541.s3tc.ctex"]
+source_file="res://assets/textures/general/plaster_normal.png"
+dest_files=["res://.godot/imported/plaster_normal.png-82d582d5c9dfcf33addfbe3bf378c2ed.s3tc.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://assets/textures/general/carpet_normal.png"
+roughness/src_normal="res://assets/textures/general/plaster_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

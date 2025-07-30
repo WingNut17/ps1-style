@@ -2,8 +2,7 @@ class_name Level
 extends Node3D
 
 
-@onready var spawn: Node3D = $SpawnPoints
-
+@export var spawn: Node3D
 @export var level_name: String
 
 var floor_entered_from: String:
