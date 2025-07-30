@@ -1,13 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://cid1ll6n11be"]
+[gd_scene load_steps=9 format=3 uid="uid://cid1ll6n11be"]
 
 [ext_resource type="Script" uid="uid://chioelcubq4bg" path="res://main/main.gd" id="1_grrlh"]
 [ext_resource type="PackedScene" uid="uid://b5k7b61oxm2pt" path="res://main/player/player.tscn" id="2_xwkvk"]
 [ext_resource type="Script" uid="uid://dapoa64fdjd3u" path="res://main/world.gd" id="3_xwkvk"]
+[ext_resource type="Script" uid="uid://b645advldv7c7" path="res://scripts/other/melt_transition.gd" id="4_c651c"]
+[ext_resource type="FontFile" uid="uid://bj1itl834o74y" path="res://assets/fonts/GothicPixels.ttf" id="5_kfbq2"]
+[ext_resource type="Shader" uid="uid://bs658o3w41slt" path="res://scripts/shaders/melt.gdshader" id="6_kfbq2"]
+[ext_resource type="AudioStream" uid="uid://d3w3mbagj6gwa" path="res://assets/audio/sound/environment/gong.ogg" id="7_4dugh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dugh"]
+shader = ExtResource("6_kfbq2")
+shader_parameter/progress = 0.0
+shader_parameter/column_count = 160
+shader_parameter/random_seed = 0.0
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_grrlh")
 
 [node name="Player" parent="." instance=ExtResource("2_xwkvk")]
 
-[node name="World" type="Node" parent="."]
+[node name="World" type="Node" parent="." groups=["World"]]
 script = ExtResource("3_xwkvk")
+
+[node name="SceneTransitionVisual" type="CanvasLayer" parent="World"]
+layer = 128
+script = ExtResource("4_c651c")
+buffer_time = 0.25
+
+[node name="LevelLabel" type="Label" parent="World/SceneTransitionVisual"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 32.0
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.666667, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_kfbq2")
+theme_override_font_sizes/font_size = 16
+text = "test"
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="World/SceneTransitionVisual"]
+visible = false
+material = SubResource("ShaderMaterial_4dugh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MeltBufferTimer" type="Timer" parent="World/SceneTransitionVisual"]
+one_shot = true
+
+[node name="LevelTextTimer" type="Timer" parent="World/SceneTransitionVisual"]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="World/SceneTransitionVisual"]
+stream = ExtResource("7_4dugh")
+volume_db = -5.0

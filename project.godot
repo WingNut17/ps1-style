@@ -47,6 +47,10 @@ folder_colors={
 "res://scripts/": "purple"
 }
 
+[global_group]
+
+World=""
+
 [gui]
 
 theme/custom="uid://dll61qqaxobn6"

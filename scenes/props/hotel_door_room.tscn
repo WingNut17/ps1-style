@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=4 uid="uid://bfbyqhce1rttv"]
 
-[ext_resource type="Script" uid="uid://5ro1iyind4xi" path="res://scripts/props/hotel_door_room.gd" id="1_48cxt"]
 [ext_resource type="PackedScene" uid="uid://bnj1vs52p0slv" path="res://assets/models/structural/obj_DoorHotelRoom2.fbx" id="1_i0abc"]
+[ext_resource type="Script" uid="uid://5ro1iyind4xi" path="res://scripts/props/hotel_door_room.gd" id="1_iyrwl"]
+[ext_resource type="Resource" uid="uid://dth0xbtb7p3vx" path="res://resources/dialogue/knock_dialogue_default.dialogue" id="2_ahef8"]
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_rvxki"]
 [ext_resource type="Texture2D" uid="uid://cejphng3it085" path="res://assets/textures/props/tilesheet.png" id="3_48cxt"]
 [ext_resource type="Texture2D" uid="uid://brh6sioypemg1" path="res://assets/textures/general/wood.png" id="4_rvxki"]
 [ext_resource type="FontFile" uid="uid://bv0v1f5ps517b" path="res://assets/fonts/alagard.ttf" id="6_lpcxb"]
-[ext_resource type="Resource" uid="uid://dth0xbtb7p3vx" path="res://resources/dialogue/knock_dialogue_default.dialogue" id="8_iyrwl"]
 [ext_resource type="AudioStream" uid="uid://excg4qkycsft" path="res://assets/audio/sound/props/knock_on_wood.ogg" id="9_ahef8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lpcxb"]
@@ -95,8 +95,8 @@ size = Vector3(0.2, 0.4, 0.6)
 size = Vector3(0.5, 2.5, 1.3)
 
 [node name="HotelDoorRoom" type="Area3D"]
-script = ExtResource("1_48cxt")
-knock_dialogue = ExtResource("8_iyrwl")
+script = ExtResource("1_iyrwl")
+knock_dialogue = ExtResource("2_ahef8")
 metadata/_custom_type_script = "uid://d26jlfdvbp8v7"
 
 [node name="obj_DoorHotelRoom2" parent="." instance=ExtResource("1_i0abc")]

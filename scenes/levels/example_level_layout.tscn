@@ -35,6 +35,8 @@ use_collision = true
 
 [node name="Lights" type="Node3D" parent="."]
 
+[node name="AmbienceAudio" type="Node3D" parent="."]
+
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_ai47i")]
 environment = null
 enabled_in_editor = false

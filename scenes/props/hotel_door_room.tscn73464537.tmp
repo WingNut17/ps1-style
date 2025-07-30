@@ -1,20 +1,24 @@
-[gd_scene load_steps=12 format=4 uid="uid://b5p3q16xtccgf"]
+[gd_scene load_steps=15 format=4 uid="uid://bfbyqhce1rttv"]
 
-[ext_resource type="Script" uid="uid://d26jlfdvbp8v7" path="res://scripts/systems/interaction/door_interactable.gd" id="1_fycvl"]
-[ext_resource type="PackedScene" uid="uid://bnj1vs52p0slv" path="res://assets/models/structural/obj_DoorHotelRoom2.fbx" id="1_x2aqo"]
-[ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_fycvl"]
-[ext_resource type="Texture2D" uid="uid://bi6bvdjjgphbx" path="res://assets/textures/general/wood_medium.png" id="3_so0cj"]
+[ext_resource type="Script" uid="uid://5ro1iyind4xi" path="res://scripts/props/hotel_door_room.gd" id="1_48cxt"]
+[ext_resource type="PackedScene" uid="uid://bnj1vs52p0slv" path="res://assets/models/structural/obj_DoorHotelRoom2.fbx" id="1_i0abc"]
+[ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_rvxki"]
+[ext_resource type="Texture2D" uid="uid://cejphng3it085" path="res://assets/textures/props/tilesheet.png" id="3_48cxt"]
+[ext_resource type="Texture2D" uid="uid://brh6sioypemg1" path="res://assets/textures/general/wood.png" id="4_rvxki"]
+[ext_resource type="FontFile" uid="uid://bv0v1f5ps517b" path="res://assets/fonts/alagard.ttf" id="6_lpcxb"]
+[ext_resource type="Resource" uid="uid://dth0xbtb7p3vx" path="res://resources/dialogue/knock_dialogue_default.dialogue" id="8_iyrwl"]
+[ext_resource type="AudioStream" uid="uid://excg4qkycsft" path="res://assets/audio/sound/props/knock_on_wood.ogg" id="9_ahef8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8i8p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpcxb"]
 render_priority = 0
-shader = ExtResource("2_fycvl")
+shader = ExtResource("2_rvxki")
 shader_parameter/point_size = 0.0
 shader_parameter/roughness = 0.0
 shader_parameter/specular = 0.0
 shader_parameter/metallic = 0.0
-shader_parameter/texture_albedo = ExtResource("3_so0cj")
+shader_parameter/texture_albedo = ExtResource("3_48cxt")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/uv1_scale = Vector3(5, 5, 5)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/emission = Color(0, 0, 0, 1)
@@ -42,7 +46,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ywpuc"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_kl8lw"]
 resource_name = "Cube_006"
 _surfaces = [{
 "aabb": AABB(-0.00757308, -0.0060444, -0.0178658, 0.0146424, 0.0120881, 0.0230395),
@@ -51,7 +55,7 @@ _surfaces = [{
 "index_count": 1086,
 "index_data": PackedByteArray("AACWAZcBlwECAAAAmAEGAAQABACZAZgBBwCaAZsBmwEFAAcAnAEKAAgACACdAZwBCwCeAZ8BnwEJAAsAoAEOAAwADAChAaABDwCiAaMBowENAA8ApAEBAAMAAwClAaQBHwCmAacBpwEeAB8AIAAhAKgBqAGpASAAEACqARIAEgCqAasBEgCsARAAqwGtARIAEACsARMAEQCtAasBEwCuARAAqwGvAREAsAGuARMAEQCvARUAEwCxAbABFQCyAREAsAGxARQAFACyARUAFACzAbABFQCzARQAtAG1ARgAGAC1ARcAGAC2AbQBFwC3ARgAtAG2ARoAGQC3ARcAGgC4AbQBFwC5ARkAFgC4ARoAGQC5AboBGgC7ARYAugG8ARkAFgC7ARsAGwC8AboBGwC9ARYAugG9ARsAvgG/AcABwAHBAb4BwgHDAcQBxAHFAcIBHAAdAMYBxgHHARwAIwDIAckByQEiACMAygHLAcwBzAHNAcoBzgHPAdAB0AHRAc4BJAAlACYAJgAnACQAKAApACoAKAAsACkALADSASkALADTAdIB0gHTAS0ALQDUAdIBKQDSAdQB1AHVASkA1gEpANUB1QErANYBLgAvADAAMAAvADEAMQAyADAAMwA0ADUAMwA2ADQANgA3ADQANgA4ADcAOAA2ADkAOQA6ADgAOwA8AD0APQA+ADsAPgA9AD8APwBAAD4AQQBCAEMAQwBEAEEA1wFJAEcARwDYAdcB1wHYAUgASABKANcBSwBMAE0ATgBPAFAATgBQAFIATgDZAU8A2QHaAU8A2gHZAdsB2wFRANoB3AHbAdkB2QFOANwBUwDcAU4ATgDdAVMAVABVAFYAVABXAFUAVwBaAFUAWgBbAFUAXABdAF4AXABfAF0AXABeAGAAYQBcAGAAYgBhAGAAYgBgAGMAZABlAGYAZgBnAGQAaABpAGoAagBrAGgAbABoAGsAawBtAGwAbABtAG4AbgBvAGwAcABxAHIAcgBzAHAAdAB1AHYAdgB3AHQAeAB5AHoAegB7AHgA3gF/AIAA3gHfAX8A3gGAAIEAfgDeAYEAggB+AIEAggCBAIMA4AGCAIMA4QHgAYMA4QGDAIUA4QGFAIQAfAB9AOIB4gHjAXwAWABZAOQB5AHlAVgARQBGAOYB5gHnAUUA6AGIAIkA6QGJAIgA6AGGAIgA6QGIAIwAhgCHAIgA6gGHAIYA6gGLAIcAiwCMAIcAjACNAIcAiwDrAYwAigDpAYwA6wGKAIwA7AGQAJMAkADtAZMA7AGRAJAAkACVAO0BkACUAJUA7gGVAJQA7gGUAI4AkQCOAJAAjgCPAJAAkgDuAY4AkQDvAY4A7wGSAI4AlgCXAJgAmACZAJYAmgCbAJwAnACdAJoAngCfAKAAoAChAJ4AogCjAKQApAClAKIAsgCzAPAB8AHxAbIA8gHzAagAqACpAPIBpgCnAPQB9AH1AaYAqgD2AfcB9wGsAKoA+AGrAK0ArQD5AfgBrgD6AfsB+wGwAK4A/AGvALEAsQD9AfwB/gH/AbQAtAC1AP4B0ADRAAACAAIBAtAAAQIAAtIA0gDTAAECtgC3ALgAuAACArYAAgK4ALkAuQC6AAICuwC8AL0AvQC+ALsAwQC/AAMCAwLAAMEAwAADAsIAwgDDAMAAxADFAMYAxgDHAMQAyADJAMoAygDLAMgAzADNAM4AzgDPAMwA1ADVANYA1QDUANcA1wDYANUA2ADXANkA2QDaANgA2gDZANsA1gDbANQA2wDWANoA3ADaANYA3QDaANwA1gDeANwA3ADfAN0A3gDWAOAA3QDfAOEA4ADhAN4A4QDgAN0A4gDjAOQA5ADlAOIABALoAOYA5gAFAgQC6QAEAgUCBQLnAOkA6gDrAOwA7ADtAOoA7gDvAPAA8ADxAO4A8gDzAPQA9AD1APIA9gD3APgA+AD5APYA+gD7APwA/AD9APoA/gD/AAABAAEBAf4AAgEDAQQBBQEDAQIBBAEGAQIBAgEHAQUBBgEEAQgBCAEFAQcBCAEJAQYBBwEJAQgBDAEGAgoBCgEHAgwBCwEHAgoBCgENAQsBDgEKAQYCBgIPAQ4BEAERARIBEgEIAhABCQIQAQgCCAITAQkCFAEQAQkCCQIVARQBFgEXARgBGAEZARYBGgEKAgsCCwIcARoBHQELAgoCCgIbAR0BHgEfASABIAEhAR4BIgEjASQBJAElASIBQAEMAg0CDQJDAUABQgENAgwCDAJBAUIBKAEOAiYBJgEnASgBKQEmAQ4CDgIqASkBKwEsAS0BLQEuASsBLwEwAQ8CDwIxAS8BMgEPAjABMAEzATIBNAE1ATYBNgE3ATQBOAE5AToBOgE7ATgBPAE9AT4BPgE/ATwBRAFFAUYBRgFHAUQBSAFEAUcBRwFJAUgBSgFIAUkBSQFLAUoBRQFKAUsBSwFGAUUBRgFLAUwBTAFLAU0BTAFOAUYBTQFPAUwBUAFGAU4BUQFPAU0BTgFRAVABTQFQAVEBUgFTAVQBVAFVAVIBEAIRAowBjAGNARACEQIQAooBigGLARECVgFXAVgBWAFZAVYBWgFbAVwBXAFdAVoBXgFfAWABYAFhAV4BYgFjAWQBZAFlAWIBZgFnAWgBaAFpAWYBagFrAWwBbAFtAWoBbgFvAXABcAFxAW4BcgFwAW8BbgFxAXMBbwF0AXIBcwF1AW4BcgF0AXUBdQFzAXIBeAESAnYBdgESAnoBegF7AXYBdgETAngBEwJ2AXkBeQF3ARMCfgEUAnwBfAF9AX4BFAJ+ARUCFQJ/ARQCFQJ+AYABgAGBARUCggGDAYQBhAGFAYIBiAGJARYCFgIXAogBFwIWAoYBhgGHARcCjgGPAZABkAGRAY4BkgGTAZQBlAGVAZIB"),
 "lods": [0.000261202, PackedByteArray("AAABAAIAAwACAAEABAAFAAYABwAGAAUACAAJAAoACwAKAAkADAANAA4ADwAOAA0AEAARABIAEAASABMAEAATABQAFQAUABEAFAAVABAAEAAVABEAFgAXABgAFwAZABgAGQAXABYAFgAYABoAFgAbABkAFgAaABsAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgApACsAKAAsACkALQArACkAKQAsAC0ALgAvADAAMAAvADEAMQAyADAAMwA0ADUAMwA2ADQANgA3ADQANgA4ADcAOAA2ADkAOQA6ADgAOwA8AD0APQA+ADsAPgA9AD8APwBAAD4AQQBCAEMAQwBEAEEARABDAEUARQBGAEQARwBIAEkASABKAEkASwBMAE0ATgBPAFAATgBRAE8ATgBQAFIAUQBOAFMATgBSAFMAVABVAFYAVABXAFUAVwBUAFgAWABZAFcAVwBaAFUAWgBbAFUAXABdAF4AXABfAF0AXABeAGAAYQBcAGAAYgBhAGAAYgBgAGMAZABlAGYAZgBnAGQAaABpAGoAagBrAGgAbABoAGsAawBtAGwAbABtAG4AbgBvAGwAcABxAHIAcgBzAHAAdAB1AHYAdgB3AHQAeAB5AHoAegB7AHgAewB6AHwAfAB9AHsAfgB/AIAAfgCAAIEAggB+AIEAggCBAIMAhACCAIMAhACDAIUAhgCHAIgAiQCGAIgAigCJAIgAiwCHAIYAigCIAIwAiwCKAIwAiwCMAIcAjACNAIcAjgCPAJAAkQCOAJAAkQCSAI4AkwCRAJAAkgCUAI4AkACVAJMAkgCVAJQAkACUAJUAlgCXAJgAmACZAJYAmgCbAJwAnACdAJoAngCfAKAAoAChAJ4AogCjAKQApAClAKIApgCnAKgAqACpAKYAqgCrAKwArQCsAKsArgCvALAAsQCwAK8AsgCzALQAtAC1ALIAtgC3ALgAtgC4ALkAuQC6ALYAuwC8AL0AvQC+ALsAvwDAAMEAwAC/AMIAwgDDAMAAxADFAMYAxgDHAMQAyADJAMoAygDLAMgAzADNAM4AzgDPAMwA0ADRANIA0gDTANAA1ADVANYA1QDUANcA1wDYANUA2ADXANkA2QDaANgA2gDZANsA1gDbANQA2wDWANoA3ADaANYA3QDaANwA1gDeANwA3ADfAN0A3gDWAOAA3QDfAOEA4ADhAN4A4QDgAN0A4gDjAOQA5ADlAOIA5gDnAOgA6QDoAOcA6gDrAOwA7ADtAOoA7gDvAPAA8ADxAO4A8gDzAPQA9AD1APIA9gD3APgA+AD5APYA+gD7APwA/AD9APoA/gD/AAABAAEBAf4AAgEDAQQBBQEDAQIBBAEGAQIBAgEHAQUBBgEEAQgBCAEFAQcBCAEJAQYBBwEJAQgBCgELAQwBCgENAQsBDgEKAQwBDAEPAQ4BEAERARIBEwEQARIBFAEQARMBEwEVARQBFgEXARgBGAEZARYBGgEbARwBHQEcARsBHgEfASABIAEhAR4BIgEjASQBJAElASIBJgEnASgBKQEmASgBKAEqASkBKwEsAS0BLQEuASsBLwEwATEBMgExATABMAEzATIBNAE1ATYBNgE3ATQBOAE5AToBOgE7ATgBPAE9AT4BPgE/ATwBQAFBAUIBQgFDAUABRAFFAUYBRgFHAUQBSAFEAUcBRwFJAUgBSgFIAUkBSQFLAUoBRQFKAUsBSwFGAUUBRgFLAUwBTAFLAU0BTAFOAUYBTQFPAUwBUAFGAU4BUQFPAU0BTgFRAVABTQFQAVEBUgFTAVQBVAFVAVIBVgFXAVgBWAFZAVYBWgFbAVwBXAFdAVoBXgFfAWABYAFhAV4BYgFjAWQBZAFlAWIBZgFnAWgBaAFpAWYBagFrAWwBbAFtAWoBbgFvAXABcAFxAW4BcgFwAW8BbgFxAXMBbwF0AXIBcwF1AW4BcgF0AXUBdQFzAXIBdgF3AXgBdwF2AXkBdgF4AXoBegF7AXYBfAF9AX4BfAF+AX8BfwF+AYABgAGBAX8BggGDAYQBhAGFAYIBhgGHAYgBiAGJAYYBigGLAYwBjAGNAYoBjgGPAZABkAGRAY4BkgGTAZQBlAGVAZIB")],
-"material": SubResource("ShaderMaterial_v8i8p"),
+"material": SubResource("ShaderMaterial_lpcxb"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -61,43 +65,65 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ysnkc")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_x2aqo"]
-size = Vector3(0.2, 2.29465, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48cxt"]
+render_priority = 0
+shader = ExtResource("2_rvxki")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("4_rvxki")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_so0cj"]
-size = Vector3(0.3, 2.4, 1.3)
+[sub_resource type="BoxMesh" id="BoxMesh_lpcxb"]
+material = SubResource("ShaderMaterial_48cxt")
+size = Vector3(0.2, 0.4, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fycvl"]
-cull_mode = 2
-albedo_color = Color(0, 0, 0, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kl8lw"]
+size = Vector3(0.5, 2.5, 1.3)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_so0cj"]
-material = SubResource("StandardMaterial3D_fycvl")
-size = Vector2(0.1, 0.1)
-orientation = 0
-
-[node name="WoodenDoor" type="Area3D"]
-script = ExtResource("1_fycvl")
+[node name="HotelDoorRoom" type="Area3D"]
+script = ExtResource("1_48cxt")
+scene = "level_1"
+knock_dialogue = ExtResource("8_iyrwl")
 metadata/_custom_type_script = "uid://d26jlfdvbp8v7"
 
-[node name="obj_DoorHotelRoom2" parent="." instance=ExtResource("1_x2aqo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0202136, 0, 0)
+[node name="obj_DoorHotelRoom2" parent="." instance=ExtResource("1_i0abc")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.0273187, 0, 0)
 
 [node name="Hotel Door_002" parent="obj_DoorHotelRoom2" index="0"]
-mesh = SubResource("ArrayMesh_ywpuc")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14733, 0)
-shape = SubResource("BoxShape3D_x2aqo")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14733, 0)
-shape = SubResource("BoxShape3D_so0cj")
+mesh = SubResource("ArrayMesh_kl8lw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0213841, 1.79133, 0)
-mesh = SubResource("PlaneMesh_so0cj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("BoxMesh_lpcxb")
+
+[node name="RoomNumLabel" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.126018, 3, 0)
+texture_filter = 2
+modulate = Color(1, 0.662745, 0, 1)
+text = "200"
+font = ExtResource("6_lpcxb")
+font_size = 48
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0302734, 1.2654, 0.00613403)
+shape = SubResource("BoxShape3D_kl8lw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ahef8")
+bus = &"Sfx"
 
 [editable path="obj_DoorHotelRoom2"]

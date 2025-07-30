@@ -1,5 +1,6 @@
-[gd_scene load_steps=67 format=3 uid="uid://vu68h5sot7hb"]
+[gd_scene load_steps=63 format=3 uid="uid://vu68h5sot7hb"]
 
+[ext_resource type="Script" uid="uid://vwkuxg0soyj4" path="res://scripts/levels/main_floor.gd" id="1_8tiv6"]
 [ext_resource type="Texture2D" uid="uid://cjrmb5045exxr" path="res://assets/textures/general/carpet.png" id="2_l44tt"]
 [ext_resource type="Texture2D" uid="uid://brqvj38n7kb5l" path="res://assets/textures/general/brick_wall.png" id="4_b1yqc"]
 [ext_resource type="Texture2D" uid="uid://b86oughyxwtio" path="res://assets/textures/general/wallpaper.png" id="4_hmd3r"]
@@ -25,13 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://esgppmno4ph8" path="res://assets/textures/general/wood_light.png" id="15_elhgw"]
 [ext_resource type="PackedScene" uid="uid://6iuif41vvgce" path="res://scenes/props/ceiling_light.tscn" id="17_xot43"]
 [ext_resource type="PackedScene" uid="uid://bfbyqhce1rttv" path="res://scenes/props/hotel_door_room.tscn" id="18_0oube"]
+[ext_resource type="AudioStream" uid="uid://c8pwbbwvnd8qa" path="res://assets/audio/sound/environment/ac_hum.ogg" id="22_x2hsc"]
 [ext_resource type="Script" uid="uid://bmybto1ttwjgm" path="res://scripts/other/directional_light_3d.gd" id="24_46dkd"]
-[ext_resource type="AudioStream" uid="uid://df5vnftc3cr2a" path="res://assets/audio/sound/environment/city_ambience_cars.ogg" id="25_71f7s"]
-[ext_resource type="Script" uid="uid://ciaixkedip8gg" path="res://scripts/systems/one_shot_audio.gd" id="26_0oube"]
-[ext_resource type="PackedScene" uid="uid://d2e7mbxh6ea8b" path="res://scenes/props/radiator.tscn" id="29_71f7s"]
-[ext_resource type="AudioStream" uid="uid://dkcdylc5naxkj" path="res://assets/audio/sound/environment/honk1.ogg" id="29_qhw22"]
-[ext_resource type="AudioStream" uid="uid://dcw3a655va6kd" path="res://assets/audio/sound/environment/honk2.ogg" id="30_vhla8"]
-[ext_resource type="AudioStream" uid="uid://blnl4edn0gds2" path="res://assets/audio/sound/environment/honk3.ogg" id="31_j0l4c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwr0g"]
 albedo_texture = ExtResource("2_l44tt")
@@ -228,11 +224,12 @@ size = Vector3(1, 2, 7)
 size = Vector3(3, 2, 1)
 
 [node name="MainFloor" type="Node3D"]
+script = ExtResource("1_8tiv6")
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
 [node name="Default" type="Marker3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Stairwell" type="Marker3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.25, 17)
@@ -725,16 +722,12 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 15.2831, 0.410045, -4.2
 [node name="Doors" type="Node3D" parent="Props"]
 
 [node name="HotelDoorRoom" parent="Props/Doors" instance=ExtResource("18_0oube")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.109791, 0)
-scene = "floor_1"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 
 [node name="Other" type="Node3D" parent="Props"]
 
 [node name="ElevatorEntrance" parent="Props/Other" instance=ExtResource("5_mwuba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34, 0, 0)
-
-[node name="Radiator" parent="Props/Other" instance=ExtResource("29_71f7s")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0.79027, -11.3542)
 
 [node name="FrontDesk" type="Node3D" parent="Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0)
@@ -851,32 +844,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4.8, -8.5)
 transform = Transform3D(-3.09086e-08, 0.707107, -0.707107, 3.09086e-08, 0.707107, 0.707107, 1, 1.53837e-15, -4.37114e-08, 25, 6, 0)
 spot_range = 16.0
 
-[node name="AmbienceAudio" type="Node3D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_x2hsc")
+volume_db = -25.0
+autoplay = true
 
-[node name="CityAmbience1" type="AudioStreamPlayer3D" parent="AmbienceAudio"]
+[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 3, 0)
 stream = ExtResource("13_htnn8")
+volume_db = -5.0
 autoplay = true
 
-[node name="CityAmbience2" type="AudioStreamPlayer3D" parent="AmbienceAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 3, 0)
-stream = ExtResource("25_71f7s")
-volume_db = -20.0
-autoplay = true
-
-[node name="PoliceSiren" type="AudioStreamPlayer3D" parent="AmbienceAudio"]
+[node name="PoliceSiren" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 3, 0)
 stream = ExtResource("13_8tiv6")
 volume_db = -40.0
-script = ExtResource("26_0oube")
-random_time = Array[float]([60.0, 240.0])
-metadata/_custom_type_script = "uid://ciaixkedip8gg"
 
-[node name="CarHonk" type="AudioStreamPlayer3D" parent="AmbienceAudio"]
-volume_db = -25.0
-script = ExtResource("26_0oube")
-random_sounds = Array[AudioStreamOggVorbis]([ExtResource("29_qhw22"), ExtResource("30_vhla8"), ExtResource("31_j0l4c")])
-metadata/_custom_type_script = "uid://ciaixkedip8gg"
+[node name="Timer" type="Timer" parent="PoliceSiren"]
+one_shot = true
+autostart = true
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("8_qb5t8")]
 environment = null
@@ -885,3 +871,5 @@ enabled_in_editor = false
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("24_46dkd")
+
+[connection signal="timeout" from="PoliceSiren/Timer" to="." method="_on_timer_timeout"]
