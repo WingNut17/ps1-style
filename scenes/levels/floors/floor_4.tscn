@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=4 uid="uid://dsnddafs6xs3"]
 
-[ext_resource type="Script" uid="uid://dcktbmfhqn5v4" path="res://scripts/systems/interaction/hotel_floor.gd" id="1_087pg"]
+[ext_resource type="Script" uid="uid://dcktbmfhqn5v4" path="res://scripts/levels/hotel_floor.gd" id="1_087pg"]
 [ext_resource type="Texture2D" uid="uid://cjrmb5045exxr" path="res://assets/textures/general/carpet.png" id="3_u0cwf"]
 [ext_resource type="Texture2D" uid="uid://brf6os2j77yjr" path="res://assets/textures/general/ceiling_tile.png" id="4_eo01n"]
 [ext_resource type="Texture2D" uid="uid://b86oughyxwtio" path="res://assets/textures/general/wallpaper.png" id="5_24npa"]

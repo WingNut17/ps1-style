@@ -1,6 +1,6 @@
-[gd_scene load_steps=46 format=4 uid="uid://chimn3gxcbey7"]
+[gd_scene load_steps=47 format=4 uid="uid://chimn3gxcbey7"]
 
-[ext_resource type="Script" uid="uid://dcktbmfhqn5v4" path="res://scripts/systems/interaction/hotel_floor.gd" id="1_k6sq1"]
+[ext_resource type="Script" uid="uid://dcktbmfhqn5v4" path="res://scripts/levels/hotel_floor.gd" id="1_k6sq1"]
 [ext_resource type="Texture2D" uid="uid://cjrmb5045exxr" path="res://assets/textures/general/carpet.png" id="3_37du0"]
 [ext_resource type="Texture2D" uid="uid://brf6os2j77yjr" path="res://assets/textures/general/ceiling_tile.png" id="4_u8so7"]
 [ext_resource type="Texture2D" uid="uid://b86oughyxwtio" path="res://assets/textures/general/wallpaper.png" id="5_fhbxj"]
@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://da28sdbmslnto" path="res://resources/dialogue/dialogue_test.dialogue" id="20_awlk3"]
 [ext_resource type="PackedScene" uid="uid://bs8emq6dkn2cr" path="res://scenes/characters/man_with_animations.tscn" id="21_fed8d"]
 [ext_resource type="Animation" uid="uid://b6bubv8n7f3" path="res://resources/cutscene_talk.res" id="22_7w6xg"]
+[ext_resource type="PackedScene" uid="uid://d2e7mbxh6ea8b" path="res://scenes/props/radiator.tscn" id="23_k6sq1"]
 [ext_resource type="AudioStream" uid="uid://c8pwbbwvnd8qa" path="res://assets/audio/sound/environment/ac_hum.ogg" id="23_ttllu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwr0g"]
@@ -953,6 +954,9 @@ autoplay = "cutscene"
 stream = ExtResource("23_ttllu")
 volume_db = -25.0
 autoplay = true
+
+[node name="Radiator" parent="." instance=ExtResource("23_k6sq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77014, 1.01248, 3.30166)
 
 [editable path="Sketchfab_Scene"]
 [editable path="man_with_animations"]

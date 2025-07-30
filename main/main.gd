@@ -7,7 +7,7 @@ extends Node3D
 var current_level: Node3D
 var player_instance: CharacterBody3D
 
-const FLOOR_0 = preload("res://scenes/levels/floors/floor_0.tscn")
+const FLOOR_0 = preload("res://scenes/levels/floors/floor_1.tscn")
 const PLAYER = preload("res://main/player/player.tscn")
 
 

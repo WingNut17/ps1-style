@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbypj01hfucgh"]
 
-[ext_resource type="Script" uid="uid://dcktbmfhqn5v4" path="res://scripts/systems/interaction/hotel_floor.gd" id="1_g2h2n"]
+[ext_resource type="Script" uid="uid://dcktbmfhqn5v4" path="res://scripts/levels/hotel_floor.gd" id="1_g2h2n"]
 [ext_resource type="PackedScene" uid="uid://b5k7b61oxm2pt" path="res://main/player/player.tscn" id="1_j2425"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jg0dc"]

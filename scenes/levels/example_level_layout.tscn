@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://daq81qlnbyqnm"]
+
+[ext_resource type="Script" uid="uid://cpasc565t4v6v" path="res://scripts/levels/level.gd" id="1_y6luk"]
+[ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="2_ai47i"]
+[ext_resource type="Script" uid="uid://bmybto1ttwjgm" path="res://scripts/other/directional_light_3d.gd" id="3_ai47i"]
+
+[node name="ExampleLevel" type="Node3D"]
+script = ExtResource("1_y6luk")
+metadata/_custom_type_script = "uid://cpasc565t4v6v"
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="SpawnDefault" type="Marker3D" parent="SpawnPoints"]
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGCombiner3D" parent="Geometry"]
+editor_description = "carpet"
+use_collision = true
+
+[node name="Wall" type="CSGCombiner3D" parent="Geometry"]
+use_collision = true
+
+[node name="Ceiling" type="CSGCombiner3D" parent="Geometry"]
+
+[node name="Front" type="CSGCombiner3D" parent="Geometry"]
+
+[node name="Outside" type="CSGCombiner3D" parent="Geometry"]
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Doors" type="Node3D" parent="Props"]
+
+[node name="Other" type="Node3D" parent="Props"]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_ai47i")]
+environment = null
+enabled_in_editor = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("3_ai47i")

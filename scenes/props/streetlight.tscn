@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6bg6vry86whs"]
+
+[ext_resource type="Texture2D" uid="uid://efvklimf0bcu" path="res://assets/textures/general/concrete.png" id="1_86ahg"]
+[ext_resource type="Texture2D" uid="uid://tjcdvl4vic1s" path="res://assets/textures/general/metal_pipe.png" id="2_qyimb"]
+[ext_resource type="Texture2D" uid="uid://dem83su767iot" path="res://assets/textures/props/ceiling_light.png" id="3_0pwg5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg3o2"]
+albedo_texture = ExtResource("1_86ahg")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxkax"]
+albedo_texture = ExtResource("2_qyimb")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mudor"]
+albedo_texture = ExtResource("1_86ahg")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8hag"]
+albedo_texture = ExtResource("3_0pwg5")
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_texture = ExtResource("3_0pwg5")
+texture_filter = 2
+
+[node name="Streetlight5" type="Node3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.25, 8, 0)
+light_color = Color(1, 1, 0.67451, 1)
+light_energy = 20.0
+spot_range = 12.0
+spot_angle = 30.0
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+height = 1.0
+sides = 5
+material = SubResource("StandardMaterial3D_tg3o2")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.625, 0)
+radius = 0.25
+height = 7.25
+sides = 5
+material = SubResource("StandardMaterial3D_xxkax")
+
+[node name="CSGCylinder3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 8.35, 0)
+size = Vector3(3, 0.2, 0.5)
+material = SubResource("StandardMaterial3D_mudor")
+
+[node name="CSGCylinder3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 8.3, 0)
+size = Vector3(1.25, 0.4, 0.7)
+material = SubResource("StandardMaterial3D_mudor")
+
+[node name="CSGCylinder3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 8.15, 0)
+size = Vector3(1, 0.2, 0.5)
+material = SubResource("StandardMaterial3D_o8hag")

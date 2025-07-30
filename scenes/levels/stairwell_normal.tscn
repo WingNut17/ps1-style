@@ -1,8 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b4rk5kenqau5q"]
 
-[ext_resource type="Script" uid="uid://cpasc565t4v6v" path="res://scripts/levels/stairwell_normal.gd" id="1_no3k2"]
+[ext_resource type="Script" uid="uid://cpasc565t4v6v" path="res://scripts/levels/level.gd" id="1_no3k2"]
 [ext_resource type="PackedScene" uid="uid://bp7iqp5ljuef4" path="res://scenes/props/scares_bottom.tscn" id="2_6j3o6"]
-[ext_resource type="PackedScene" uid="uid://fcfsdr6om0ip" path="res://scenes/levels/floors/floor_0.tscn" id="3_s24ao"]
 [ext_resource type="PackedScene" uid="uid://2o5g8pl1joqd" path="res://scenes/props/scares_middle.tscn" id="3_tn3ed"]
 [ext_resource type="PackedScene" uid="uid://bcrfp44vgfbj1" path="res://scenes/props/scares_top.tscn" id="4_j2tdh"]
 [ext_resource type="PackedScene" uid="uid://b5k7b61oxm2pt" path="res://main/player/player.tscn" id="5_cdiml"]

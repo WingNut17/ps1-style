@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbuf1q3xsse3q"]
+[gd_scene load_steps=15 format=3 uid="uid://cbuf1q3xsse3q"]
 
 [ext_resource type="Script" uid="uid://cipjcc7bkh1pc" path="res://addons/dialogue_manager/views/main_view.gd" id="1_h6qfq"]
 [ext_resource type="PackedScene" uid="uid://civ6shmka5e8u" path="res://addons/dialogue_manager/components/code_edit.tscn" id="2_f73fm"]
@@ -7,35 +7,24 @@
 [ext_resource type="PackedScene" uid="uid://co8yl23idiwbi" path="res://addons/dialogue_manager/components/update_button.tscn" id="2_ph3vs"]
 [ext_resource type="PackedScene" uid="uid://gr8nakpbrhby" path="res://addons/dialogue_manager/components/search_and_replace.tscn" id="6_ylh0t"]
 [ext_resource type="PackedScene" uid="uid://cs8pwrxr5vxix" path="res://addons/dialogue_manager/components/errors_panel.tscn" id="7_5cvl4"]
+[ext_resource type="FontFile" uid="uid://sci6uvpk7sue" path="res://assets/fonts/mythic-pixels.ttf" id="7_mpdoc"]
 [ext_resource type="Script" uid="uid://klpiq4tk3t7a" path="res://addons/dialogue_manager/components/code_edit_syntax_highlighter.gd" id="7_necsa"]
 [ext_resource type="Texture2D" uid="uid://cnm67htuohhlo" path="res://addons/dialogue_manager/assets/banner.png" id="9_y6rqu"]
 [ext_resource type="PackedScene" uid="uid://0n7hwviyyly4" path="res://addons/dialogue_manager/components/find_in_files.tscn" id="10_yold3"]
 
-[sub_resource type="Image" id="Image_y6rqu"]
+[sub_resource type="Image" id="Image_xv2j4"]
 data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"data": PackedByteArray(255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 255, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 231, 255, 90, 90, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 90, 90, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 42, 255, 90, 90, 0, 255, 94, 94, 0, 255, 91, 91, 42, 255, 93, 93, 233, 255, 92, 92, 232, 255, 93, 93, 41, 255, 90, 90, 0, 255, 94, 94, 0, 255, 91, 91, 42, 255, 93, 93, 233, 255, 92, 92, 232, 255, 92, 92, 0, 255, 92, 92, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 45, 255, 93, 93, 44, 255, 91, 91, 0, 255, 91, 91, 42, 255, 91, 91, 42, 255, 93, 93, 0, 255, 91, 91, 45, 255, 93, 93, 44, 255, 91, 91, 0, 255, 91, 91, 42, 255, 91, 91, 42, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 45, 255, 92, 92, 235, 255, 92, 92, 234, 255, 89, 89, 43, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 45, 255, 92, 92, 235, 255, 92, 92, 234, 255, 89, 89, 43, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 91, 91, 59, 255, 92, 92, 61, 255, 92, 92, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 91, 91, 59, 255, 92, 92, 61, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0),
 "format": "RGBA8",
 "height": 16,
 "mipmaps": false,
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_ka3gk"]
-image = SubResource("Image_y6rqu")
+[sub_resource type="ImageTexture" id="ImageTexture_rxfpk"]
+image = SubResource("Image_xv2j4")
 
-[sub_resource type="Image" id="Image_mpdoc"]
-data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 16
-}
-
-[sub_resource type="ImageTexture" id="ImageTexture_57eek"]
-image = SubResource("Image_mpdoc")
-
-[sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_xv2j4"]
+[sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_4gusq"]
 script = ExtResource("7_necsa")
 
 [node name="MainView" type="Control"]
@@ -68,7 +57,6 @@ metadata/_edit_layout_mode = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-dragger_visibility = 1
 
 [node name="SidePanel" type="VBoxContainer" parent="Margin/Content"]
 custom_minimum_size = Vector2(150, 0)
@@ -82,47 +70,47 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Start a new file"
+icon = SubResource("ImageTexture_rxfpk")
 flat = true
 
 [node name="OpenButton" type="MenuButton" parent="Margin/Content/SidePanel/Toolbar"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Open a file"
-item_count = 9
+icon = SubResource("ImageTexture_rxfpk")
+item_count = 7
 popup/item_0/text = "Open..."
-popup/item_0/icon = SubResource("ImageTexture_ka3gk")
+popup/item_0/icon = SubResource("ImageTexture_rxfpk")
 popup/item_0/id = 100
-popup/item_1/icon = SubResource("ImageTexture_ka3gk")
+popup/item_1/text = "Quick open..."
+popup/item_1/icon = SubResource("ImageTexture_rxfpk")
 popup/item_1/id = 101
 popup/item_2/id = -1
 popup/item_2/separator = true
-popup/item_3/text = "res://examples/dialogue.dialogue"
-popup/item_3/icon = SubResource("ImageTexture_ka3gk")
+popup/item_3/text = "res://resources/dialogue/knock_dialogue_default.dialogue"
+popup/item_3/icon = SubResource("ImageTexture_rxfpk")
 popup/item_3/id = 3
-popup/item_4/text = "res://examples/dialogue_with_input.dialogue"
-popup/item_4/icon = SubResource("ImageTexture_ka3gk")
+popup/item_4/text = "res://resources/dialogue/dialogue_test.dialogue"
+popup/item_4/icon = SubResource("ImageTexture_rxfpk")
 popup/item_4/id = 4
-popup/item_5/text = "res://examples/dialogue_for_point_n_click.dialogue"
-popup/item_5/icon = SubResource("ImageTexture_ka3gk")
-popup/item_5/id = 5
-popup/item_6/text = "res://examples/dialogue_for_visual_novel.dialogue"
-popup/item_6/icon = SubResource("ImageTexture_ka3gk")
-popup/item_6/id = 6
-popup/item_7/id = -1
-popup/item_7/separator = true
-popup/item_8/text = "Clear recent files"
-popup/item_8/id = 102
+popup/item_5/id = -1
+popup/item_5/separator = true
+popup/item_6/text = "Clear recent files"
+popup/item_6/id = 102
 
 [node name="SaveAllButton" type="Button" parent="Margin/Content/SidePanel/Toolbar"]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
+text = "All"
+icon = SubResource("ImageTexture_rxfpk")
 flat = true
 
 [node name="FindInFilesButton" type="Button" parent="Margin/Content/SidePanel/Toolbar"]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Find in files..."
+icon = SubResource("ImageTexture_rxfpk")
 flat = true
 
 [node name="Bookmarks" type="VSplitContainer" parent="Margin/Content/SidePanel"]
@@ -131,7 +119,6 @@ size_flags_vertical = 3
 
 [node name="FilesList" parent="Margin/Content/SidePanel/Bookmarks" instance=ExtResource("2_npj2k")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="FilesPopupMenu" type="PopupMenu" parent="Margin/Content/SidePanel/Bookmarks/FilesList"]
@@ -139,7 +126,6 @@ unique_name_in_owner = true
 
 [node name="TitleList" parent="Margin/Content/SidePanel/Bookmarks" instance=ExtResource("2_onb4i")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="CodePanel" type="VBoxContainer" parent="Margin/Content"]
@@ -153,73 +139,73 @@ layout_mode = 2
 [node name="InsertButton" type="MenuButton" parent="Margin/Content/CodePanel/Toolbar"]
 unique_name_in_owner = true
 layout_mode = 2
-disabled = true
 text = "Insert"
+icon = SubResource("ImageTexture_rxfpk")
 item_count = 15
 popup/item_0/text = "Wave BBCode"
-popup/item_0/icon = SubResource("ImageTexture_57eek")
+popup/item_0/icon = SubResource("ImageTexture_rxfpk")
 popup/item_0/id = 0
 popup/item_1/text = "Shake BBCode"
-popup/item_1/icon = SubResource("ImageTexture_57eek")
+popup/item_1/icon = SubResource("ImageTexture_rxfpk")
 popup/item_1/id = 1
 popup/item_2/id = -1
 popup/item_2/separator = true
 popup/item_3/text = "Typing pause"
-popup/item_3/icon = SubResource("ImageTexture_57eek")
+popup/item_3/icon = SubResource("ImageTexture_rxfpk")
 popup/item_3/id = 3
 popup/item_4/text = "Typing speed change"
-popup/item_4/icon = SubResource("ImageTexture_57eek")
+popup/item_4/icon = SubResource("ImageTexture_rxfpk")
 popup/item_4/id = 4
 popup/item_5/text = "Auto advance"
-popup/item_5/icon = SubResource("ImageTexture_57eek")
+popup/item_5/icon = SubResource("ImageTexture_rxfpk")
 popup/item_5/id = 5
 popup/item_6/text = "Templates"
 popup/item_6/id = -1
 popup/item_6/separator = true
 popup/item_7/text = "Title"
-popup/item_7/icon = SubResource("ImageTexture_57eek")
+popup/item_7/icon = SubResource("ImageTexture_rxfpk")
 popup/item_7/id = 6
 popup/item_8/text = "Dialogue"
-popup/item_8/icon = SubResource("ImageTexture_57eek")
+popup/item_8/icon = SubResource("ImageTexture_rxfpk")
 popup/item_8/id = 7
 popup/item_9/text = "Response"
-popup/item_9/icon = SubResource("ImageTexture_57eek")
+popup/item_9/icon = SubResource("ImageTexture_rxfpk")
 popup/item_9/id = 8
 popup/item_10/text = "Random lines"
-popup/item_10/icon = SubResource("ImageTexture_57eek")
+popup/item_10/icon = SubResource("ImageTexture_rxfpk")
 popup/item_10/id = 9
 popup/item_11/text = "Random text"
-popup/item_11/icon = SubResource("ImageTexture_57eek")
+popup/item_11/icon = SubResource("ImageTexture_rxfpk")
 popup/item_11/id = 10
 popup/item_12/text = "Actions"
 popup/item_12/id = -1
 popup/item_12/separator = true
 popup/item_13/text = "Jump to title"
-popup/item_13/icon = SubResource("ImageTexture_57eek")
+popup/item_13/icon = SubResource("ImageTexture_rxfpk")
 popup/item_13/id = 11
 popup/item_14/text = "End dialogue"
-popup/item_14/icon = SubResource("ImageTexture_57eek")
+popup/item_14/icon = SubResource("ImageTexture_rxfpk")
 popup/item_14/id = 12
 
 [node name="TranslationsButton" type="MenuButton" parent="Margin/Content/CodePanel/Toolbar"]
 unique_name_in_owner = true
 layout_mode = 2
-disabled = true
 text = "Translations"
+icon = SubResource("ImageTexture_rxfpk")
 item_count = 5
 popup/item_0/text = "Generate line IDs"
-popup/item_0/icon = SubResource("ImageTexture_57eek")
+popup/item_0/icon = SubResource("ImageTexture_rxfpk")
 popup/item_0/id = 100
 popup/item_1/id = -1
 popup/item_1/separator = true
 popup/item_2/text = "Save character names to CSV..."
-popup/item_2/icon = SubResource("ImageTexture_57eek")
+popup/item_2/icon = SubResource("ImageTexture_rxfpk")
 popup/item_2/id = 201
 popup/item_3/text = "Save lines to CSV..."
-popup/item_3/icon = SubResource("ImageTexture_57eek")
+popup/item_3/icon = SubResource("ImageTexture_rxfpk")
 popup/item_3/id = 202
 popup/item_4/text = "Import line changes from CSV..."
-popup/item_4/icon = SubResource("ImageTexture_57eek")
+popup/item_4/icon = SubResource("ImageTexture_rxfpk")
 popup/item_4/id = 203
 
 [node name="Separator" type="VSeparator" parent="Margin/Content/CodePanel/Toolbar"]
@@ -229,8 +215,8 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Search for text"
-disabled = true
 toggle_mode = true
+icon = SubResource("ImageTexture_rxfpk")
 flat = true
 
 [node name="Separator2" type="VSeparator" parent="Margin/Content/CodePanel/Toolbar"]
@@ -239,15 +225,15 @@ layout_mode = 2
 [node name="TestButton" type="Button" parent="Margin/Content/CodePanel/Toolbar"]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip_text = "Test dialogue"
-disabled = true
+tooltip_text = "Test dialogue from start of file"
+icon = SubResource("ImageTexture_rxfpk")
 flat = true
 
 [node name="TestLineButton" type="Button" parent="Margin/Content/CodePanel/Toolbar"]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip_text = "Test dialogue"
-disabled = true
+tooltip_text = "Test dialogue from current line"
+icon = SubResource("ImageTexture_rxfpk")
 flat = true
 
 [node name="Spacer2" type="Control" parent="Margin/Content/CodePanel/Toolbar"]
@@ -259,6 +245,7 @@ unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Support Dialogue Manager"
 text = "Sponsor"
+icon = SubResource("ImageTexture_rxfpk")
 flat = true
 
 [node name="Separator4" type="VSeparator" parent="Margin/Content/CodePanel/Toolbar"]
@@ -268,13 +255,14 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "Docs"
+icon = SubResource("ImageTexture_rxfpk")
 flat = true
 
 [node name="VersionLabel" type="Label" parent="Margin/Content/CodePanel/Toolbar"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.490196)
 layout_mode = 2
-text = "v2.42.2"
+text = "v3.7.1"
 vertical_alignment = 1
 
 [node name="UpdateButton" parent="Margin/Content/CodePanel/Toolbar" instance=ExtResource("2_ph3vs")]
@@ -288,32 +276,67 @@ layout_mode = 2
 
 [node name="CodeEdit" parent="Margin/Content/CodePanel" instance=ExtResource("2_f73fm")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.972549, 0.972549, 0.94902, 1)
-theme_override_colors/background_color = Color(0.156863, 0.164706, 0.211765, 1)
-theme_override_colors/current_line_color = Color(0.266667, 0.278431, 0.352941, 0.243137)
+theme_override_colors/current_line_color = Color(1, 1, 1, 0.07)
+theme_override_colors/background_color = Color(0.1155, 0.132, 0.1595, 1)
+theme_override_colors/font_color = Color(0.8025, 0.81, 0.8225, 1)
+theme_override_fonts/font = ExtResource("7_mpdoc")
 theme_override_font_sizes/font_size = 14
 theme_override_colors/bookmark_color = Color(1, 0.333333, 0.333333, 1)
 text = "~ start
-
-Nathan: Hi, I'm Nathan and this is Coco.
-Coco: Meow.
-Nathan: Here are some response options.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: I hope this example is helpful.
-Coco: Meow.
-
+% The door feels slightly warm to the touch.
+% There's a faint, rhythmic creaking from inside.
+% The air smells faintly of copper.
+% You notice scratch marks around the doorknob.
+% Something shifts behind the peephole glass.
+% The floor outside the door is slightly wet.
+% A soft whisper comes from behind the door... then silence.
+% The number on the door seems different than before.
+% You hear breathing, but only when you stop to listen.
+% The door moves slightly… as if it were breathing.
+% The do not disturb sign is written in shaky handwriting.
+% The hallway feels colder in front of this door.
+% You feel like you're being watched, but the peephole is dark.
+% Someone has taped the edges of the door shut... from the inside.
+% There's a slight pressure in your ears near this room.
+% The handle jiggles—before you even touch it.
+% There’s static buzzing faintly from the room’s TV.
+% A slow dragging sound.
+% ???: ...That knock again.
+% ???: You weren’t supposed to find me.
+% ???: I thought I had more time.
+% ???: The hallway felt longer this time.
+% ???: Do the lights flicker for you too?
+% ???: The carpet’s wet again, isn’t it?
+% ???: Something’s not right with this floor.
+% ???: I heard someone breathing out there. Was it you?
+% ???: They told me this room was empty. they told me. they...
+% ???: I dreamed of this knock.
+% ???: Wait… what time is it really?
+% ???: Is it still raining out there?
+% ???: That sound again... It’s been following me.
+% ???: You didn’t touch the mirror, did you?
+% ???: It’s too early for all this.
+% ???: Are the phones working yet?
+% ???: My key stopped working.
+% ???: Can you hear the humming too?
+% ???: Something keeps tapping from the vent.
+% ???: Do they still check the top floor?
+% ???: Is this the part where I let you in?
+% ???: I wasn’t expecting anyone... again.
+% ???: You’re wearing the same shoes.
+% ???: The room was locked from the inside.
+% ???: No one ever knocks twice.
+% ???: Please… not tonight.
+% ???: How many times have we done this?
+% ???: They said it was just a draft.
+% ???: The last knock came from the inside.
 => END"
 scroll_smooth = true
-syntax_highlighter = SubResource("SyntaxHighlighter_xv2j4")
+scroll_horizontal = 254
+syntax_highlighter = SubResource("SyntaxHighlighter_4gusq")
 
 [node name="ErrorsPanel" parent="Margin/Content/CodePanel" instance=ExtResource("7_5cvl4")]
 unique_name_in_owner = true
@@ -321,6 +344,7 @@ layout_mode = 2
 
 [node name="Banner" type="CenterContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -351,12 +375,14 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "New Dialogue..."
+icon = SubResource("ImageTexture_rxfpk")
 
 [node name="BannerQuickOpen" type="Button" parent="Banner/PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Quick open..."
+icon = SubResource("ImageTexture_rxfpk")
 
 [node name="BannerExamples" type="Button" parent="Banner/PanelContainer/HBoxContainer"]
 unique_name_in_owner = true

@@ -16,8 +16,9 @@ shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/uv1_scale = Vector3(3.365, -2.025, 0.695)
 shader_parameter/uv1_offset = Vector3(0.71, 0, 0)
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_emission = ExtResource("2_ovh87")
 shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.0
+shader_parameter/emission_energy = 0.5
 shader_parameter/use_triplanar = false
 shader_parameter/triplanar_scale = 1.0
 shader_parameter/triplanar_blend_sharpness = 4.0
@@ -34,13 +35,15 @@ size = Vector3(0.4, 0.1, 1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
-light_bake_mode = 1
+light_color = Color(1, 1, 0.835294, 1)
+light_size = 0.5
+light_bake_mode = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_1afix")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ovh87")
-volume_db = -25.0
+volume_db = -20.0
 autoplay = true
 bus = &"Sfx"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=4 uid="uid://fcfsdr6om0ip"]
 
-[ext_resource type="Script" uid="uid://dcktbmfhqn5v4" path="res://scripts/systems/interaction/hotel_floor.gd" id="1_y18l6"]
+[ext_resource type="Script" uid="uid://dcktbmfhqn5v4" path="res://scripts/levels/hotel_floor.gd" id="1_y18l6"]
 [ext_resource type="Texture2D" uid="uid://cjrmb5045exxr" path="res://assets/textures/general/carpet.png" id="3_ivyjb"]
 [ext_resource type="Texture2D" uid="uid://brf6os2j77yjr" path="res://assets/textures/general/ceiling_tile.png" id="4_o0hq0"]
 [ext_resource type="Texture2D" uid="uid://b86oughyxwtio" path="res://assets/textures/general/wallpaper.png" id="5_q7w5t"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://6iuif41vvgce" path="res://scenes/props/ceiling_light.tscn" id="15_3i0r6"]
 [ext_resource type="PackedScene" uid="uid://dbg8lw4g0il1i" path="res://scenes/props/stairwell_door.tscn" id="15_ivyjb"]
 [ext_resource type="PackedScene" uid="uid://j8a2dlg6vba5" path="res://assets/models/characters/low_poly_fox_mulder_xfiles_ps1_style.glb" id="16_1pdhc"]
-[ext_resource type="PackedScene" uid="uid://b4rk5kenqau5q" path="res://scenes/levels/stairwell_normal.tscn" id="16_o0hq0"]
 [ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="17_ivyjb"]
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="17_qe37d"]
 [ext_resource type="Texture2D" uid="uid://b83cmrj4lqv27" path="res://assets/textures/characters/low_poly_fox_mulder_xfiles_ps1_style_0.png" id="18_262go"]

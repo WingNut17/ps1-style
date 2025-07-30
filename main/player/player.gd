@@ -27,7 +27,7 @@ var crouch_collision_height: float = 0.375
 
 func _ready() -> void:
 	shape = collision_shape.shape
-	normal_height = shape.size.y
+	normal_height = shape.height
 	target_height = normal_height
 
 func _input(event: InputEvent) -> void:
@@ -37,8 +37,8 @@ func _input(event: InputEvent) -> void:
 		crouch()
 	
 	# to be honest i dont think this game even needs a jump...
-	#if event.is_action_pressed("jump") and is_on_floor() and not crouching:
-	#	jump()
+	if event.is_action_pressed("jump") and is_on_floor() and not crouching:
+		jump()
 	
 	input_direction = Input.get_vector("left", "right", "forward", "backward")
 
@@ -47,10 +47,10 @@ func _physics_process(delta: float) -> void:
 		return
 
 	# Smoothly interpolate the collision shape height
-	var current_height = shape.size.y
+	var current_height = shape.height
 	var current_collision_height = collision_shape.position.y
 	if abs(current_height - target_height) > 0.01:  # Only update if there's a meaningful difference
-		shape.size.y = lerpf(current_height, target_height, CROUCH_SPEED * delta)
+		shape.height = lerpf(current_height, target_height, CROUCH_SPEED * delta)
 		collision_shape.position.y = lerpf(current_collision_height, target_collision_height, CROUCH_SPEED * delta)
 	
 	# Add the gravity
@@ -73,11 +73,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 	
-	# Try to play step sound if the player is wanting to move, and on the floor
-	if input_direction and is_on_floor():
-		foot_cast.try_to_play_audio()
-	
 	move_and_slide()
+	
+	# Try to play step sound if the player is wanting to move, and on the floor
+	var moving_velocity = Vector2(velocity.x, velocity.z)
+	if moving_velocity and is_on_floor():
+		foot_cast.try_to_play_audio()
 
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY

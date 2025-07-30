@@ -31,9 +31,6 @@ const STONE_STEP = [
 func _ready() -> void:
 	walk_timer.wait_time = walk_audio_speed
 
-func _on_walk_timer_timeout() -> void:
-	pass
-
 func try_to_play_audio() -> void:
 	if not walk_timer.is_stopped():
 		return
