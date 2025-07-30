@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://bppi4xp10flhw"]
+
+[ext_resource type="Script" uid="uid://cb0uqc27fiul3" path="res://main/main_old.gd" id="1_f3tot"]
+[ext_resource type="Script" uid="uid://b645advldv7c7" path="res://scripts/other/melt_canvas_layer.gd" id="2_1jwur"]
+[ext_resource type="Shader" uid="uid://bs658o3w41slt" path="res://scripts/shaders/melt.gdshader" id="3_5gejt"]
+[ext_resource type="FontFile" uid="uid://bv0v1f5ps517b" path="res://assets/fonts/alagard.ttf" id="4_xkamg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_na0o7"]
+shader = ExtResource("3_5gejt")
+shader_parameter/progress = 0.0
+shader_parameter/column_count = 240
+shader_parameter/random_seed = 0.0
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_f3tot")
+
+[node name="TransitionManager" type="CanvasLayer" parent="." node_paths=PackedStringArray("main")]
+editor_description = "welcome to horror"
+layer = 100
+script = ExtResource("2_1jwur")
+main = NodePath("..")
+
+[node name="Melt" type="ColorRect" parent="TransitionManager"]
+visible = false
+material = SubResource("ShaderMaterial_na0o7")
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
+[node name="LevelLabel" type="Label" parent="TransitionManager"]
+z_index = -400
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -4.0
+offset_right = 20.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.588235, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_xkamg")
+theme_override_font_sizes/font_size = 16
+text = "level 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TransitionManager"]
+
+[node name="MeltBufferTimer" type="Timer" parent="TransitionManager"]
+
+[node name="LevelTextTimer" type="Timer" parent="TransitionManager"]
+
+[node name="Level" type="Node3D" parent="."]
