@@ -98,3 +98,6 @@ func dialogue_end() -> void:
 
 func dialogue_start() -> void:
 	can_move = false
+
+func teleport_to_spawn(spawn_position: Vector3):
+	self.global_transform.origin = spawn_position

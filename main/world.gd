@@ -31,4 +31,4 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("dev_respawn"):
 		teleport_player_to_spawn()
 	if event.is_action_pressed("dev_switch_level"):
-		switch_to_level("level_2")
+		switch_to_level("main_floor")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bppi4xp10flhw"]
+[gd_scene load_steps=6 format=3 uid="uid://b22c8ysvyenio"]
 
 [ext_resource type="Script" uid="uid://cb0uqc27fiul3" path="res://main/main_old.gd" id="1_f3tot"]
 [ext_resource type="Script" uid="uid://b645advldv7c7" path="res://scripts/other/melt_canvas_layer.gd" id="2_1jwur"]

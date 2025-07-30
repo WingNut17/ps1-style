@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://vu68h5sot7hb"]
+[gd_scene load_steps=59 format=3 uid="uid://vu68h5sot7hb"]
 
 [ext_resource type="Script" uid="uid://vwkuxg0soyj4" path="res://scripts/levels/main_floor.gd" id="1_8tiv6"]
 [ext_resource type="Texture2D" uid="uid://cjrmb5045exxr" path="res://assets/textures/general/carpet.png" id="2_l44tt"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://brf6os2j77yjr" path="res://assets/textures/general/ceiling_tile.png" id="5_lht5a"]
 [ext_resource type="PackedScene" uid="uid://dncvwitn5tjh1" path="res://scenes/props/elevator_entrance.tscn" id="5_mwuba"]
 [ext_resource type="Texture2D" uid="uid://bwim6j0m6hgh8" path="res://assets/textures/general/pavement_blocks.png" id="6_iscbn"]
-[ext_resource type="PackedScene" uid="uid://b5k7b61oxm2pt" path="res://main/player/player.tscn" id="7_b1yqc"]
 [ext_resource type="Texture2D" uid="uid://chuy481gfh2sq" path="res://assets/textures/environment/road.png" id="7_rqwi2"]
 [ext_resource type="Texture2D" uid="uid://13grglwa01ay" path="res://assets/textures/general/plaster.png" id="7_xevkl"]
 [ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="8_qb5t8"]
@@ -213,14 +212,13 @@ size = Vector3(3, 2, 1)
 
 [node name="MainFloor" type="Node3D"]
 script = ExtResource("1_8tiv6")
-level_name = "Lobby"
 
-[node name="Player" parent="." instance=ExtResource("7_b1yqc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, 0)
+[node name="SpawnPoints" type="Node3D" parent="."]
 
-[node name="Spawn" type="Node3D" parent="."]
+[node name="Default" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Stairwell" type="Marker3D" parent="Spawn"]
+[node name="Stairwell" type="Marker3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.25, 17)
 
 [node name="Geometry" type="Node3D" parent="."]
