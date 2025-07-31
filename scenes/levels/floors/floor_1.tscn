@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://chimn3gxcbey7"]
+[gd_scene load_steps=45 format=4 uid="uid://chimn3gxcbey7"]
 
 [ext_resource type="Script" uid="uid://dcktbmfhqn5v4" path="res://scripts/levels/hotel_floor.gd" id="1_k6sq1"]
 [ext_resource type="Texture2D" uid="uid://cjrmb5045exxr" path="res://assets/textures/general/carpet.png" id="3_37du0"]
@@ -23,6 +23,7 @@
 [ext_resource type="Animation" uid="uid://b6bubv8n7f3" path="res://resources/cutscene_talk.res" id="22_7w6xg"]
 [ext_resource type="PackedScene" uid="uid://d2e7mbxh6ea8b" path="res://scenes/props/radiator.tscn" id="23_k6sq1"]
 [ext_resource type="AudioStream" uid="uid://c8pwbbwvnd8qa" path="res://assets/audio/sound/environment/ac_hum.ogg" id="23_ttllu"]
+[ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="24_dc74w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwr0g"]
 albedo_texture = ExtResource("3_37du0")
@@ -94,27 +95,6 @@ albedo_texture = ExtResource("7_f6luv")
 uv1_scale = Vector3(0.25, 0.25, 0.25)
 uv1_triplanar = true
 texture_filter = 2
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_53q0u"]
-
-[sub_resource type="Sky" id="Sky_bjebc"]
-sky_material = SubResource("ProceduralSkyMaterial_53q0u")
-
-[sub_resource type="Environment" id="Environment_xwkvk"]
-background_mode = 2
-sky = SubResource("Sky_bjebc")
-ambient_light_source = 3
-reflected_light_source = 2
-ssao_enabled = true
-ssil_enabled = true
-glow_blend_mode = 0
-fog_mode = 1
-fog_light_color = Color(1, 0, 0.113725, 1)
-fog_density = 1.0
-volumetric_fog_albedo = Color(0, 0, 0, 1)
-volumetric_fog_emission_energy = 0.0
-volumetric_fog_gi_inject = 0.19
-adjustment_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_grrlh"]
 render_priority = 0
@@ -830,6 +810,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.635, 10)
 [node name="ExitSign2" parent="Props/Other" instance=ExtResource("14_jgsfg")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 4.635, -10)
 
+[node name="Radiator" parent="Props/Other" instance=ExtResource("23_k6sq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77014, 1.01248, 3.30166)
+
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="CeilingLight" parent="Lights" instance=ExtResource("15_3sk7a")]
@@ -873,9 +856,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83082, 8.5)
 
 [node name="CeilingLight14" parent="Lights" instance=ExtResource("15_3sk7a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83082, -8.5)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_xwkvk")
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("16_kryfs")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -2, 0.513237, -4)
@@ -950,13 +930,17 @@ libraries = {
 }
 autoplay = "cutscene"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AmbienceAudio" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AmbienceAudio"]
 stream = ExtResource("23_ttllu")
 volume_db = -25.0
 autoplay = true
+bus = &"Sfx"
 
-[node name="Radiator" parent="." instance=ExtResource("23_k6sq1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77014, 1.01248, 3.30166)
+[node name="WorldEnvironment" parent="." instance=ExtResource("24_dc74w")]
+environment = null
+enabled_in_editor = false
 
 [editable path="Sketchfab_Scene"]
 [editable path="man_with_animations"]

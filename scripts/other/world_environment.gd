@@ -6,8 +6,7 @@ extends WorldEnvironment
 	set(value):
 		enabled_in_editor = value
 		_update_environment()
-
-const WORLD_ENVIRONMENT = preload("res://resources/world_environment.tres")
+@export var environment_resource: Environment = preload("res://resources/world_environment.tres")
 
 
 func _ready():
@@ -16,8 +15,8 @@ func _ready():
 func _update_environment():
 	if Engine.is_editor_hint():
 		if enabled_in_editor:
-			environment = WORLD_ENVIRONMENT
+			environment = environment_resource
 		else:
 			environment = null
 	else:
-		environment = WORLD_ENVIRONMENT
+		environment = environment_resource

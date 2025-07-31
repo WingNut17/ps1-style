@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://6iuif41vvgce"]
+[gd_scene load_steps=8 format=3 uid="uid://6iuif41vvgce"]
 
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="1_8h83t"]
+[ext_resource type="Script" uid="uid://b16syadr8a374" path="res://scripts/props/ceiling_light.gd" id="1_qeclm"]
 [ext_resource type="Texture2D" uid="uid://dem83su767iot" path="res://assets/textures/props/ceiling_light.png" id="2_ovh87"]
 [ext_resource type="AudioStream" uid="uid://cum6kwsjwivyk" path="res://assets/audio/sound/props/fluorescent_hum.ogg" id="3_ovh87"]
+[ext_resource type="AudioStream" uid="uid://c2hjvk54lk5qb" path="res://assets/audio/sound/props/flickering_light.ogg" id="5_1afix"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qeclm"]
 render_priority = 0
@@ -13,12 +15,11 @@ shader_parameter/specular = 0.0
 shader_parameter/metallic = 0.0
 shader_parameter/texture_albedo = ExtResource("2_ovh87")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/uv1_scale = Vector3(3.365, -2.025, 0.695)
-shader_parameter/uv1_offset = Vector3(0.71, 0, 0)
+shader_parameter/uv1_scale = Vector3(3, 2, 3)
+shader_parameter/uv1_offset = Vector3(1.005, -0.005, 0)
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
-shader_parameter/texture_emission = ExtResource("2_ovh87")
 shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.5
+shader_parameter/emission_energy = 0.0
 shader_parameter/use_triplanar = false
 shader_parameter/triplanar_scale = 1.0
 shader_parameter/triplanar_blend_sharpness = 4.0
@@ -29,21 +30,27 @@ shader_parameter/jitter = 0.25
 
 [sub_resource type="BoxMesh" id="BoxMesh_1afix"]
 material = SubResource("ShaderMaterial_qeclm")
-size = Vector3(0.4, 0.1, 1)
+size = Vector3(0.4, 0.1, 0.4)
 
 [node name="CeilingLight" type="Node3D"]
+script = ExtResource("1_qeclm")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
 light_color = Color(1, 1, 0.835294, 1)
 light_size = 0.5
-light_bake_mode = 0
+light_bake_mode = 1
+omni_range = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_1afix")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="FluorescentHum" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ovh87")
 volume_db = -20.0
 autoplay = true
 bus = &"Sfx"
+
+[node name="Flicker" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_1afix")
+volume_db = -15.0

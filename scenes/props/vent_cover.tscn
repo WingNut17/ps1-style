@@ -49,6 +49,7 @@ bus = &"Sfx"
 
 [node name="OneShotAudio" type="AudioStreamPlayer3D" parent="."]
 volume_db = -35.0
+bus = &"Sfx"
 script = ExtResource("4_3rq06")
 random_time = Array[float]([30.0, 120.0])
 random_sounds = Array[AudioStreamOggVorbis]([ExtResource("5_vemug"), ExtResource("6_oqgxh"), ExtResource("7_m3gfy"), ExtResource("8_cbye2")])

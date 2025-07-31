@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var head : Node3D
 @export var collision_shape : CollisionShape3D
 @export var foot_cast : RayCast3D
+@export var flashlight : SpotLight3D
 
 const SPEED = 3.5
 const JUMP_VELOCITY = 4.5
@@ -13,6 +14,7 @@ var can_move: bool = true:
 	set(value):
 		can_move = value
 		head.can_move = value
+var flashlight_toggled: bool = false
 
 var input_direction: Vector2 = Vector2.ZERO
 var shape: Shape3D
@@ -29,16 +31,27 @@ func _ready() -> void:
 	shape = collision_shape.shape
 	normal_height = shape.height
 	target_height = normal_height
+	
+	if flashlight.light_energy:
+		flashlight_toggled = true
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("crouch"):
 		crouch()
+	
 	if event.is_action_released("crouch"):
 		crouch()
 	
 	# to be honest i dont think this game even needs a jump...
 	if event.is_action_pressed("jump") and is_on_floor() and not crouching:
 		jump()
+	
+	if event.is_action_pressed("flashlight"):
+		if flashlight_toggled:
+			flashlight.light_energy = 0.0
+		else:
+			flashlight.light_energy = 10.0
+		flashlight_toggled = !flashlight_toggled
 	
 	input_direction = Input.get_vector("left", "right", "forward", "backward")
 
