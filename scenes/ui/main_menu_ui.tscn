@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=3 uid="uid://gag5lafl87tw"]
+
+[ext_resource type="FontFile" uid="uid://bpyxbow5lhoq5" path="res://assets/fonts/nokiafc22.ttf" id="1_3bauu"]
+[ext_resource type="FontFile" uid="uid://bv0v1f5ps517b" path="res://assets/fonts/alagard.ttf" id="2_b8bkt"]
+
+[sub_resource type="GDScript" id="GDScript_3bauu"]
+script/source = "extends MarginContainer
+
+
+signal left
+signal right
+signal pressed
+
+
+func _on_left_button_pressed() -> void:
+	left.emit()
+
+func _on_menu_item_button_pressed() -> void:
+	pressed.emit()
+
+func _on_right_button_pressed() -> void:
+	right.emit()
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pw24t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dct7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qilvv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbte4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0hcc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qch7b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2j7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ovp2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1h5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1mexh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_877pj"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = SubResource("GDScript_3bauu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="LeftButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.701961, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_3bauu")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pw24t")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5dct7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qilvv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jbte4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e0hcc")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qch7b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y2j7i")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4ovp2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y1h5l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1mexh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_877pj")
+text = "<"
+
+[node name="MenuItemButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.701961, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_b8bkt")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pw24t")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5dct7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qilvv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jbte4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e0hcc")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qch7b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y2j7i")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4ovp2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y1h5l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1mexh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_877pj")
+text = "TEXT"
+
+[node name="RightButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.701961, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_3bauu")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pw24t")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5dct7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qilvv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jbte4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e0hcc")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qch7b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y2j7i")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4ovp2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y1h5l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1mexh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_877pj")
+text = ">"
+
+[connection signal="pressed" from="HBoxContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MenuItemButton" to="." method="_on_menu_item_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]

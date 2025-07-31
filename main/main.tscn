@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cid1ll6n11be"]
 
 [ext_resource type="Script" uid="uid://chioelcubq4bg" path="res://main/main.gd" id="1_grrlh"]
-[ext_resource type="PackedScene" uid="uid://b5k7b61oxm2pt" path="res://main/player/player.tscn" id="2_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://c35bmvjx4x8iu" path="res://scenes/ui/main_menu.tscn" id="2_4dugh"]
 [ext_resource type="Script" uid="uid://dapoa64fdjd3u" path="res://main/world.gd" id="3_xwkvk"]
 [ext_resource type="Script" uid="uid://b645advldv7c7" path="res://scripts/other/melt_transition.gd" id="4_c651c"]
 [ext_resource type="FontFile" uid="uid://bj1itl834o74y" path="res://assets/fonts/GothicPixels.ttf" id="5_kfbq2"]
@@ -17,7 +17,9 @@ shader_parameter/random_seed = 0.0
 [node name="Main" type="Node3D"]
 script = ExtResource("1_grrlh")
 
-[node name="Player" parent="." instance=ExtResource("2_xwkvk")]
+[node name="MainMenu" parent="." node_paths=PackedStringArray("world", "main") instance=ExtResource("2_4dugh")]
+world = NodePath("../World")
+main = NodePath("..")
 
 [node name="World" type="Node" parent="." groups=["World"]]
 script = ExtResource("3_xwkvk")

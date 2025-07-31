@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=11 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://opmftn7c8q3n" path="res://main/player/interact_ray.gd" id="4_4bbr4"]
 [ext_resource type="Texture2D" uid="uid://c15ais4d1hqmw" path="res://assets/textures/items/flashlight.png" id="4_f8m1i"]
 [ext_resource type="Script" uid="uid://di1x6n3vm2s6q" path="res://main/player/foot_cast.gd" id="5_f8m1i"]
-[ext_resource type="Environment" uid="uid://cdn107mv7e8ox" path="res://resources/world_environment.tres" id="7_boii2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f8m1i"]
 radius = 0.375
@@ -95,6 +94,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("7_boii2")

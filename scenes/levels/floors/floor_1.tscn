@@ -939,8 +939,7 @@ autoplay = true
 bus = &"Sfx"
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("24_dc74w")]
-environment = null
-enabled_in_editor = false
+enabled_in_editor = true
 
 [editable path="Sketchfab_Scene"]
 [editable path="man_with_animations"]

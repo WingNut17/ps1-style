@@ -27,8 +27,7 @@ func switch_to_level(level_id: String, delete: bool = true, keep_running: bool =
 		else:
 			remove_child(current_level)
 	
-		#var level_name = current_level.level_name
-		scene_transition_visual.melt_transition(level_id)
+	scene_transition_visual.melt_transition(level_id)
 
 	current_level = Level.new()
 	current_level.initialize(level_id)

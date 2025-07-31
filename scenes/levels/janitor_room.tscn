@@ -27,7 +27,7 @@ uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 texture_filter = 2
 
-[node name="ExampleLevel" type="Node3D"]
+[node name="JanitorRoom" type="Node3D"]
 script = ExtResource("1_mkjlr")
 
 [node name="SpawnPoints" type="Node3D" parent="."]
@@ -96,6 +96,8 @@ transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4
 
 [node name="CeilingLight" parent="Lights" instance=ExtResource("6_nfyyx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.85, 0)
+toggled = false
+flickering = true
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_0tskf")]
 environment = null

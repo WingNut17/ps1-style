@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=4 uid="uid://c35bmvjx4x8iu"]
+[gd_scene load_steps=60 format=4 uid="uid://c35bmvjx4x8iu"]
 
 [ext_resource type="Script" uid="uid://c1dhww7hknp2n" path="res://scripts/ui/main_menu.gd" id="1_8ekit"]
 [ext_resource type="PackedScene" uid="uid://bgpjnf0yncr3w" path="res://assets/models/props/Gear.fbx" id="1_m1kxf"]
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_x2yvf"]
+[ext_resource type="PackedScene" uid="uid://b02i8t36xvyu6" path="res://scenes/levels/janitor_room.tscn" id="2_y1h5l"]
 [ext_resource type="Script" uid="uid://c0pypxish6hp1" path="res://scripts/ui/moving_menu_item.gd" id="3_n4uci"]
 [ext_resource type="Texture2D" uid="uid://m1kf6xfwdjq0" path="res://assets/textures/general/rusty_metal.png" id="3_uhagc"]
 [ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="4_btxxm"]
@@ -11,12 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://ditks6tsk643t" path="res://assets/models/props/old_book.fbx" id="6_8g5eo"]
 [ext_resource type="Texture2D" uid="uid://b6sd4wfax5xy0" path="res://assets/textures/ui/book.png" id="7_7suek"]
 [ext_resource type="PackedScene" uid="uid://n2sfk1fp3b5y" path="res://assets/models/props/doorway.fbx" id="8_otr3d"]
+[ext_resource type="PackedScene" uid="uid://b6bg6vry86whs" path="res://scenes/props/streetlight.tscn" id="8_qilvv"]
+[ext_resource type="Texture2D" uid="uid://efvklimf0bcu" path="res://assets/textures/general/concrete.png" id="9_4ovp2"]
 [ext_resource type="Texture2D" uid="uid://bi6bvdjjgphbx" path="res://assets/textures/general/wood_medium.png" id="9_8ekit"]
 [ext_resource type="Shader" uid="uid://cqki2n8633n07" path="res://scripts/shaders/main_menu.gdshader" id="10_otr3d"]
+[ext_resource type="Texture2D" uid="uid://l85ug8kxod53" path="res://assets/textures/general/black_metal.png" id="11_1mexh"]
 [ext_resource type="Shader" uid="uid://drqr45oe5lnt1" path="res://scripts/shaders/dither.gdshader" id="11_7suek"]
+[ext_resource type="Texture2D" uid="uid://dem83su767iot" path="res://assets/textures/props/ceiling_light.png" id="12_6ud2m"]
 [ext_resource type="FontFile" uid="uid://bpyxbow5lhoq5" path="res://assets/fonts/nokiafc22.ttf" id="14_877pj"]
 [ext_resource type="Environment" uid="uid://3x2egdeg8igp" path="res://resources/star_sky.tres" id="14_y2j7i"]
+[ext_resource type="PackedScene" uid="uid://cyh0j8khbnyf7" path="res://scenes/props/exit_sign.tscn" id="15_jbte4"]
 [ext_resource type="FontFile" uid="uid://bv0v1f5ps517b" path="res://assets/fonts/alagard.ttf" id="16_ayp64"]
+[ext_resource type="Texture2D" uid="uid://dletov5bxg7ge" path="res://assets/textures/props/exit_sign.png" id="16_e0hcc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ayp64"]
 render_priority = 0
@@ -81,6 +88,120 @@ material = SubResource("ShaderMaterial_8ekit")
 size = Vector2(1.25, 1.85)
 orientation = 2
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qilvv"]
+render_priority = 0
+shader = ExtResource("2_x2yvf")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("9_4ovp2")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(0.1, 0.1, 0.1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbte4"]
+render_priority = 0
+shader = ExtResource("2_x2yvf")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("3_uhagc")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(0.1, 0.5, 0.1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ovp2"]
+render_priority = 0
+shader = ExtResource("2_x2yvf")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("11_1mexh")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(0.25, 0.25, 0.25)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mexh"]
+render_priority = 0
+shader = ExtResource("2_x2yvf")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("12_6ud2m")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ud2m"]
+render_priority = 0
+shader = ExtResource("2_x2yvf")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("9_4ovp2")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.75
+
+[sub_resource type="BoxMesh" id="BoxMesh_qqxfm"]
+material = SubResource("ShaderMaterial_6ud2m")
+size = Vector3(0.5, 0.1, 0.5)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wb0q5"]
 render_priority = 0
 shader = ExtResource("2_x2yvf")
@@ -101,7 +222,7 @@ shader_parameter/triplanar_blend_sharpness = 4.0
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/affine_mapping = true
 shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.5
+shader_parameter/jitter = 0.75
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_okhp1"]
 _surfaces = [{
@@ -155,7 +276,7 @@ shader_parameter/triplanar_blend_sharpness = 4.0
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/affine_mapping = true
 shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.5
+shader_parameter/jitter = 0.75
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_td86l"]
 _surfaces = [{
@@ -211,7 +332,7 @@ shader_parameter/triplanar_blend_sharpness = 4.0
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/affine_mapping = true
 shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.5
+shader_parameter/jitter = 0.75
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gyt2a"]
 _surfaces = [{
@@ -247,33 +368,88 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gyt2a")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qch7b"]
+render_priority = 0
+shader = ExtResource("2_x2yvf")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("16_e0hcc")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_emission = ExtResource("16_e0hcc")
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.75
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vh0dj"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXIzwK1yM8CtcjPArXI7wK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yO8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4ovp2"]
+resource_name = "Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"attribute_data": PackedByteArray("9txUOgAAAADOzCw/AAAAAM7MLD8AAAA/9txUOgAAAD9r+nw/MA6OPWv6fD8AACA/F/syPwAAID8X+zI/MA6OPQAAAAAAAAA/GaYqPwAAAD8Zpio/AACAPwAAAAAAAIA/AACAPwAAQD8AAIA/AACAPwAALD8AAIA/AAAsPwAAQD9laH8/AAAwPxOKKj8AADA/E4oqPwAAoD5maH8/AACgPqyqfj8AAAw/VlUtPwAADD9WVS0/AABAP6yqfj8AAEA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("ShaderMaterial_qch7b"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXIzwK1yM8CtcjvArXIzwK1yM8CtcjvArXIzwK1yO8CtcjPArXIzwK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yO8CtcjPArXI7wK1yO8CtcjvArXI7wK1yM8CtcjPArXI7wK1yM8CtcjPArXI7wK1yO8CtcjvArXI7wK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8CtcjvArXIzwK1yO8CtcjvArXI7wK1yO8CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AID/f////3//v/9/////f/+//3////9//7//f////3//v////3//f///////f/9///////9//3///////3//f////38AAP9//7//fwAA/3//v/9/AAD/f/+//38AAP9//7///////38AgP//////fwCA//////9/AID//////38AgP9//3//f/5//3//f/9//n//f/9//3/+f/9//3//f/5/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vh0dj")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_otr3d"]
 shader = ExtResource("11_7suek")
 shader_parameter/fog_color = Color(1, 1, 1, 1)
 shader_parameter/resolution_downsampling = 1.0
 shader_parameter/bit_depth = 16.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pw24t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dct7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qilvv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbte4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0hcc"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qch7b"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2j7i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ovp2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y1h5l"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1mexh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_877pj"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ud2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqxfm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ktljq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rbask"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6a60"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5et21"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ei00g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75tx2"]
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_8ekit")
@@ -281,43 +457,123 @@ script = ExtResource("1_8ekit")
 [node name="CameraPivot" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
 
-[node name="Carousel" type="Node3D" parent="."]
+[node name="JanitorRoom" parent="." instance=ExtResource("2_y1h5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
-[node name="Play" parent="Carousel" instance=ExtResource("8_otr3d")]
+[node name="Play" parent="." instance=ExtResource("8_otr3d")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 1)
+visible = false
 script = ExtResource("3_n4uci")
 
-[node name="Cube" parent="Carousel/Play" index="0"]
+[node name="Cube" parent="Play" index="0"]
 mesh = SubResource("ArrayMesh_y2j7i")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Carousel/Play"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Play"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0164673, -0.0823367, 0)
 mesh = SubResource("PlaneMesh_pw24t")
 
+[node name="Carousel" type="Node3D" parent="."]
+
+[node name="Play" type="Node3D" parent="Carousel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("3_n4uci")
+
+[node name="Streetlight5" parent="Carousel/Play" instance=ExtResource("8_qilvv")]
+transform = Transform3D(-5.36422e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -5.36422e-09, 0, -0.174665, 0.0973164)
+
+[node name="SpotLight3D" parent="Carousel/Play/Streetlight5" index="0"]
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="CSGCylinder3D" parent="Carousel/Play/Streetlight5/CSGCombiner3D" index="0"]
+material = SubResource("ShaderMaterial_qilvv")
+
+[node name="CSGCylinder3D2" parent="Carousel/Play/Streetlight5/CSGCombiner3D" index="1"]
+material = SubResource("ShaderMaterial_jbte4")
+
+[node name="CSGCylinder3D3" parent="Carousel/Play/Streetlight5/CSGCombiner3D" index="2"]
+material = SubResource("ShaderMaterial_jbte4")
+
+[node name="CSGCylinder3D5" parent="Carousel/Play/Streetlight5/CSGCombiner3D" index="3"]
+material = SubResource("ShaderMaterial_4ovp2")
+
+[node name="CSGCylinder3D4" parent="Carousel/Play/Streetlight5/CSGCombiner3D" index="4"]
+material = SubResource("ShaderMaterial_1mexh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Carousel/Play"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225, -0.0104954)
+mesh = SubResource("BoxMesh_qqxfm")
+
 [node name="Settings" parent="Carousel" instance=ExtResource("1_m1kxf")]
-transform = Transform3D(-8.74228e-09, 0.2, -8.74228e-09, 0, -8.74228e-09, -0.2, -0.2, -8.74228e-09, 3.82137e-16, 1, 0, 0)
+transform = Transform3D(-0.1345, -0.0618033, -0.134499, 0.141421, -1.24192e-07, -0.141422, 0.0437016, -0.190211, 0.0437016, 0.309, 0, 0.951)
 script = ExtResource("3_n4uci")
 
 [node name="Cylinder" parent="Carousel/Settings" index="0"]
 mesh = SubResource("ArrayMesh_q85j6")
 
 [node name="Credits" parent="Carousel" instance=ExtResource("6_8g5eo")]
-transform = Transform3D(0.25, 0, 0, 0, 0.125, 0.216507, 0, -0.216507, 0.125, 0, 0, -1)
+transform = Transform3D(0.146946, -0.190057, -0.0691752, 0, 0.0855052, -0.234924, 0.202254, 0.138085, 0.0502587, -0.809, 0, 0.588)
 script = ExtResource("3_n4uci")
 
 [node name="Cube" parent="Carousel/Credits" index="0"]
 mesh = SubResource("ArrayMesh_877pj")
 
 [node name="Load" parent="Carousel" instance=ExtResource("4_uhagc")]
-transform = Transform3D(-1.09278e-08, 0.25, -1.09278e-08, 0, -1.09278e-08, -0.25, -0.25, -1.09278e-08, 4.77671e-16, -1, 0, 0)
+transform = Transform3D(-8.84081e-09, -0.202254, -0.146946, 0.25, -1.09278e-08, 0, -6.42323e-09, -0.146946, 0.202254, -0.809, 0, -0.588)
 script = ExtResource("3_n4uci")
 
 [node name="Cylinder" parent="Carousel/Load" index="0"]
+mesh = SubResource("ArrayMesh_8g5eo")
+
+[node name="Exit" parent="Carousel" instance=ExtResource("15_jbte4")]
+transform = Transform3D(-0.231763, 0, -0.713292, 0, 0.75, 0, 0.713292, 0, -0.231763, 0.309, 0, -0.951)
+script = ExtResource("3_n4uci")
+
+[node name="Cube" parent="Carousel/Exit/exit_sign" index="0"]
+mesh = SubResource("ArrayMesh_4ovp2")
+
+[node name="LoadCarousel" type="Node3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+visible = false
+
+[node name="Load4" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
+transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 1, 0, 0)
+script = ExtResource("3_n4uci")
+
+[node name="Cylinder" parent="LoadCarousel/Load4" index="0"]
+mesh = SubResource("ArrayMesh_8g5eo")
+
+[node name="Load3" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
+transform = Transform3D(-0.168125, -0.0772541, -0.168124, 0.176776, -1.55241e-07, -0.176777, 0.054627, -0.237764, 0.0546269, 0.309, 0, 0.951)
+script = ExtResource("3_n4uci")
+
+[node name="Cylinder" parent="LoadCarousel/Load3" index="0"]
+mesh = SubResource("ArrayMesh_8g5eo")
+
+[node name="Load2" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
+transform = Transform3D(0.146946, -0.202254, 8.8408e-09, 0, -1.09278e-08, -0.25, 0.202254, 0.146946, -6.42322e-09, -0.809, 0, 0.588)
+script = ExtResource("3_n4uci")
+
+[node name="Cylinder" parent="LoadCarousel/Load2" index="0"]
+mesh = SubResource("ArrayMesh_8g5eo")
+
+[node name="Load1" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
+transform = Transform3D(-8.84081e-09, -0.202254, -0.146946, 0.25, -1.09278e-08, 0, -6.42323e-09, -0.146946, 0.202254, -0.809, 0, -0.588)
+script = ExtResource("3_n4uci")
+
+[node name="Cylinder" parent="LoadCarousel/Load1" index="0"]
+mesh = SubResource("ArrayMesh_8g5eo")
+
+[node name="Load5" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
+transform = Transform3D(3.37689e-09, 0.0772541, -0.237764, 0.25, -1.09278e-08, 0, -1.0393e-08, -0.237764, -0.0772541, 0.309, 0, -0.951)
+script = ExtResource("3_n4uci")
+
+[node name="Cylinder" parent="LoadCarousel/Load5" index="0"]
 mesh = SubResource("ArrayMesh_8g5eo")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("4_btxxm")]
@@ -335,63 +591,79 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+[node name="LoadUi" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="LeftButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 8
-theme_override_colors/font_hover_color = Color(0.701961, 0, 0, 1)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0.392157, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0.392157, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("14_877pj")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_pw24t")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5dct7")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_qilvv")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jbte4")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e0hcc")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qch7b")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_y2j7i")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4ovp2")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_y1h5l")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1mexh")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_877pj")
-text = "<"
-
-[node name="ItemLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.392157, 0, 0, 1)
-theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("16_ayp64")
-theme_override_font_sizes/font_size = 16
-text = "SETTINGS"
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/LoadUi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("16_ayp64")
+theme_override_font_sizes/normal_font_size = 16
+text = "Name: 
+level:
+playtime: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RightButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="MainMenuUi" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="BackButton" type="Button" parent="CanvasLayer/MainMenuUi"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_colors/font_hover_color = Color(0.701961, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("16_ayp64")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qch7b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4ovp2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1mexh")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6ud2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qqxfm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ktljq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rbask")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e6a60")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5et21")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ei00g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_75tx2")
+text = "BACK"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenuUi"]
+layout_mode = 2
 size_flags_vertical = 8
+
+[node name="LeftButton" type="Button" parent="CanvasLayer/MainMenuUi/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 theme_override_colors/font_hover_color = Color(0.701961, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
@@ -400,24 +672,182 @@ theme_override_colors/font_focus_color = Color(0.392157, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("14_877pj")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_pw24t")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5dct7")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_qilvv")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_jbte4")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e0hcc")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qch7b")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_y2j7i")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4ovp2")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_y1h5l")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1mexh")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_877pj")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qch7b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4ovp2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1mexh")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6ud2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qqxfm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ktljq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rbask")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e6a60")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5et21")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ei00g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_75tx2")
+text = "<"
+
+[node name="MenuItemButton" type="Button" parent="CanvasLayer/MainMenuUi/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.701961, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("16_ayp64")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qch7b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4ovp2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1mexh")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6ud2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qqxfm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ktljq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rbask")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e6a60")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5et21")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ei00g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_75tx2")
+text = "TEXT"
+
+[node name="RightButton" type="Button" parent="CanvasLayer/MainMenuUi/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.701961, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.392157, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("14_877pj")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qch7b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4ovp2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1mexh")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6ud2m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_qqxfm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ktljq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rbask")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_e6a60")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5et21")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ei00g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_75tx2")
 text = ">"
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/LeftButton" to="." method="_on_left_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]
+[node name="SettingsUi" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[editable path="Carousel/Play"]
+[node name="Panel" type="Panel" parent="CanvasLayer/SettingsUi"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SettingsUi/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/SettingsUi/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="SettingsLabel" type="Label" parent="CanvasLayer/SettingsUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SETTINGS"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/SettingsUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sfx" type="Label" parent="CanvasLayer/SettingsUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SFX"
+
+[node name="SfxSlider" type="HSlider" parent="CanvasLayer/SettingsUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="CanvasLayer/SettingsUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/SettingsUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreditsUi" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="CanvasLayer/CreditsUi"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CreditsUi/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CreditsUi/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/CreditsUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/CreditsUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/CreditsUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="CanvasLayer/MainMenuUi/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuUi/HBoxContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuUi/HBoxContainer/MenuItemButton" to="." method="_on_menu_item_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuUi/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]
+
+[editable path="Play"]
+[editable path="Carousel/Play/Streetlight5"]
 [editable path="Carousel/Settings"]
 [editable path="Carousel/Credits"]
 [editable path="Carousel/Load"]
+[editable path="Carousel/Exit"]
+[editable path="Carousel/Exit/exit_sign"]
+[editable path="LoadCarousel/Load4"]
+[editable path="LoadCarousel/Load3"]
+[editable path="LoadCarousel/Load2"]
+[editable path="LoadCarousel/Load1"]
+[editable path="LoadCarousel/Load5"]
