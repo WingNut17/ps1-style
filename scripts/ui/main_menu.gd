@@ -1,6 +1,8 @@
 extends Node3D
 
 
+signal start_game
+
 @export var world: Node
 @export var main: Node3D
 
@@ -9,6 +11,7 @@ extends Node3D
 @onready var load_carousel: Node3D = $LoadCarousel
 @onready var menu_item_button: Button = %MenuItemButton
 @onready var back_button: Button = %BackButton
+@onready var menu_ui_audio: AudioStreamPlayer = $MenuUiAudio
 
 const PLAYER = preload("res://main/player/player.tscn")
 const ROTATION_STEP = 72.0
@@ -40,7 +43,11 @@ func populate_menu_array(node: Node3D) -> void:
 func rotate_carousel(direction: String) -> void:
 	var tween := get_tree().create_tween()
 	var rotation_change := Vector3(0, ROTATION_STEP if direction == "right" else -ROTATION_STEP, 0)
-
+	
+	menu_ui_audio.stream = preload("res://assets/audio/sound/ui/menu_move.ogg")
+	menu_ui_audio.pitch_scale = randf_range(1.0, 1.2) if direction == "right" else randf_range(0.8, 1.0)
+	menu_ui_audio.play()
+	
 	can_move = false
 	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(camera_pivot, "rotation_degrees", camera_pivot.rotation_degrees + rotation_change, TWEEN_DURATION)
@@ -60,7 +67,7 @@ func _on_tween_finished() -> void:
 func perform_menu_action(menu_item: String) -> void:
 	match menu_item:
 		"Play":
-			start_game()
+			start_game.emit()
 		"Settings":
 			print("Settings")
 		"Credits":
@@ -73,15 +80,10 @@ func perform_menu_action(menu_item: String) -> void:
 			print(menu_item)
 		_:
 			print("No menu action assigned to: ", menu_item)
-
-func start_game() -> void:
-	var player_instance = PLAYER.instantiate()
-	main.add_child(player_instance)
-
-	if world.has_method("switch_to_level"):
-		world.switch_to_level("floor_1")
-
-	queue_free()
+	
+	menu_ui_audio.stream = preload("res://assets/audio/sound/ui/item_select.ogg")
+	menu_ui_audio.pitch_scale = 1.0
+	menu_ui_audio.play()
 
 func open_load_carousel() -> void:
 	back_button.visible = true
@@ -120,6 +122,10 @@ func _on_back_button_pressed() -> void:
 	current_carousel = carousel
 	populate_menu_array(current_carousel)
 	select_item(item_idx)
+	
+	menu_ui_audio.stream = preload("res://assets/audio/sound/ui/item_select.ogg")
+	menu_ui_audio.pitch_scale = 1.0
+	menu_ui_audio.play()
 
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)

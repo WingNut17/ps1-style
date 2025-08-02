@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=6 format=3 uid="uid://cxdptkv1jqava"]
+
+[ext_resource type="AudioStream" uid="uid://dowt7cpc7qi84" path="res://assets/audio/sound/props/pistol_no_ammo.ogg" id="1_n4vss"]
+[ext_resource type="AudioStream" uid="uid://dooecsc0ju2do" path="res://assets/audio/sound/props/pistol_reload.ogg" id="2_uq43g"]
+[ext_resource type="Script" uid="uid://35e0sxv41p52" path="res://scripts/systems/weapon/weapon_stats.gd" id="3_goye3"]
+[ext_resource type="AudioStream" uid="uid://dbbcamrkvtatm" path="res://assets/audio/sound/props/pistol_shoot.ogg" id="4_ubunf"]
+[ext_resource type="PackedScene" uid="uid://lvdscrya1ql6" path="res://scenes/props/weapons/glock_19.tscn" id="6_sxmrk"]
+
+[resource]
+script = ExtResource("3_goye3")
+weapon_name = "Glock-19"
+weapon_model = ExtResource("6_sxmrk")
+type = "Gun"
+full_auto = true
+current_ammo_reserves = 12
+max_magazine_ammo = 12
+current_magazine_ammo = 12
+shoot_damage = 1
+shoot_speed = 0.1
+reload_time = 2.0
+shoot_distance = 10.0
+shoot_sound = ExtResource("4_ubunf")
+no_ammo_sound = ExtResource("1_n4vss")
+reload_sound = ExtResource("2_uq43g")
+recoil_amount = 1.0
+metadata/_custom_type_script = "uid://35e0sxv41p52"

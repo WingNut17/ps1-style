@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b02i8t36xvyu6"]
+[gd_scene load_steps=15 format=3 uid="uid://b02i8t36xvyu6"]
 
 [ext_resource type="Script" uid="uid://cpasc565t4v6v" path="res://main/level.gd" id="1_mkjlr"]
 [ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="2_0tskf"]
+[ext_resource type="PackedScene" uid="uid://tt8ehnrsextb" path="res://scenes/props/wood_table.tscn" id="2_b8qsn"]
+[ext_resource type="PackedScene" uid="uid://d1h27ymqrv0l" path="res://scenes/props/locker.tscn" id="2_ewyi1"]
 [ext_resource type="Texture2D" uid="uid://efvklimf0bcu" path="res://assets/textures/general/concrete.png" id="3_o0oha"]
 [ext_resource type="Texture2D" uid="uid://dwow24613v2n1" path="res://assets/textures/general/concrete_brick.png" id="4_5byf4"]
 [ext_resource type="Texture2D" uid="uid://boqxko4vuw3vn" path="res://assets/textures/general/concrete_normal.png" id="4_b8qsn"]
@@ -32,13 +34,13 @@ script = ExtResource("1_mkjlr")
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
-[node name="SpawnDefault" type="Marker3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.25, 0)
+[node name="Default" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4, 1.25, 0)
 
 [node name="Geometry" type="Node3D" parent="."]
 
 [node name="Floor" type="CSGCombiner3D" parent="Geometry"]
-editor_description = "carpet"
+editor_description = "stone"
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry/Floor"]
@@ -69,6 +71,7 @@ size = Vector3(0.25, 5, 5)
 material = SubResource("StandardMaterial3D_nfyyx")
 
 [node name="Ceiling" type="CSGCombiner3D" parent="Geometry"]
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry/Ceiling"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
@@ -86,11 +89,18 @@ material = SubResource("StandardMaterial3D_5byf4")
 [node name="WoodenDoor" parent="Props/Doors" instance=ExtResource("5_rbsdc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.425, 0.125, 0)
 monitoring = false
+scene = "floor_1"
 
 [node name="Other" type="Node3D" parent="Props"]
 
 [node name="Vent_cover" parent="Props/Other" instance=ExtResource("6_rprhf")]
 transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 5.5, 4, 0)
+
+[node name="WoodTable" parent="Props/Other" instance=ExtResource("2_b8qsn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28885, 1.34598, -1.88087)
+
+[node name="Locker" parent="Props/Other" instance=ExtResource("2_ewyi1")]
+transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, -1.2, 0.525, -2.19613)
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -101,8 +111,7 @@ flickering = true
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_0tskf")]
 environment = null
-enabled_in_editor = true
-environment_resource = null
+enabled_in_editor = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

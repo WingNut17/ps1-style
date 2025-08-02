@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl6oh4rfahtqm"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f34b7"]
+size = Vector2(5, 5)
+
+[node name="Sprite3D" type="Sprite3D"]
+billboard = 1
+texture = SubResource("PlaceholderTexture2D_f34b7")

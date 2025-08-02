@@ -10,7 +10,7 @@ metadata/_custom_type_script = "uid://cpasc565t4v6v"
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
-[node name="SpawnDefault" type="Marker3D" parent="SpawnPoints"]
+[node name="Default" type="Marker3D" parent="SpawnPoints"]
 
 [node name="Geometry" type="Node3D" parent="."]
 
@@ -22,6 +22,7 @@ use_collision = true
 use_collision = true
 
 [node name="Ceiling" type="CSGCombiner3D" parent="Geometry"]
+use_collision = true
 
 [node name="Front" type="CSGCombiner3D" parent="Geometry"]
 

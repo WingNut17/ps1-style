@@ -30,6 +30,7 @@ func switch_to_level(level_id: String, delete: bool = true, keep_running: bool =
 	scene_transition_visual.melt_transition(level_id)
 
 	current_level = Level.new()
+	current_level.name = level_id
 	current_level.initialize(level_id)
 	add_child(current_level)
 	print("Current level: %s" % current_level.id)

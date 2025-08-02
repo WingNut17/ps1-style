@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bs8emq6dkn2cr"]
+[gd_scene load_steps=7 format=4 uid="uid://bs8emq6dkn2cr"]
 
 [ext_resource type="PackedScene" uid="uid://dhkqcakwxh6rq" path="res://assets/models/characters/man_with_animations.glb" id="1_q2jqw"]
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_i6srm"]
 [ext_resource type="Texture2D" uid="uid://co3ok8lc8viwg" path="res://assets/textures/characters/man_t256-export.png" id="3_q2jqw"]
+[ext_resource type="PackedScene" uid="uid://brdsax3h741ui" path="res://scenes/characters/npc.tscn" id="4_i6srm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q2jqw"]
 render_priority = 0
@@ -13,14 +14,14 @@ shader_parameter/specular = 0.0
 shader_parameter/metallic = 0.0
 shader_parameter/texture_albedo = ExtResource("3_q2jqw")
 shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/emission = Color(0, 0, 0, 1)
 shader_parameter/emission_energy = 0.0
 shader_parameter/use_triplanar = false
 shader_parameter/triplanar_scale = 1.0
 shader_parameter/triplanar_blend_sharpness = 4.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/affine_mapping = true
 shader_parameter/alpha_scissor = 0.5
@@ -82,3 +83,5 @@ mesh = SubResource("ArrayMesh_0bl41")
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "idle"
+
+[node name="NPC" parent="." index="2" instance=ExtResource("4_i6srm")]

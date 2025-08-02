@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://biwgltdk82njc"]
+
+[ext_resource type="Script" uid="uid://35e0sxv41p52" path="res://scripts/systems/weapon/weapon_stats.gd" id="1_taet3"]
+
+[resource]
+script = ExtResource("1_taet3")
+weapon_name = "Kitchen Knife"
+type = ""
+full_auto = false
+current_ammo_reserves = 0
+max_magazine_ammo = 0
+current_magazine_ammo = 0
+shoot_damage = 1
+shoot_speed = 1.0
+reload_time = 2.0
+shoot_distance = 10.0
+recoil_amount = 0.0
+metadata/_custom_type_script = "uid://35e0sxv41p52"

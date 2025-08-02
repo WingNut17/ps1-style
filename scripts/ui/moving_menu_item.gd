@@ -18,7 +18,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_position = event.global_position
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not item_selected:
 		return
 	

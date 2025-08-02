@@ -10,12 +10,7 @@ const SPEED = 3.5
 const JUMP_VELOCITY = 4.5
 const CROUCH_SPEED = 4.0  
 
-var can_move: bool = true:
-	set(value):
-		can_move = value
-		head.can_move = value
 var flashlight_toggled: bool = false
-
 var input_direction: Vector2 = Vector2.ZERO
 var shape: Shape3D
 var crouching: bool = false
@@ -36,6 +31,9 @@ func _ready() -> void:
 		flashlight_toggled = true
 
 func _input(event: InputEvent) -> void:
+	if GameState.should_block_player_input():
+		return
+		
 	if event.is_action_pressed("crouch"):
 		crouch()
 	
@@ -56,7 +54,7 @@ func _input(event: InputEvent) -> void:
 	input_direction = Input.get_vector("left", "right", "forward", "backward")
 
 func _physics_process(delta: float) -> void:
-	if !can_move:
+	if GameState.should_block_player_input():
 		return
 
 	# Smoothly interpolate the collision shape height
@@ -105,12 +103,6 @@ func crouch() -> void:
 		crouching = false
 		target_height = normal_height
 		target_collision_height = normal_collision_height
-
-func dialogue_end() -> void:
-	can_move = true
-
-func dialogue_start() -> void:
-	can_move = false
 
 func teleport_to_spawn(spawn_position: Vector3):
 	self.global_transform.origin = spawn_position

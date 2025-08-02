@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://vu68h5sot7hb"]
+[gd_scene load_steps=70 format=3 uid="uid://vu68h5sot7hb"]
 
 [ext_resource type="Texture2D" uid="uid://cjrmb5045exxr" path="res://assets/textures/general/carpet.png" id="2_l44tt"]
 [ext_resource type="Texture2D" uid="uid://brqvj38n7kb5l" path="res://assets/textures/general/brick_wall.png" id="4_b1yqc"]
@@ -28,7 +28,9 @@
 [ext_resource type="Script" uid="uid://bmybto1ttwjgm" path="res://scripts/other/directional_light_3d.gd" id="24_46dkd"]
 [ext_resource type="AudioStream" uid="uid://df5vnftc3cr2a" path="res://assets/audio/sound/environment/city_ambience_cars.ogg" id="25_71f7s"]
 [ext_resource type="Script" uid="uid://ciaixkedip8gg" path="res://scripts/systems/one_shot_audio.gd" id="26_0oube"]
+[ext_resource type="AudioStream" uid="uid://cpt0jn6efftf3" path="res://assets/audio/sound/environment/firetruck.ogg" id="28_j0l4c"]
 [ext_resource type="PackedScene" uid="uid://d2e7mbxh6ea8b" path="res://scenes/props/radiator.tscn" id="29_71f7s"]
+[ext_resource type="AudioStream" uid="uid://bvbt10gn5lg2h" path="res://assets/audio/sound/environment/ambulence_siren.ogg" id="29_o58mi"]
 [ext_resource type="AudioStream" uid="uid://dkcdylc5naxkj" path="res://assets/audio/sound/environment/honk1.ogg" id="29_qhw22"]
 [ext_resource type="AudioStream" uid="uid://dcw3a655va6kd" path="res://assets/audio/sound/environment/honk2.ogg" id="30_vhla8"]
 [ext_resource type="AudioStream" uid="uid://blnl4edn0gds2" path="res://assets/audio/sound/environment/honk3.ogg" id="31_j0l4c"]
@@ -85,10 +87,9 @@ texture_filter = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elhgw"]
 transparency = 1
-albedo_color = Color(1, 1, 1, 0.0980392)
+albedo_color = Color(1, 1, 1, 0.0901961)
 albedo_texture = ExtResource("7_xevkl")
 roughness = 0.0
-normal_enabled = true
 normal_scale = 0.25
 normal_texture = ExtResource("12_71f7s")
 uv1_triplanar = true
@@ -814,7 +815,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 10)
 
 [node name="CeilingLight" parent="Lights" instance=ExtResource("17_xot43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.25, 4.8, 0)
-flickering = true
 
 [node name="CeilingLight2" parent="Lights" instance=ExtResource("17_xot43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.25, 4.8, 8.5)
@@ -874,17 +874,18 @@ volume_db = -20.0
 autoplay = true
 bus = &"Sfx"
 
-[node name="PoliceSiren" type="AudioStreamPlayer3D" parent="AmbienceAudio"]
+[node name="Siren" type="AudioStreamPlayer3D" parent="AmbienceAudio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 3, 0)
-stream = ExtResource("13_8tiv6")
-volume_db = -40.0
+volume_db = -10.0
 bus = &"Sfx"
 script = ExtResource("26_0oube")
 random_time = Array[float]([60.0, 240.0])
+random_sounds = Array[AudioStreamOggVorbis]([ExtResource("13_8tiv6"), ExtResource("28_j0l4c"), ExtResource("29_o58mi")])
 metadata/_custom_type_script = "uid://ciaixkedip8gg"
 
 [node name="CarHonk" type="AudioStreamPlayer3D" parent="AmbienceAudio"]
-volume_db = -50.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 3, 0)
+volume_db = -30.0
 bus = &"Sfx"
 script = ExtResource("26_0oube")
 random_sounds = Array[AudioStreamOggVorbis]([ExtResource("29_qhw22"), ExtResource("30_vhla8"), ExtResource("31_j0l4c")])
@@ -901,6 +902,4 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 40.5, 
 script = ExtResource("24_46dkd")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("8_qb5t8")]
-environment = null
-enabled_in_editor = false
-environment_resource = null
+enabled_in_editor = true

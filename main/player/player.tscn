@@ -1,18 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=16 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
+[ext_resource type="Script" uid="uid://jn8kf3ruep6u" path="res://scripts/systems/health/health.gd" id="2_eoovf"]
+[ext_resource type="Script" uid="uid://da6fmxaqqi7jv" path="res://scripts/systems/health/hurtbox.gd" id="3_8ifdq"]
 [ext_resource type="Shader" uid="uid://drqr45oe5lnt1" path="res://scripts/shaders/dither.gdshader" id="3_ssv3l"]
 [ext_resource type="Script" uid="uid://opmftn7c8q3n" path="res://main/player/interact_ray.gd" id="4_4bbr4"]
 [ext_resource type="Texture2D" uid="uid://c15ais4d1hqmw" path="res://assets/textures/items/flashlight.png" id="4_f8m1i"]
+[ext_resource type="Script" uid="uid://df4l6ld0a6ix5" path="res://main/player/inventory.gd" id="4_xcylc"]
 [ext_resource type="Script" uid="uid://di1x6n3vm2s6q" path="res://main/player/foot_cast.gd" id="5_f8m1i"]
+[ext_resource type="Script" uid="uid://bwrfau2ai7ofn" path="res://scripts/systems/weapon/weapon.gd" id="5_fawi8"]
+[ext_resource type="Resource" uid="uid://cxdptkv1jqava" path="res://resources/weapons/glock_19.tres" id="7_fawi8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f8m1i"]
 radius = 0.375
 
 [sub_resource type="Gradient" id="Gradient_4bbr4"]
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 0.478431)
+colors = PackedColorArray(0, 1, 0, 0.478431)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_l6plr"]
 gradient = SubResource("Gradient_4bbr4")
@@ -30,16 +35,33 @@ script = ExtResource("1_howr1")
 head = NodePath("Head")
 collision_shape = NodePath("CollisionShape3D")
 foot_cast = NodePath("FootCast")
-flashlight = NodePath("Head/FlashLight")
+flashlight = NodePath("Hand/Weapon/FlashLight")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_eoovf")
+metadata/_custom_type_script = "uid://jn8kf3ruep6u"
+
+[node name="HurtBox" type="Area3D" parent="." node_paths=PackedStringArray("health")]
+script = ExtResource("3_8ifdq")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://da6fmxaqqi7jv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
+shape = SubResource("CapsuleShape3D_f8m1i")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("4_xcylc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_f8m1i")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("crosshair")]
+[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("crosshair", "hand")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("1_vuxkg")
-crosshair = NodePath("../CanvasLayer/Crosshair")
+crosshair = NodePath("../PlayerUI/Crosshair")
+hand = NodePath("../Hand")
 sensitivity = 0.35
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
@@ -50,9 +72,24 @@ collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("4_4bbr4")
 player = NodePath("../..")
-crosshair = NodePath("../../CanvasLayer/Crosshair")
+crosshair = NodePath("../../PlayerUI/Crosshair")
 
-[node name="FlashLight" type="SpotLight3D" parent="Head"]
+[node name="Hand" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Weapon" type="Node3D" parent="Hand" node_paths=PackedStringArray("head", "camera", "weapon_pos", "ammo_label")]
+script = ExtResource("5_fawi8")
+head = NodePath("../../Head")
+camera = NodePath("../../Head/Camera3D")
+weapon_pos = NodePath("WeaponPos")
+ammo_label = NodePath("../../PlayerUI/MarginContainer/AmmoLabel")
+weapon_stats = ExtResource("7_fawi8")
+metadata/_custom_type_script = "uid://bwrfau2ai7ofn"
+
+[node name="WeaponPos" type="Marker3D" parent="Hand/Weapon"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.25, -0.2, -0.5)
+
+[node name="FlashLight" type="SpotLight3D" parent="Hand/Weapon"]
 light_energy = 10.0
 light_projector = ExtResource("4_f8m1i")
 shadow_enabled = true
@@ -70,9 +107,9 @@ one_shot = true
 volume_db = -10.0
 bus = &"Sfx"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="PlayerUI" type="CanvasLayer" parent="."]
 
-[node name="Crosshair" type="TextureRect" parent="CanvasLayer"]
+[node name="Crosshair" type="TextureRect" parent="PlayerUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -87,10 +124,29 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_l6plr")
 stretch_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="PlayerUI"]
+visible = false
 material = SubResource("ShaderMaterial_4bbr4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="AmmoLabel" type="Label" parent="PlayerUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 10
+text = "Ammo: "

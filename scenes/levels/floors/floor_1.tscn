@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b83cmrj4lqv27" path="res://assets/textures/characters/low_poly_fox_mulder_xfiles_ps1_style_0.png" id="18_f2gbg"]
 [ext_resource type="Script" uid="uid://dkok0pec8hqa2" path="res://scripts/systems/interaction/dialogue_interact.gd" id="19_enyq0"]
 [ext_resource type="Resource" uid="uid://da28sdbmslnto" path="res://resources/dialogue/dialogue_test.dialogue" id="20_awlk3"]
-[ext_resource type="PackedScene" uid="uid://bs8emq6dkn2cr" path="res://scenes/Characters/man_with_animations.tscn" id="21_fed8d"]
+[ext_resource type="PackedScene" uid="uid://bs8emq6dkn2cr" path="res://scenes/characters/man_with_animations.tscn" id="21_fed8d"]
 [ext_resource type="Animation" uid="uid://b6bubv8n7f3" path="res://resources/cutscene_talk.res" id="22_7w6xg"]
 [ext_resource type="PackedScene" uid="uid://d2e7mbxh6ea8b" path="res://scenes/props/radiator.tscn" id="23_k6sq1"]
 [ext_resource type="AudioStream" uid="uid://c8pwbbwvnd8qa" path="res://assets/audio/sound/environment/ac_hum.ogg" id="23_ttllu"]

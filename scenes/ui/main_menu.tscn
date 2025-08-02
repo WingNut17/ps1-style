@@ -454,6 +454,9 @@ shader_parameter/bit_depth = 16.0
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_8ekit")
 
+[node name="MenuUiAudio" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+
 [node name="CameraPivot" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
@@ -577,8 +580,8 @@ script = ExtResource("3_n4uci")
 mesh = SubResource("ArrayMesh_8g5eo")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("4_btxxm")]
-environment = ExtResource("14_y2j7i")
-enabled_in_editor = true
+environment = null
+enabled_in_editor = false
 environment_resource = ExtResource("14_y2j7i")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://brdsax3h741ui"]
+
+[ext_resource type="Script" uid="uid://l7xtri3mw8q7" path="res://scripts/systems/npc.gd" id="1_01k3j"]
+[ext_resource type="Script" uid="uid://jn8kf3ruep6u" path="res://scripts/systems/health/health.gd" id="2_urpkq"]
+[ext_resource type="Script" uid="uid://da6fmxaqqi7jv" path="res://scripts/systems/health/hurtbox.gd" id="3_urmqq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bgitj"]
+radius = 0.25
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5xuqr"]
+radius = 0.4
+
+[node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_01k3j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_bgitj")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_urpkq")
+metadata/_custom_type_script = "uid://jn8kf3ruep6u"
+
+[node name="HurtBox" type="Area3D" parent="." node_paths=PackedStringArray("health")]
+script = ExtResource("3_urmqq")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://da6fmxaqqi7jv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5xuqr")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[connection signal="health_changed" from="Health" to="." method="_on_health_health_changed"]
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]

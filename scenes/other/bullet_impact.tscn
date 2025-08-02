@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmicaoqtjq1bf"]
+
+[ext_resource type="Texture2D" uid="uid://l85ug8kxod53" path="res://assets/textures/general/black_metal.png" id="1_mk0ba"]
+[ext_resource type="Script" uid="uid://b8fsjqwfqtef2" path="res://scripts/systems/one_shot_particle.gd" id="2_1gdnp"]
+
+[sub_resource type="Curve" id="Curve_1gdnp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.34134, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_h1gxd"]
+curve = SubResource("Curve_1gdnp")
+
+[sub_resource type="Curve" id="Curve_by1qr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.14607, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l01pg"]
+curve = SubResource("Curve_by1qr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nkihn"]
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, -4, 0)
+scale_curve = SubResource("CurveTexture_l01pg")
+alpha_curve = SubResource("CurveTexture_h1gxd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3eljj"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_mk0ba")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nx1va"]
+material = SubResource("StandardMaterial3D_3eljj")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+emitting = false
+amount = 4
+lifetime = 0.5
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_nkihn")
+draw_pass_1 = SubResource("PlaneMesh_nx1va")
+script = ExtResource("2_1gdnp")

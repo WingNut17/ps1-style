@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8ehlljur3qbv"
-path="res://.godot/imported/obj_RoomOutline.fbx-be89c7032c1ad1d708f61e048fc47375.scn"
+uid="uid://cdorcms5mvykj"
+path="res://.godot/imported/Locker_2.fbx-738737db11e85dfd763a910b7ee8034c.scn"
 
 [deps]
 
-source_file="res://obj_RoomOutline.fbx"
-dest_files=["res://.godot/imported/obj_RoomOutline.fbx-be89c7032c1ad1d708f61e048fc47375.scn"]
+source_file="res://assets/models/props/Locker_2.fbx"
+dest_files=["res://.godot/imported/Locker_2.fbx-738737db11e85dfd763a910b7ee8034c.scn"]
 
 [params]
 
