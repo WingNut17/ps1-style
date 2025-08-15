@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cjrmb5045exxr" path="res://assets/textures/general/carpet.png" id="2_l44tt"]
 [ext_resource type="Texture2D" uid="uid://brqvj38n7kb5l" path="res://assets/textures/general/brick_wall.png" id="4_b1yqc"]
 [ext_resource type="Texture2D" uid="uid://b86oughyxwtio" path="res://assets/textures/general/wallpaper.png" id="4_hmd3r"]
-[ext_resource type="Texture2D" uid="uid://b55fwr8fp2lgj" path="res://assets/textures/general/carpet_height.png" id="4_mwuba"]
+[ext_resource type="Texture2D" uid="uid://o8fpatddjifv" path="res://assets/textures/general/carpet_height.png" id="4_mwuba"]
 [ext_resource type="PackedScene" uid="uid://b5p3q16xtccgf" path="res://scenes/props/wooden_door.tscn" id="5_l44tt"]
 [ext_resource type="Texture2D" uid="uid://brf6os2j77yjr" path="res://assets/textures/general/ceiling_tile.png" id="5_lht5a"]
 [ext_resource type="PackedScene" uid="uid://dncvwitn5tjh1" path="res://scenes/props/elevator_entrance.tscn" id="5_mwuba"]

@@ -2,11 +2,11 @@ class_name WeaponAudioManager
 extends Node
 
 
-var gun_stats: WeaponStats
+var gun_stats: RangedWeaponItem
 var audio_player: AudioStreamPlayer
 
 
-func initialize(stats: WeaponStats) -> void:
+func initialize(stats: RangedWeaponItem) -> void:
 	self.name = "WeaponAudioManager"
 	gun_stats = stats
 	

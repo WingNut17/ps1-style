@@ -7,10 +7,10 @@ signal reload_requested
 signal shoot_held
 signal shoot_released
 
-var weapon_stats: WeaponStats
+var weapon_stats: RangedWeaponItem
 
 
-func initialize(stats: WeaponStats) -> void:
+func initialize(stats: RangedWeaponItem) -> void:
 	self.name = "WeaponInputHandler"
 	weapon_stats = stats
 

@@ -1,6 +1,5 @@
 extends Node3D
 
-@export var crosshair: TextureRect
 @export var hand: Node3D
 @export var sensitivity: float = 0.25
 @export var hand_follow_speed: float = 16.0
@@ -42,15 +41,11 @@ func _input(event: InputEvent) -> void:
 
 func _on_movement_blocked():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if crosshair:
-		crosshair.visible = false
 
 func _on_movement_allowed():
 	# Only re-enable if no other blocking states are active
 	if not GameState.is_any_blocking_state_active():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		if crosshair:
-			crosshair.visible = true
 
 func look_at_object(object_position: Vector3, duration: float):
 	var head_transform = global_transform

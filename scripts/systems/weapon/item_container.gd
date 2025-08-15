@@ -1,12 +1,12 @@
-class_name Weapon
-extends Node3D
+extends Node
 
 
 @export var head: Node3D
 @export var camera: Camera3D
-@export var weapon_pos: Marker3D
+@export var item_pos: Marker3D
 @export var ammo_label: Label
-@export var weapon_stats: WeaponStats
+@export var item_animation: AnimationPlayer
+@export var item_holding: Item
 
 var input_handler: WeaponInputHandler
 var audio_manager: WeaponAudioManager
@@ -18,6 +18,10 @@ var ammo_system: AmmoSystem
 func _ready() -> void:
 	setup_components()
 	connect_signals()
+	Inventory.add_item(item_holding)
+	Inventory.add_item(preload("res://resources/items/keys/old_key.tres"))
+	Inventory.add_item(preload("res://resources/items/old_book.tres"))
+	
 
 func setup_components() -> void:
 	# Initialize all weapon components
@@ -33,15 +37,15 @@ func setup_components() -> void:
 	add_child(animation_manager)
 	add_child(hitscan_system)
 	add_child(ammo_system)
-	var weapon_node = weapon_stats.weapon_model.instantiate()
-	weapon_pos.add_child(weapon_node)
+	var item_node = item_holding.item_model.instantiate()
+	item_pos.add_child(item_node)
 	
 	# Initialize components with weapon data and scene nodes
-	input_handler.initialize(weapon_stats)
-	ammo_system.initialize(weapon_stats, ammo_label)
-	audio_manager.initialize(weapon_stats)
-	animation_manager.initialize(weapon_stats, weapon_node, camera, head)
-	hitscan_system.initialize(weapon_stats)
+	input_handler.initialize(item_holding)
+	ammo_system.initialize(item_holding, ammo_label)
+	audio_manager.initialize(item_holding)
+	animation_manager.initialize(item_holding, item_node, camera, head)
+	hitscan_system.initialize(item_holding)
 
 func connect_signals() -> void:
 	input_handler.shoot_requested.connect(_on_shoot_requested)

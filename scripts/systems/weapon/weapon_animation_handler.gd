@@ -2,7 +2,7 @@ class_name WeaponAnimationManager
 extends Node
 
 
-var weapon_stats: WeaponStats
+var weapon_stats: RangedWeaponItem
 var shoot_timer: Timer
 var reload_timer: Timer
 var full_auto_timer: Timer
@@ -15,7 +15,7 @@ var head_node: Node3D
 var tween: Tween
 
 
-func initialize(stats: WeaponStats, weapon: Node3D, camera: Camera3D, head: Node3D) -> void:
+func initialize(stats: RangedWeaponItem, weapon: Node3D, camera: Camera3D, head: Node3D) -> void:
 	self.name = "WeaponAnimationManager"
 	weapon_stats = stats
 	weapon_node = weapon

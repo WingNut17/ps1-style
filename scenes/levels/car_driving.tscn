@@ -1,0 +1,145 @@
+[gd_scene load_steps=20 format=3 uid="uid://dcivfw2jqow6m"]
+
+[ext_resource type="Script" uid="uid://cpasc565t4v6v" path="res://main/level.gd" id="1_ryny5"]
+[ext_resource type="PackedScene" uid="uid://b5k7b61oxm2pt" path="res://main/player/player.tscn" id="2_bbruk"]
+[ext_resource type="Texture2D" uid="uid://chuy481gfh2sq" path="res://assets/textures/environment/road.png" id="2_r42mx"]
+[ext_resource type="Texture2D" uid="uid://bix50ffgte3ge" path="res://assets/textures/general/grass.png" id="3_bbruk"]
+[ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="4_sdcwh"]
+[ext_resource type="Texture2D" uid="uid://cgx7nums8xhfg" path="res://assets/textures/environment/coniferous_tree_1.png" id="5_bbruk"]
+[ext_resource type="Script" uid="uid://bmybto1ttwjgm" path="res://scripts/other/directional_light_3d.gd" id="5_v727d"]
+[ext_resource type="Texture2D" uid="uid://dd23l3h16bvb2" path="res://assets/textures/environment/coniferous_tree_2.png" id="6_sdcwh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iw68"]
+albedo_texture = ExtResource("2_r42mx")
+uv1_scale = Vector3(-0.075, -0.075, -0.075)
+uv1_offset = Vector3(0.5, 0, 0)
+uv1_triplanar = true
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4c3y"]
+albedo_texture = ExtResource("3_bbruk")
+uv1_scale = Vector3(0.15, 0.15, 0.15)
+uv1_triplanar = true
+texture_filter = 2
+billboard_keep_scale = true
+
+[sub_resource type="Gradient" id="Gradient_nbhgv"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1xxuk"]
+gradient = SubResource("Gradient_nbhgv")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_waktn"]
+transparency = 1
+albedo_texture = SubResource("GradientTexture2D_1xxuk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gfafw"]
+material = SubResource("StandardMaterial3D_waktn")
+size = Vector2(50, 10)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wbdrt"]
+material = SubResource("StandardMaterial3D_waktn")
+size = Vector2(36, 10)
+orientation = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdcwh"]
+transparency = 1
+albedo_texture = ExtResource("5_bbruk")
+texture_filter = 2
+billboard_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v727d"]
+material = SubResource("StandardMaterial3D_sdcwh")
+size = Vector2(10, 20)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v727d"]
+transparency = 1
+albedo_texture = ExtResource("6_sdcwh")
+texture_filter = 2
+billboard_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p4c3y"]
+material = SubResource("StandardMaterial3D_v727d")
+size = Vector2(10, 20)
+orientation = 2
+
+[node name="ExampleLevel" type="Node3D"]
+script = ExtResource("1_ryny5")
+metadata/_custom_type_script = "uid://cpasc565t4v6v"
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="Default" type="Marker3D" parent="SpawnPoints"]
+
+[node name="Player" parent="SpawnPoints/Default" instance=ExtResource("2_bbruk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="Outside" type="CSGCombiner3D" parent="Geometry"]
+editor_description = "carpet"
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geometry/Outside"]
+size = Vector3(6.65, 1, 50)
+material = SubResource("StandardMaterial3D_2iw68")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Geometry/Outside"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.825, 0, 0)
+size = Vector3(15, 1, 50)
+material = SubResource("StandardMaterial3D_p4c3y")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Geometry/Outside"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.825, 0, 0)
+size = Vector3(15, 1, 50)
+material = SubResource("StandardMaterial3D_p4c3y")
+
+[node name="Walls" type="Node3D" parent="Geometry"]
+
+[node name="CSGMesh3D" type="MeshInstance3D" parent="Geometry/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 5, 0)
+mesh = SubResource("PlaneMesh_gfafw")
+skeleton = NodePath("../../Outside")
+
+[node name="CSGMesh3D2" type="MeshInstance3D" parent="Geometry/Walls"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18, 5, 0)
+mesh = SubResource("PlaneMesh_gfafw")
+skeleton = NodePath("../../Outside")
+
+[node name="CSGMesh3D3" type="MeshInstance3D" parent="Geometry/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 5, -25)
+mesh = SubResource("PlaneMesh_wbdrt")
+skeleton = NodePath("../../Outside")
+
+[node name="CSGMesh3D4" type="MeshInstance3D" parent="Geometry/Walls"]
+transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 0, 5, 25)
+mesh = SubResource("PlaneMesh_wbdrt")
+skeleton = NodePath("../../Outside")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Trees" type="Node3D" parent="Props"]
+
+[node name="Tree" type="MeshInstance3D" parent="Props/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 10, -20)
+mesh = SubResource("PlaneMesh_v727d")
+
+[node name="Tree2" type="MeshInstance3D" parent="Props/Trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 10, -2)
+mesh = SubResource("PlaneMesh_p4c3y")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="AmbienceAudio" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("4_sdcwh")]
+environment = null
+enabled_in_editor = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("5_v727d")

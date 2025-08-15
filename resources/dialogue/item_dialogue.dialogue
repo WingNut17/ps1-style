@@ -1,0 +1,8 @@
+~ start
+Would you like to pick up {{DialogueVariables.item}}?
+- Yes
+	do DialogueVariables.pick_up_item.emit()
+	You picked up {{DialogueVariables.item}}.
+- No
+	You did not pick up {{DialogueVariables.item}}.
+=> END

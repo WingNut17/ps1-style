@@ -2,9 +2,12 @@ extends CharacterBody3D
 
 
 @export var head : Node3D
+@export var camera : Camera3D
 @export var collision_shape : CollisionShape3D
 @export var foot_cast : RayCast3D
 @export var flashlight : SpotLight3D
+
+@onready var inventory: Control = %Inventory
 
 const SPEED = 3.5
 const JUMP_VELOCITY = 4.5
@@ -39,7 +42,7 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_released("crouch"):
 		crouch()
-	
+
 	# to be honest i dont think this game even needs a jump...
 	if event.is_action_pressed("jump") and is_on_floor() and not crouching:
 		jump()
@@ -52,6 +55,15 @@ func _input(event: InputEvent) -> void:
 		flashlight_toggled = !flashlight_toggled
 	
 	input_direction = Input.get_vector("left", "right", "forward", "backward")
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("inventory"):
+		print("pressed inventory")
+		if GameState.is_in_menu:
+			GameState.close_menu()
+		else:
+			GameState.open_menu()
+		inventory.visible = !inventory.visible
 
 func _physics_process(delta: float) -> void:
 	if GameState.should_block_player_input():
@@ -106,3 +118,6 @@ func crouch() -> void:
 
 func teleport_to_spawn(spawn_position: Vector3):
 	self.global_transform.origin = spawn_position
+
+func _on_inventory_use_item(item_resource: Item) -> void:
+	pass # Replace with function body.

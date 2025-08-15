@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=23 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
@@ -7,13 +7,167 @@
 [ext_resource type="Shader" uid="uid://drqr45oe5lnt1" path="res://scripts/shaders/dither.gdshader" id="3_ssv3l"]
 [ext_resource type="Script" uid="uid://opmftn7c8q3n" path="res://main/player/interact_ray.gd" id="4_4bbr4"]
 [ext_resource type="Texture2D" uid="uid://c15ais4d1hqmw" path="res://assets/textures/items/flashlight.png" id="4_f8m1i"]
-[ext_resource type="Script" uid="uid://df4l6ld0a6ix5" path="res://main/player/inventory.gd" id="4_xcylc"]
 [ext_resource type="Script" uid="uid://di1x6n3vm2s6q" path="res://main/player/foot_cast.gd" id="5_f8m1i"]
-[ext_resource type="Script" uid="uid://bwrfau2ai7ofn" path="res://scripts/systems/weapon/weapon.gd" id="5_fawi8"]
-[ext_resource type="Resource" uid="uid://cxdptkv1jqava" path="res://resources/weapons/glock_19.tres" id="7_fawi8"]
+[ext_resource type="Script" uid="uid://csmpgo0gyiac0" path="res://scripts/systems/item/item_container_new.gd" id="7_gkpck"]
+[ext_resource type="Resource" uid="uid://cd6a3gno8r0fy" path="res://resources/items/pistol_ammo.tres" id="8_6xqwf"]
+[ext_resource type="Script" uid="uid://cvrie2incxdu" path="res://main/player/player_ui.gd" id="11_6xqwf"]
+[ext_resource type="PackedScene" uid="uid://cnui3gpbmr30b" path="res://scenes/ui/inventory_ui.tscn" id="12_6xqwf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f8m1i"]
 radius = 0.375
+
+[sub_resource type="Animation" id="Animation_gkpck"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemContainer/ItemPos:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemContainer/ItemPos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.25, -0.2, -0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Head/Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kgdvm"]
+resource_name = "equip"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemContainer/ItemPos:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.92039e-06, -1.5708, 0.559186), Vector3(0, -1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemContainer/ItemPos:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.25, -0.45, -0.425), Vector3(0.25, -0.2, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_7hvb5"]
+resource_name = "no_ammo"
+length = 0.3
+
+[sub_resource type="Animation" id="Animation_r10t4"]
+resource_name = "reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemContainer/ItemPos:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0.523599), Vector3(0, -1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemContainer/ItemPos:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.25, -0.2, -0.5), Vector3(0.25, -0.441356, -0.434769), Vector3(0.25, -0.2, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_6xqwf"]
+resource_name = "shoot"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemContainer/ItemPos:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.5708, -0.261799), Vector3(0, -1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemContainer/ItemPos:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.25, -0.2, -0.5), Vector3(0.25, -0.1, -0.4), Vector3(0.25, -0.2, -0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Head/Camera3D:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.0872665, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gkpck"]
+_data = {
+&"RESET": SubResource("Animation_gkpck"),
+&"equip": SubResource("Animation_kgdvm"),
+&"no_ammo": SubResource("Animation_7hvb5"),
+&"reload": SubResource("Animation_r10t4"),
+&"shoot": SubResource("Animation_6xqwf")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bbr4"]
+shader = ExtResource("3_ssv3l")
+shader_parameter/fog_color = Color(0, 0, 0, 1)
+shader_parameter/resolution_downsampling = 1.0
+shader_parameter/bit_depth = 16.0
 
 [sub_resource type="Gradient" id="Gradient_4bbr4"]
 offsets = PackedFloat32Array(1)
@@ -24,18 +178,13 @@ gradient = SubResource("Gradient_4bbr4")
 width = 2
 height = 2
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bbr4"]
-shader = ExtResource("3_ssv3l")
-shader_parameter/fog_color = Color(0, 0, 0, 1)
-shader_parameter/resolution_downsampling = 1.0
-shader_parameter/bit_depth = 16.0
-
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "collision_shape", "foot_cast", "flashlight")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "collision_shape", "foot_cast", "flashlight")]
 script = ExtResource("1_howr1")
 head = NodePath("Head")
+camera = NodePath("Head/Camera3D")
 collision_shape = NodePath("CollisionShape3D")
 foot_cast = NodePath("FootCast")
-flashlight = NodePath("Hand/Weapon/FlashLight")
+flashlight = NodePath("Hand/FlashLight")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_eoovf")
@@ -50,46 +199,54 @@ metadata/_custom_type_script = "uid://da6fmxaqqi7jv"
 shape = SubResource("CapsuleShape3D_f8m1i")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource("4_xcylc")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_f8m1i")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("crosshair", "hand")]
+[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("hand")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("1_vuxkg")
-crosshair = NodePath("../PlayerUI/Crosshair")
 hand = NodePath("../Hand")
 sensitivity = 0.35
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+current = true
 
 [node name="InteractRay" type="RayCast3D" parent="Head" node_paths=PackedStringArray("player", "crosshair")]
-target_position = Vector3(0, 0, -3)
+target_position = Vector3(0, 0, -2)
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("4_4bbr4")
 player = NodePath("../..")
-crosshair = NodePath("../../PlayerUI/Crosshair")
+crosshair = NodePath("../../PlayerUi/Crosshair")
 
 [node name="Hand" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
-[node name="Weapon" type="Node3D" parent="Hand" node_paths=PackedStringArray("head", "camera", "weapon_pos", "ammo_label")]
-script = ExtResource("5_fawi8")
+[node name="ItemContainer" type="Node3D" parent="Hand" node_paths=PackedStringArray("head", "camera", "item_pos", "ammo_label", "item_animation", "item_audio")]
+script = ExtResource("7_gkpck")
 head = NodePath("../../Head")
 camera = NodePath("../../Head/Camera3D")
-weapon_pos = NodePath("WeaponPos")
-ammo_label = NodePath("../../PlayerUI/MarginContainer/AmmoLabel")
-weapon_stats = ExtResource("7_fawi8")
-metadata/_custom_type_script = "uid://bwrfau2ai7ofn"
+item_pos = NodePath("ItemPos")
+ammo_label = NodePath("../../PlayerUi/MarginContainer/AmmoLabel")
+item_animation = NodePath("ItemAnimation")
+item_audio = NodePath("ItemAudio")
+item = ExtResource("8_6xqwf")
 
-[node name="WeaponPos" type="Marker3D" parent="Hand/Weapon"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.25, -0.2, -0.5)
+[node name="ItemPos" type="Marker3D" parent="Hand/ItemContainer"]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0.25, -0.2, -0.5)
 
-[node name="FlashLight" type="SpotLight3D" parent="Hand/Weapon"]
+[node name="ItemAnimation" type="AnimationPlayer" parent="Hand/ItemContainer"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_gkpck")
+}
+
+[node name="ItemAudio" type="AudioStreamPlayer" parent="Hand/ItemContainer"]
+bus = &"Sfx"
+
+[node name="FlashLight" type="SpotLight3D" parent="Hand"]
+visible = false
 light_energy = 10.0
 light_projector = ExtResource("4_f8m1i")
 shadow_enabled = true
@@ -105,11 +262,27 @@ one_shot = true
 
 [node name="WalkAudio" type="AudioStreamPlayer" parent="FootCast"]
 volume_db = -10.0
-bus = &"Sfx"
 
-[node name="PlayerUI" type="CanvasLayer" parent="."]
+[node name="Shaders" type="CanvasLayer" parent="."]
 
-[node name="Crosshair" type="TextureRect" parent="PlayerUI"]
+[node name="ColorRect" type="ColorRect" parent="Shaders"]
+material = SubResource("ShaderMaterial_4bbr4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("12_6xqwf")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PlayerUi" type="CanvasLayer" parent="."]
+script = ExtResource("11_6xqwf")
+
+[node name="Crosshair" type="TextureRect" parent="PlayerUi"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -124,16 +297,27 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_l6plr")
 stretch_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="PlayerUI"]
-visible = false
-material = SubResource("ShaderMaterial_4bbr4")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="InteractLabel" type="Label" parent="PlayerUi/Crosshair"]
+modulate = Color(1, 1, 1, 0.478431)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -9.5
+offset_right = 20.0
+offset_bottom = 9.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+text = "
+interact"
+horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PlayerUI"]
+[node name="MarginContainer" type="MarginContainer" parent="PlayerUi"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -144,9 +328,14 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="AmmoLabel" type="Label" parent="PlayerUI/MarginContainer"]
+[node name="AmmoLabel" type="Label" parent="PlayerUi/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 10
 text = "Ammo: "
+
+[connection signal="equip_item" from="CanvasLayer/Inventory" to="Hand/ItemContainer" method="_on_inventory_equip_item"]
+[connection signal="use_item" from="CanvasLayer/Inventory" to="." method="_on_inventory_use_item"]
+
+[editable path="CanvasLayer/Inventory"]

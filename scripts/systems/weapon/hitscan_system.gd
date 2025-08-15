@@ -1,23 +1,16 @@
-class_name HitscanSystem
 extends Node
 
-
-var gun_stats: WeaponStats
 
 const BULLET_IMPACT = preload("res://scenes/other/bullet_impact.tscn")
 const BLOOD_SPLATTER = preload("res://assets/textures/particles/blood_splatter.png")
 const CONCRETE = preload("res://assets/textures/general/concrete.png")
 
 
-func initialize(stats: WeaponStats) -> void:
-	self.name = "HitscanSystem"
-	gun_stats = stats
-
-func perform_hitscan(camera: Camera3D) -> void:
-	var middle_of_screen = Vector2(160, 120)
+func perform_hitscan(camera: Camera3D, shoot_distance: float, damage: int) -> void:
+	var middle_of_screen = get_tree().root.content_scale_size / 2
 	var from = camera.project_ray_origin(middle_of_screen)
 	var base_dir = camera.project_ray_normal(middle_of_screen)
-	var to = from + base_dir * gun_stats.shoot_distance
+	var to = from + base_dir * shoot_distance
 	
 	var space_state = camera.get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(from, to)
@@ -26,12 +19,12 @@ func perform_hitscan(camera: Camera3D) -> void:
 	
 	var result = space_state.intersect_ray(query)
 	if result:
-		handle_hit(result)
+		handle_hit(result, damage)
 
-func handle_hit(result: Dictionary) -> void:
+func handle_hit(result: Dictionary, damage: int) -> void:
 	if result.collider is HurtBox:
 		var hurtbox = result.collider as HurtBox
-		hurtbox.take_damage_from_hitscan(gun_stats.shoot_damage)
+		hurtbox.take_damage_from_hitscan(damage)
 		create_impact_effect(result, hurtbox.type)
 	else:
 		create_impact_effect(result, "")

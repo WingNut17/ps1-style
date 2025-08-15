@@ -54,3 +54,4 @@ bus = &"Sfx"
 [node name="Flicker" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_1afix")
 volume_db = -15.0
+bus = &"Sfx"

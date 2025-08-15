@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckipaj03gwnyo"]
+
+[ext_resource type="Script" uid="uid://dq3sa5p82hnh4" path="res://scripts/systems/interaction/item_interactable.gd" id="1_5s1ai"]
+[ext_resource type="Resource" uid="uid://ccx3nxb0onu40" path="res://resources/dialogue/item_dialogue.dialogue" id="2_jmob4"]
+[ext_resource type="Texture2D" uid="uid://btewe2llrnguy" path="res://assets/textures/particles/item_sprite.png" id="3_mklul"]
+[ext_resource type="AudioStream" uid="uid://dnuynm0yojx4v" path="res://assets/audio/sound/ui/item_select.ogg" id="4_5elxm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5s1ai"]
+
+[node name="ItemInteractable" type="Area3D"]
+script = ExtResource("1_5s1ai")
+dialogue_id = ExtResource("2_jmob4")
+metadata/_custom_type_script = "uid://dq3sa5p82hnh4"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture_filter = 2
+texture = ExtResource("3_mklul")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5s1ai")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5elxm")
+bus = &"Sfx"

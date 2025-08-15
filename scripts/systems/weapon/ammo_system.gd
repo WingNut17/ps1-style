@@ -4,11 +4,11 @@ extends Node
 
 signal ammo_changed
 
-var gun_stats: WeaponStats
+var gun_stats: RangedWeaponItem
 var ammo_label: Label
 
 
-func initialize(stats: WeaponStats, label: Label) -> void:
+func initialize(stats: RangedWeaponItem, label: Label) -> void:
 	self.name = "AmmoSystem"
 	gun_stats = stats
 	ammo_label = label
