@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=22 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://c15ais4d1hqmw" path="res://assets/textures/items/flashlight.png" id="4_f8m1i"]
 [ext_resource type="Script" uid="uid://di1x6n3vm2s6q" path="res://main/player/foot_cast.gd" id="5_f8m1i"]
 [ext_resource type="Script" uid="uid://csmpgo0gyiac0" path="res://scripts/systems/item/item_container_new.gd" id="7_gkpck"]
-[ext_resource type="Resource" uid="uid://cd6a3gno8r0fy" path="res://resources/items/pistol_ammo.tres" id="8_6xqwf"]
 [ext_resource type="Script" uid="uid://cvrie2incxdu" path="res://main/player/player_ui.gd" id="11_6xqwf"]
 [ext_resource type="PackedScene" uid="uid://cnui3gpbmr30b" path="res://scenes/ui/inventory_ui.tscn" id="12_6xqwf"]
 
@@ -231,7 +230,6 @@ item_pos = NodePath("ItemPos")
 ammo_label = NodePath("../../PlayerUi/MarginContainer/AmmoLabel")
 item_animation = NodePath("ItemAnimation")
 item_audio = NodePath("ItemAudio")
-item = ExtResource("8_6xqwf")
 
 [node name="ItemPos" type="Marker3D" parent="Hand/ItemContainer"]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0.25, -0.2, -0.5)

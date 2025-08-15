@@ -13,7 +13,8 @@ var shoot_mesh
 
 
 func _ready() -> void:
-	equip_item()
+	if item:
+		equip_item()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if item:
