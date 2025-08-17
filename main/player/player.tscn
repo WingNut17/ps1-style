@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://cnui3gpbmr30b" path="res://scenes/ui/inventory_ui.tscn" id="12_6xqwf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f8m1i"]
-radius = 0.375
 
 [sub_resource type="Animation" id="Animation_gkpck"]
 length = 0.001
@@ -84,7 +83,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_7hvb5"]
 resource_name = "no_ammo"
-length = 0.3
 
 [sub_resource type="Animation" id="Animation_r10t4"]
 resource_name = "reload"
@@ -115,7 +113,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_6xqwf"]
 resource_name = "shoot"
-length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,7 +120,7 @@ tracks/0/path = NodePath("ItemContainer/ItemPos:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"times": PackedFloat32Array(0, 0.2, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, -1.5708, 0), Vector3(0, -1.5708, -0.261799), Vector3(0, -1.5708, 0)]
@@ -135,7 +132,7 @@ tracks/1/path = NodePath("ItemContainer/ItemPos:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"times": PackedFloat32Array(0, 0.2, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0.25, -0.2, -0.5), Vector3(0.25, -0.1, -0.4), Vector3(0.25, -0.2, -0.5)]
@@ -147,7 +144,7 @@ tracks/2/path = NodePath("../Head/Camera3D:rotation")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"times": PackedFloat32Array(0, 0.2, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.0872665, 0, 0), Vector3(0, 0, 0)]
@@ -202,13 +199,15 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 shape = SubResource("CapsuleShape3D_f8m1i")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("hand")]
+[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("hand", "subviewport_camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("1_vuxkg")
 hand = NodePath("../Hand")
 sensitivity = 0.35
+subviewport_camera = NodePath("../Shaders/SubViewportContainer/SubViewport/SubViewportCamera")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+cull_mask = 524287
 current = true
 
 [node name="InteractRay" type="RayCast3D" parent="Head" node_paths=PackedStringArray("player", "crosshair")]
@@ -222,7 +221,7 @@ crosshair = NodePath("../../PlayerUi/Crosshair")
 [node name="Hand" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
-[node name="ItemContainer" type="Node3D" parent="Hand" node_paths=PackedStringArray("head", "camera", "item_pos", "ammo_label", "item_animation", "item_audio")]
+[node name="ItemContainer" type="Node3D" parent="Hand" node_paths=PackedStringArray("head", "camera", "item_pos", "ammo_label", "item_animation", "item_audio", "full_auto_timer")]
 script = ExtResource("7_gkpck")
 head = NodePath("../../Head")
 camera = NodePath("../../Head/Camera3D")
@@ -230,6 +229,7 @@ item_pos = NodePath("ItemPos")
 ammo_label = NodePath("../../PlayerUi/MarginContainer/AmmoLabel")
 item_animation = NodePath("ItemAnimation")
 item_audio = NodePath("ItemAudio")
+full_auto_timer = NodePath("FullAutoTimer")
 
 [node name="ItemPos" type="Marker3D" parent="Hand/ItemContainer"]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0.25, -0.2, -0.5)
@@ -242,6 +242,9 @@ libraries = {
 
 [node name="ItemAudio" type="AudioStreamPlayer" parent="Hand/ItemContainer"]
 bus = &"Sfx"
+
+[node name="FullAutoTimer" type="Timer" parent="Hand/ItemContainer"]
+one_shot = true
 
 [node name="FlashLight" type="SpotLight3D" parent="Hand"]
 visible = false
@@ -262,6 +265,25 @@ one_shot = true
 volume_db = -10.0
 
 [node name="Shaders" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Shaders"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Shaders/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(320, 240)
+render_target_update_mode = 0
+
+[node name="SubViewportCamera" type="Camera3D" parent="Shaders/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+visible = false
+cull_mask = 1
 
 [node name="ColorRect" type="ColorRect" parent="Shaders"]
 material = SubResource("ShaderMaterial_4bbr4")

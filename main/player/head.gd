@@ -4,6 +4,9 @@ extends Node3D
 @export var sensitivity: float = 0.25
 @export var hand_follow_speed: float = 16.0
 @export var hand_lag_amount: float = 0.5
+@export var subviewport_camera: Camera3D
+
+@onready var camera_3d: Camera3D = $Camera3D
 
 var target_hand_rotation: Vector3
 
@@ -27,6 +30,7 @@ func _process(delta: float) -> void:
 		var target_rotation = rotation_degrees + hand_lag_amount * Vector3.ONE
 		target_hand_rotation = target_hand_rotation.lerp(target_rotation, hand_follow_speed * delta)
 		hand.rotation_degrees = target_hand_rotation
+	subviewport_camera.set_global_transform(camera_3d.get_global_transform())
 
 func _input(event: InputEvent) -> void:
 	# Use GameState instead of local can_move

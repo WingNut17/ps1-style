@@ -42,7 +42,7 @@ func interact(player: CharacterBody3D) -> void:
 	DialogueManager.show_dialogue_balloon(dialogue_id, "")
 	DialogueVariables.pick_up_item.connect(_on_pick_up_item)
 
-func toggle_camera(val, player: CharacterBody3D) -> void:
+func toggle_camera(_val, player: CharacterBody3D) -> void:
 	if player.camera.current:
 		player.camera.current = false
 		camera.current = true
@@ -65,4 +65,7 @@ func _on_pick_up_item() -> void:
 	
 	item_picked_up = true
 	
-	Inventory.add_item(item)
+	if item is AmmoItem:
+		pass
+	else:
+		Inventory.add_item(item)

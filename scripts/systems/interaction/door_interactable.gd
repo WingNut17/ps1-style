@@ -6,7 +6,7 @@ extends Interactable
 @export var knock_dialogue: DialogueResource
 
 
-func interact(player: CharacterBody3D) -> void:
+func interact(_player: CharacterBody3D) -> void:
 	if scene:
 		get_tree().get_first_node_in_group("World").switch_to_level(scene)
 	elif knock_dialogue:

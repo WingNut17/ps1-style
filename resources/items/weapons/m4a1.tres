@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="RangedWeaponItem" load_steps=7 format=3 uid="uid://ykxe3sai7xd3"]
+
+[ext_resource type="PackedScene" uid="uid://c7jcyaeasvvxx" path="res://scenes/props/items/weapons/m4a1.tscn" id="1_16weu"]
+[ext_resource type="Script" uid="uid://35e0sxv41p52" path="res://scripts/systems/item/ranged_item.gd" id="1_p2ut1"]
+[ext_resource type="Texture2D" uid="uid://cxmx1sb178v1l" path="res://assets/textures/ui/item_thumbnail/glock_19.png" id="2_80ghb"]
+[ext_resource type="AudioStream" uid="uid://dowt7cpc7qi84" path="res://assets/audio/sound/props/items/weapons/pistol_no_ammo.ogg" id="3_6yr1v"]
+[ext_resource type="AudioStream" uid="uid://dooecsc0ju2do" path="res://assets/audio/sound/props/items/weapons/pistol_reload.ogg" id="4_ww6je"]
+[ext_resource type="AudioStream" uid="uid://dbbcamrkvtatm" path="res://assets/audio/sound/props/items/weapons/pistol_shoot.ogg" id="6_g34lu"]
+
+[resource]
+script = ExtResource("1_p2ut1")
+ammo_type = "ar"
+magazine_ammo = 24
+max_magazine_ammo = 24
+full_auto = true
+shoot_damage = 1
+shoot_speed = 0.15
+reload_time = 2.0
+shoot_range = 10.0
+shoot_sound = ExtResource("6_g34lu")
+no_ammo_sound = ExtResource("3_6yr1v")
+reload_sound = ExtResource("4_ww6je")
+shoot_anim = &"shoot"
+no_ammo_anim = &"no_ammo"
+reload_anim = &"reload"
+recoil_amount = 0.0
+equipable = true
+consumable = false
+item_name = "M4A1"
+item_description = "this is an AR"
+item_model = ExtResource("1_16weu")
+item_thumbnail = ExtResource("2_80ghb")
+metadata/_custom_type_script = "uid://35e0sxv41p52"

@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://lvdscrya1ql6"]
+[gd_scene load_steps=9 format=4 uid="uid://lvdscrya1ql6"]
 
 [ext_resource type="PackedScene" uid="uid://bboefn7tbmhiv" path="res://assets/models/props/glock_19.fbx" id="1_6302p"]
 [ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_sr17q"]
 [ext_resource type="Texture2D" uid="uid://m1kf6xfwdjq0" path="res://assets/textures/general/rusty_metal.png" id="3_lm3il"]
-[ext_resource type="Texture2D" uid="uid://b43m62yp1h67c" path="res://assets/textures/props/glock_shoot.png" id="4_sr17q"]
+[ext_resource type="PlaneMesh" uid="uid://6ua2sdg2exgj" path="res://resources/shoot mesh/glock_19.tres" id="4_oabvc"]
 [ext_resource type="Script" uid="uid://dlvil5gy37dtq" path="res://scripts/other/shoot_mesh.gd" id="5_lm3il"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7cueu"]
@@ -62,34 +62,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gny64")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lm3il"]
-render_priority = 0
-shader = ExtResource("2_sr17q")
-shader_parameter/point_size = 0.0
-shader_parameter/roughness = 0.0
-shader_parameter/specular = 0.0
-shader_parameter/metallic = 0.0
-shader_parameter/texture_albedo = ExtResource("4_sr17q")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
-shader_parameter/texture_emission = ExtResource("4_sr17q")
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 2.5
-shader_parameter/use_triplanar = false
-shader_parameter/triplanar_scale = 1.0
-shader_parameter/triplanar_blend_sharpness = 4.0
-shader_parameter/resolution = Vector2i(320, 240)
-shader_parameter/affine_mapping = true
-shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.9
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_7cueu"]
-material = SubResource("ShaderMaterial_lm3il")
-size = Vector2(0.2, 0.2)
-orientation = 0
-
 [node name="Glock19" type="Node3D"]
 
 [node name="glock_19" parent="." instance=ExtResource("1_6302p")]
@@ -98,8 +70,8 @@ orientation = 0
 mesh = SubResource("ArrayMesh_j564a")
 
 [node name="ShootMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158722, 0.0245813, -0.0195564)
-mesh = SubResource("PlaneMesh_7cueu")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159, 0.0127497, 0)
+mesh = ExtResource("4_oabvc")
 script = ExtResource("5_lm3il")
 
 [editable path="glock_19"]

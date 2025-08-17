@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7jcyaeasvvxx"]
+
+[ext_resource type="Script" uid="uid://dlvil5gy37dtq" path="res://scripts/other/shoot_mesh.gd" id="1_h168h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e5aed"]
+size = Vector3(0.5, 0.2, 0.2)
+
+[node name="M4A1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_e5aed")
+
+[node name="ShootMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.362566, 0, 0)
+script = ExtResource("1_h168h")
+metadata/_custom_type_script = "uid://dlvil5gy37dtq"

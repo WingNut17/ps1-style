@@ -13,6 +13,8 @@ var item_container: Node3D
 @export var item_thumbnail: Texture2D
 
 
-func on_item_equip(holder: Node3D) -> void:
+func initialize(holder: Node3D) -> void:
 	item_container = holder
+
+func on_item_equip() -> void:
 	item_container.item_animation.play("equip")

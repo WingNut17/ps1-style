@@ -3,8 +3,11 @@ extends Node
 
 @export var inventory_list: Array[Item] = [
 	preload("res://resources/items/pistol_ammo.tres"),
-	preload("res://resources/items/weapons/glock_19.tres")
+	preload("res://resources/items/weapons/glock_19.tres"),
+	preload("res://resources/items/weapons/m4a1.tres"),
+	preload("res://resources/items/ar_ammo.tres")
 ]
+
 
 func add_item(item_resource: Item) -> void:
 	inventory_list.append(item_resource)

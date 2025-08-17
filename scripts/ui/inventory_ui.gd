@@ -52,7 +52,7 @@ func _on_inventory_item_selected(index: int) -> void:
 	if item_select.visible:
 		item_select.visible = !item_select.visible
 
-func _on_inventory_empty_clicked(at_position: Vector2, mouse_button_index: int) -> void:
+func _on_inventory_empty_clicked(_at_position: Vector2, _mouse_button_index: int) -> void:
 	if item_select.visible:
 		item_select.visible = !item_select.visible
 
