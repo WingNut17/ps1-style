@@ -63,6 +63,8 @@ func start_melt() -> void:
 	
 	tween.tween_method(update_melt_progress, 0.0, 1.0, melt_duration)
 	tween.connect("finished", _on_tween_finished)
+	
+	GameState.start_loading()
 
 func update_melt_progress(progress: float) -> void:
 	melt.material.set_shader_parameter("progress", progress)
@@ -102,6 +104,8 @@ func _on_tween_finished() -> void:
 	tween.tween_property(level_label, "modulate", Color(1,1,1,1), 1)
 	
 	level_text_timer.start()
+	
+	GameState.end_loading()
 
 func _on_level_text_timer_timeout() -> void:
 	tween = create_tween()

@@ -6,19 +6,20 @@
 [ext_resource type="AudioStream" uid="uid://dnuynm0yojx4v" path="res://assets/audio/sound/ui/item_select.ogg" id="4_5elxm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5s1ai"]
+size = Vector3(0.41, 0.13, 0.17)
 
 [node name="ItemInteractable" type="Area3D"]
 script = ExtResource("1_5s1ai")
 dialogue_id = ExtResource("2_jmob4")
 metadata/_custom_type_script = "uid://dq3sa5p82hnh4"
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5s1ai")
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
 texture_filter = 2
 texture = ExtResource("3_mklul")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_5s1ai")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 

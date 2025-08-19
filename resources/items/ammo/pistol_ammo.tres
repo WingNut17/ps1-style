@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AmmoItem" load_steps=4 format=3 uid="uid://cd6a3gno8r0fy"]
+
+[ext_resource type="Texture2D" uid="uid://fbq27h5cjmwj" path="res://assets/textures/props/items/item_thumbnail/9mm_ammo.png" id="1_bykl7"]
+[ext_resource type="PackedScene" uid="uid://cd1sft6mbjn4a" path="res://scenes/props/items/ammo/ammo_9_mm.tscn" id="1_ndjtf"]
+[ext_resource type="Script" uid="uid://cys0mw18edt22" path="res://scripts/systems/item/ammo_item.gd" id="1_ua5sx"]
+
+[resource]
+script = ExtResource("1_ua5sx")
+ammo_type = "9mm"
+ammo_count = 24
+equipable = false
+item_name = "9mm"
+item_description = "This is pistol ammo and it goes into a guns."
+item_model = ExtResource("1_ndjtf")
+item_thumbnail = ExtResource("1_bykl7")
+metadata/_custom_type_script = "uid://cys0mw18edt22"

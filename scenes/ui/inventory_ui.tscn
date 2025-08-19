@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bkhra72hhlri0" path="res://assets/textures/particles/blood_splatter.png" id="2_drsq2"]
 [ext_resource type="FontFile" uid="uid://dg7tlal1r4m0a" path="res://assets/fonts/GhastlyPixe.ttf" id="3_ldtye"]
 [ext_resource type="FontFile" uid="uid://sci6uvpk7sue" path="res://assets/fonts/mythic-pixels.ttf" id="4_ldtye"]
-[ext_resource type="Texture2D" uid="uid://sfaknxkbl54c" path="res://assets/textures/items/flashlight.jpg" id="4_nuief"]
+[ext_resource type="Texture2D" uid="uid://sfaknxkbl54c" path="res://assets/textures/props/items/flashlight.jpg" id="4_nuief"]
 
 [sub_resource type="Theme" id="Theme_xk7lq"]
 default_font = ExtResource("1_bsps8")
@@ -27,9 +27,12 @@ theme = SubResource("Theme_xk7lq")
 script = ExtResource("1_7nagc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 320.0
-offset_bottom = 240.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -164,6 +167,7 @@ bus = &"Sfx"
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="empty_clicked" from="MarginContainer/VBoxContainer/HBoxContainer/Inventory" to="." method="_on_inventory_empty_clicked"]
 [connection signal="item_activated" from="MarginContainer/VBoxContainer/HBoxContainer/Inventory" to="." method="_on_inventory_item_activated"]
+[connection signal="item_clicked" from="MarginContainer/VBoxContainer/HBoxContainer/Inventory" to="." method="_on_inventory_item_clicked"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer/Inventory" to="." method="_on_inventory_item_selected"]
 [connection signal="pressed" from="MarginContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ItemSelect/MarginContainer/VBoxContainer/UseButton" to="." method="_on_use_button_pressed"]

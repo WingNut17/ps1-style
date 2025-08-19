@@ -6,7 +6,7 @@ extends WorldEnvironment
 	set(value):
 		enabled_in_editor = value
 		_update_environment()
-@export var environment_resource: Environment = preload("res://resources/world_environment.tres")
+@export var environment_resource: Environment = preload(Constants.RESOURCE_PATHS.environment)
 
 
 func _ready():

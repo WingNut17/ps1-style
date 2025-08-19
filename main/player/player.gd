@@ -58,7 +58,6 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
-		print("pressed inventory")
 		if GameState.is_in_menu:
 			GameState.close_menu()
 		else:
@@ -85,7 +84,7 @@ func _physics_process(delta: float) -> void:
 	var direction := (horizontal_basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
 	
 	var current_speed = SPEED
-	if crouching:
+	if crouching and is_on_floor():
 		current_speed *= 0.5
 	
 	if direction:

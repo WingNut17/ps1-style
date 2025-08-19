@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AmmoItem" load_steps=4 format=3 uid="uid://yb2j6afil372"]
+
+[ext_resource type="PackedScene" uid="uid://cd1sft6mbjn4a" path="res://scenes/props/items/ammo/ammo_9_mm.tscn" id="1_61r4e"]
+[ext_resource type="Script" uid="uid://cys0mw18edt22" path="res://scripts/systems/item/ammo_item.gd" id="1_m2u01"]
+[ext_resource type="Texture2D" uid="uid://fbq27h5cjmwj" path="res://assets/textures/props/items/item_thumbnail/9mm_ammo.png" id="2_0nluk"]
+
+[resource]
+script = ExtResource("1_m2u01")
+ammo_type = "50cal"
+ammo_count = 5
+equipable = false
+consumable = false
+pull_out_time = 2.0
+item_name = "50cal"
+item_description = "this is 50cal ammo"
+item_model = ExtResource("1_61r4e")
+item_thumbnail = ExtResource("2_0nluk")
+metadata/_custom_type_script = "uid://cys0mw18edt22"

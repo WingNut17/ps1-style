@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AmmoItem" load_steps=2 format=3 uid="uid://0hcb8rkutbc2"]
+
+[ext_resource type="Script" uid="uid://cys0mw18edt22" path="res://scripts/systems/item/ammo_item.gd" id="1_awogx"]
+
+[resource]
+script = ExtResource("1_awogx")
+ammo_type = ""
+ammo_count = 0
+equipable = true
+consumable = false
+pull_out_time = 2.0
+item_name = ""
+item_description = ""
+metadata/_custom_type_script = "uid://cys0mw18edt22"

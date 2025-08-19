@@ -1,0 +1,127 @@
+[gd_scene load_steps=16 format=3 uid="uid://b02i8t36xvyu6"]
+
+[ext_resource type="Script" uid="uid://cpasc565t4v6v" path="res://main/level.gd" id="1_h6tf1"]
+[ext_resource type="Texture2D" uid="uid://efvklimf0bcu" path="res://assets/textures/general/concrete.png" id="2_lru46"]
+[ext_resource type="Texture2D" uid="uid://boqxko4vuw3vn" path="res://assets/textures/general/concrete_normal.png" id="3_js3vj"]
+[ext_resource type="Texture2D" uid="uid://dwow24613v2n1" path="res://assets/textures/general/concrete_brick.png" id="4_xy1rd"]
+[ext_resource type="Texture2D" uid="uid://b0egni3mf2vg2" path="res://assets/textures/general/concrete_brick_height.png" id="5_4cp8x"]
+[ext_resource type="PackedScene" uid="uid://b5p3q16xtccgf" path="res://scenes/props/environment/wooden_door.tscn" id="6_p3yo6"]
+[ext_resource type="PackedScene" uid="uid://ct7w2tqrbrf3e" path="res://scenes/props/environment/vent_cover.tscn" id="7_rc74e"]
+[ext_resource type="PackedScene" uid="uid://tt8ehnrsextb" path="res://scenes/props/environment/wood_table.tscn" id="8_6t1s3"]
+[ext_resource type="PackedScene" uid="uid://d1h27ymqrv0l" path="res://scenes/props/environment/locker.tscn" id="9_8ks8p"]
+[ext_resource type="PackedScene" uid="uid://ca88jo1k7a5u7" path="res://scenes/props/items/interactable/old_key_interactable.tscn" id="10_u4eb0"]
+[ext_resource type="PackedScene" uid="uid://6iuif41vvgce" path="res://scenes/props/environment/ceiling_light.tscn" id="11_wk26c"]
+[ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="12_7ex6x"]
+[ext_resource type="Script" uid="uid://bmybto1ttwjgm" path="res://scripts/other/directional_light_3d.gd" id="13_ggmu5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5byf4"]
+albedo_texture = ExtResource("2_lru46")
+normal_enabled = true
+normal_texture = ExtResource("3_js3vj")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfyyx"]
+albedo_texture = ExtResource("4_xy1rd")
+normal_enabled = true
+normal_texture = ExtResource("5_4cp8x")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 2
+
+[node name="JanitorRoom" type="Node3D"]
+script = ExtResource("1_h6tf1")
+level_name = "Janitors Room"
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="Default" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4, 1.25, 0)
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGCombiner3D" parent="Geometry"]
+editor_description = "stone"
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geometry/Floor"]
+size = Vector3(11, 0.25, 5)
+material = SubResource("StandardMaterial3D_5byf4")
+
+[node name="Wall" type="CSGCombiner3D" parent="Geometry"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geometry/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.625)
+size = Vector3(11.5, 5, 0.25)
+material = SubResource("StandardMaterial3D_nfyyx")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Geometry/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.625)
+size = Vector3(11.5, 5, 0.25)
+material = SubResource("StandardMaterial3D_nfyyx")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Geometry/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.625, 2.5, 0)
+size = Vector3(0.25, 5, 5)
+material = SubResource("StandardMaterial3D_nfyyx")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Geometry/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.625, 2.5, 0)
+size = Vector3(0.25, 5, 5)
+material = SubResource("StandardMaterial3D_nfyyx")
+
+[node name="Ceiling" type="CSGCombiner3D" parent="Geometry"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geometry/Ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+size = Vector3(11.25, 0.25, 5.25)
+material = SubResource("StandardMaterial3D_5byf4")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Doors" type="Node3D" parent="Props"]
+
+[node name="WoodenDoor" parent="Props/Doors" instance=ExtResource("6_p3yo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.425, 0.125, 0)
+monitoring = false
+scene = "uid://vu68h5sot7hb"
+locked = false
+
+[node name="Other" type="Node3D" parent="Props"]
+
+[node name="Vent_cover" parent="Props/Other" instance=ExtResource("7_rc74e")]
+transform = Transform3D(-4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, -4.37114e-08, 5.5, 4, 0)
+
+[node name="WoodTable" parent="Props/Other" instance=ExtResource("8_6t1s3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28885, 1.34598, -1.88087)
+
+[node name="Locker" parent="Props/Other" instance=ExtResource("9_8ks8p")]
+transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, -1.2, 0.525, -2.19613)
+
+[node name="Items" type="Node3D" parent="Props"]
+
+[node name="OldKeyInteractable" parent="Props/Items" instance=ExtResource("10_u4eb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18219, 1.56601, -2.19047)
+
+[node name="Camera3D" parent="Props/Items/OldKeyInteractable" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.151337, 0.293552)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="CeilingLight" parent="Lights" instance=ExtResource("11_wk26c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.85, 0)
+toggled = false
+flickering = true
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("12_7ex6x")]
+environment = null
+enabled_in_editor = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("13_ggmu5")
+
+[editable path="Props/Items/OldKeyInteractable"]

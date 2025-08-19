@@ -1,0 +1,197 @@
+[gd_scene load_steps=20 format=3 uid="uid://oukrlyvriv3s"]
+
+[ext_resource type="Script" uid="uid://b8uung8pnbhww" path="res://scripts/levels/tile_level.gd" id="1_6fymu"]
+[ext_resource type="Texture2D" uid="uid://dcpe2juw4ryn4" path="res://assets/textures/general/black_and_white_tile.png" id="3_6d0iv"]
+[ext_resource type="Shader" uid="uid://dl8tqt4j40qw2" path="res://scripts/shaders/barrier.gdshader" id="4_6d0iv"]
+[ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="4_6fymu"]
+[ext_resource type="Texture2D" uid="uid://bdayo1clnd3qr" path="res://assets/textures/general/black_and_white_tile_normal.png" id="4_p87d4"]
+[ext_resource type="Shader" uid="uid://1kajaspd3q56" path="res://scripts/shaders/portal.gdshader" id="4_porxp"]
+[ext_resource type="Texture2D" uid="uid://btewe2llrnguy" path="res://assets/textures/particles/item_sprite.png" id="5_6fymu"]
+[ext_resource type="Script" uid="uid://bmybto1ttwjgm" path="res://scripts/other/directional_light_3d.gd" id="5_hl6x4"]
+[ext_resource type="Script" uid="uid://cbpdefeh633vq" path="res://scripts/props/barrier_mesh.gd" id="6_hl6x4"]
+[ext_resource type="Environment" uid="uid://batnnvqr1ghe0" path="res://resources/environments/galaxy.tres" id="8_hl6x4"]
+[ext_resource type="Texture2D" uid="uid://x4dbi4wguwtp" path="res://assets/textures/environment/mountain_range.png" id="8_ufp1h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_porxp"]
+albedo_texture = ExtResource("3_6d0iv")
+normal_enabled = true
+normal_texture = ExtResource("4_p87d4")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="TorusMesh" id="TorusMesh_porxp"]
+inner_radius = 0.1
+outer_radius = 2.0
+rings = 16
+ring_segments = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ufp1h"]
+render_priority = 0
+shader = ExtResource("4_porxp")
+shader_parameter/start_seed = 0.0
+shader_parameter/base_color_shadow = Color(0.198032, 4.66868e-05, 0.720761, 1)
+shader_parameter/base_color_highlight = Color(0.690857, 0.000121482, 0.602276, 1)
+shader_parameter/base_color_blend = 1.2
+shader_parameter/color_modulate_frequency = 0.1
+shader_parameter/noise_displacement = 0.35
+shader_parameter/noise_scale = 20.0
+shader_parameter/noise_time_scale = 0.1
+shader_parameter/alpha_distance_min = 1.84
+shader_parameter/alpha_distance_max = 10.0
+shader_parameter/alpha_time_scale = 5.0
+shader_parameter/emission_intensity = 10.0
+shader_parameter/highlight_intensity = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6fymu"]
+render_priority = 0
+shader = ExtResource("4_6d0iv")
+shader_parameter/detection_distance = 5.0
+shader_parameter/fade_distance = 5.0
+shader_parameter/player_position = Vector3(0, 0, 0)
+shader_parameter/barrier_texture = ExtResource("5_6fymu")
+shader_parameter/texture_scale = 2.0
+shader_parameter/triplanar_sharpness = 2.0
+shader_parameter/flip_x = false
+shader_parameter/flip_y = false
+shader_parameter/flip_z = false
+shader_parameter/min_alpha = 0.0
+shader_parameter/max_alpha = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_hl6x4"]
+material = SubResource("ShaderMaterial_6fymu")
+size = Vector2(100, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fymu"]
+size = Vector3(100, 10, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iygrf"]
+transparency = 1
+albedo_texture = ExtResource("8_ufp1h")
+uv1_scale = Vector3(0.025, 0.1, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ajcw"]
+material = SubResource("StandardMaterial3D_iygrf")
+size = Vector2(200, 10)
+
+[node name="TileLevel" type="Node3D"]
+script = ExtResource("1_6fymu")
+sky_rotate_speed = 0.001
+level_name = "tiles"
+metadata/_custom_type_script = "uid://cpasc565t4v6v"
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="Default" type="Marker3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGCombiner3D" parent="Geometry"]
+editor_description = "stone"
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geometry/Floor"]
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_porxp")
+
+[node name="Wall" type="CSGCombiner3D" parent="Geometry"]
+use_collision = true
+
+[node name="Ceiling" type="CSGCombiner3D" parent="Geometry"]
+use_collision = true
+
+[node name="Front" type="CSGCombiner3D" parent="Geometry"]
+
+[node name="Outside" type="CSGCombiner3D" parent="Geometry"]
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Doors" type="Node3D" parent="Props"]
+
+[node name="Other" type="Node3D" parent="Props"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Other"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -4, 3.065, 0)
+mesh = SubResource("TorusMesh_porxp")
+surface_material_override/0 = SubResource("ShaderMaterial_ufp1h")
+
+[node name="Barriers" type="Node3D" parent="Props"]
+
+[node name="Wall1" type="StaticBody3D" parent="Props/Barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -50)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Barriers/Wall1"]
+mesh = SubResource("QuadMesh_hl6x4")
+skeleton = NodePath("../../../../Geometry/Wall")
+script = ExtResource("6_hl6x4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Barriers/Wall1"]
+shape = SubResource("BoxShape3D_6fymu")
+
+[node name="Wall2" type="StaticBody3D" parent="Props/Barriers"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 5, 50)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Barriers/Wall2"]
+mesh = SubResource("QuadMesh_hl6x4")
+skeleton = NodePath("../../../../Geometry/Wall")
+script = ExtResource("6_hl6x4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Barriers/Wall2"]
+shape = SubResource("BoxShape3D_6fymu")
+
+[node name="Wall3" type="StaticBody3D" parent="Props/Barriers"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -50, 5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Barriers/Wall3"]
+mesh = SubResource("QuadMesh_hl6x4")
+skeleton = NodePath("../../../../Geometry/Wall")
+script = ExtResource("6_hl6x4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Barriers/Wall3"]
+shape = SubResource("BoxShape3D_6fymu")
+
+[node name="Wall4" type="StaticBody3D" parent="Props/Barriers"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Barriers/Wall4"]
+mesh = SubResource("QuadMesh_hl6x4")
+skeleton = NodePath("../../../../Geometry/Wall")
+script = ExtResource("6_hl6x4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Barriers/Wall4"]
+shape = SubResource("BoxShape3D_6fymu")
+
+[node name="Mountain1" type="MeshInstance3D" parent="Props/Barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -100)
+mesh = SubResource("QuadMesh_7ajcw")
+
+[node name="Mountain2" type="MeshInstance3D" parent="Props/Barriers"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 5, 0)
+mesh = SubResource("QuadMesh_7ajcw")
+
+[node name="Mountain3" type="MeshInstance3D" parent="Props/Barriers"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -100, 5, 0)
+mesh = SubResource("QuadMesh_7ajcw")
+
+[node name="Mountain4" type="MeshInstance3D" parent="Props/Barriers"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5, 100)
+mesh = SubResource("QuadMesh_7ajcw")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
+light_energy = 0.5
+
+[node name="AmbienceAudio" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("4_6fymu")]
+environment = ExtResource("8_hl6x4")
+enabled_in_editor = true
+environment_resource = ExtResource("8_hl6x4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("5_hl6x4")

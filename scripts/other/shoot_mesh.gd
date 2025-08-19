@@ -2,7 +2,7 @@ class_name ShootMesh
 extends MeshInstance3D
 
 
-const GLOCK_19 = preload("res://resources/shoot mesh/glock_19.tres")
+@export var bullet_mesh: Mesh = preload(Constants.RESOURCE_PATHS.shoot_mesh)
 
 var shoot_mesh_timer: Timer
 
@@ -10,7 +10,7 @@ var shoot_mesh_timer: Timer
 func _ready() -> void:
 	visible = false
 	
-	mesh = GLOCK_19
+	mesh = bullet_mesh
 	
 	shoot_mesh_timer = Timer.new()
 	add_child(shoot_mesh_timer)

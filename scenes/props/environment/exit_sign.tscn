@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=4 uid="uid://cyh0j8khbnyf7"]
+
+[ext_resource type="PackedScene" uid="uid://bn70amhx2x0h8" path="res://assets/models/props/environment/exit_sign.fbx" id="1_gutag"]
+[ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_rnyi1"]
+[ext_resource type="Texture2D" uid="uid://dletov5bxg7ge" path="res://assets/textures/props/exit_sign.png" id="3_x3y4g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gutag"]
+render_priority = 0
+shader = ExtResource("2_rnyi1")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("3_x3y4g")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_emission = ExtResource("3_x3y4g")
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 1.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vh0dj"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXIzwK1yM8CtcjPArXI7wK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yO8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rnyi1"]
+resource_name = "Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"attribute_data": PackedByteArray("9txUOgAAAADOzCw/AAAAAM7MLD8AAAA/9txUOgAAAD9r+nw/MA6OPWv6fD8AACA/F/syPwAAID8X+zI/MA6OPQAAAAAAAAA/GaYqPwAAAD8Zpio/AACAPwAAAAAAAIA/AACAPwAAQD8AAIA/AACAPwAALD8AAIA/AAAsPwAAQD9laH8/AAAwPxOKKj8AADA/E4oqPwAAoD5maH8/AACgPqyqfj8AAAw/VlUtPwAADD9WVS0/AABAP6yqfj8AAEA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("ShaderMaterial_gutag"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXIzwK1yM8CtcjvArXIzwK1yM8CtcjvArXIzwK1yO8CtcjPArXIzwK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yO8CtcjPArXI7wK1yO8CtcjvArXI7wK1yM8CtcjPArXI7wK1yM8CtcjPArXI7wK1yO8CtcjvArXI7wK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8CtcjvArXIzwK1yO8CtcjvArXI7wK1yO8CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AID/f////3//v/9/////f/+//3////9//7//f////3//v////3//f///////f/9///////9//3///////3//f////38AAP9//7//fwAA/3//v/9/AAD/f/+//38AAP9//7///////38AgP//////fwCA//////9/AID//////38AgP9//3//f/5//3//f/9//n//f/9//3/+f/9//3//f/5/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vh0dj")
+
+[node name="ExitSign" type="Node3D"]
+
+[node name="exit_sign" parent="." instance=ExtResource("1_gutag")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Cube" parent="exit_sign" index="0"]
+mesh = SubResource("ArrayMesh_rnyi1")
+
+[editable path="exit_sign"]

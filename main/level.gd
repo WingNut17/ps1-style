@@ -9,38 +9,28 @@ var scene_instance: Node3D
 var spawn_points: Dictionary = {}
 
 
-""" the init function was working but causing errors
-func _init(level_id: String) -> void:
-	if level_id.is_empty():
-		push_error("Level ID cannot be empty")
+func initialize(level_uid: String) -> void:
+	if level_uid.is_empty():
+		push_error("Level UID cannot be empty")
 		return
 	
-	id = level_id
-	var scene = LevelRegistry.get_scene(level_id)
+	if not level_uid.begins_with("uid://"):
+		push_error("Invalid UID format: %s" % level_uid)
+		return
+	
+	# Store the UID as the id
+	id = level_uid
+	
+	# Load the scene directly using the UID
+	var scene = Constants.get_scene(level_uid)
 	if scene:
 		scene_instance = scene.instantiate()
 		add_child(scene_instance)
-		
-		_collect_spawn_points()
+		collect_spawn_points()
 	else:
-		push_error("Scene for '%s' not found in registry" % level_id)
-		"""
+		push_error("Scene for UID '%s' not found" % level_uid)
 
-func initialize(level_id: String) -> void:
-	if level_id.is_empty():
-		push_error("Level ID cannot be empty")
-		return
-	
-	id = level_id
-	var scene = LevelRegistry.get_scene(level_id)
-	if scene:
-		scene_instance = scene.instantiate()
-		add_child(scene_instance)
-		_collect_spawn_points()
-	else:
-		push_error("Scene for '%s' not found in registry" % level_id)
-
-func _collect_spawn_points() -> void:
+func collect_spawn_points() -> void:
 	var container := scene_instance.get_node_or_null("SpawnPoints")
 	if container:
 		for child in container.get_children():

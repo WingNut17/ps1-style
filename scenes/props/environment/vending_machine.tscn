@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=4 uid="uid://b0bc112urjy4d"]
+
+[ext_resource type="PackedScene" uid="uid://bcaqiu24neppm" path="res://assets/models/props/environment/vending_machine.fbx" id="1_6oh5p"]
+[ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_36pc1"]
+[ext_resource type="Texture2D" uid="uid://cansym4k8anhg" path="res://assets/textures/props/vending_machine.png" id="3_5vcek"]
+[ext_resource type="AudioStream" uid="uid://d3owst0273qv7" path="res://assets/audio/sound/props/vending_machine_ambience.ogg" id="4_5vcek"]
+[ext_resource type="AudioStream" uid="uid://cjy0gtbsyv5wf" path="res://assets/audio/sound/general/error.ogg" id="5_okdfp"]
+[ext_resource type="Script" uid="uid://dp0vf037p565f" path="res://scripts/systems/interaction/interactable.gd" id="6_okdfp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36pc1"]
+render_priority = 0
+shader = ExtResource("2_36pc1")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("3_5vcek")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fg8cg"]
+_surfaces = [{
+"aabb": AABB(-0.006, -0.006, -0.006, 0.012, 0.012, 0.012),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("ppvEu6abxDumm8Q7ppvEu6abxLumm8Q7ppvEu6abxLumm8S7ppvEu6abxDumm8S7ppvEO6abxDumm8Q7ppvEO6abxLumm8S7ppvEO6abxLumm8Q7ppvEO6abxDumm8S7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5vcek"]
+resource_name = "Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.006, -0.006, -0.006, 0.012, 0.012, 0.012),
+"attribute_data": PackedByteArray("DJeAP4BZAD9IUSs/glkAP0hRKz8AVD46C5eAPwBUPjpobTw6AOD5OaEs/j4AnPe6uWL/PsQIAD9aJ0o7z6MAP7rNfz8AaNs5us1/P2wbAD8QIys/bBsAPxAjKz8AaNs5bzb7PsEuAD9vNvs+Jkh/PwCGQTsmSH8/AIZBO8EuAD8AAMA+AACAPgAAwD4AAAA/AAAAPgAAAD8AAAA+AACAPgk4fz8oyf8+CTh/P5Bjfz+KKyw/kGN/P4orLD8oyf8+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("ShaderMaterial_36pc1"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("ppvEu6abxDumm8Q7ppvEu6abxLumm8Q7ppvEu6abxLumm8S7ppvEu6abxDumm8S7ppvEO6abxDumm8Q7ppvEu6abxDumm8Q7ppvEu6abxDumm8S7ppvEO6abxDumm8S7ppvEO6abxLumm8Q7ppvEO6abxDumm8Q7ppvEO6abxDumm8S7ppvEO6abxLumm8S7ppvEu6abxLumm8Q7ppvEO6abxLumm8Q7ppvEO6abxLumm8S7ppvEu6abxLumm8S7ppvEO6abxLumm8S7ppvEO6abxDumm8S7ppvEu6abxDumm8S7ppvEu6abxLumm8S7ppvEu6abxLumm8Q7ppvEu6abxDumm8Q7ppvEO6abxDumm8Q7ppvEO6abxLumm8Q7AAD/f/9///8AAP9//3/+/wAA/3//f///AAD/f/9/////f///AABMwP9///8AAEzA/3///wAATMD/f///AABMwP///3//f/+/////f/9//7////9//3//v////3//f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//38AAP9//7//////////v/////////+//////////7//////////v/9//38AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fg8cg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_36pc1"]
+size = Vector3(1.8, 2.4, 1.2)
+
+[node name="VendingMachine" type="Node3D"]
+
+[node name="vending_machine" parent="." instance=ExtResource("1_6oh5p")]
+
+[node name="Cube" parent="vending_machine" index="0"]
+mesh = SubResource("ArrayMesh_5vcek")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00012207, 0)
+shape = SubResource("BoxShape3D_36pc1")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_5vcek")
+volume_db = -35.0
+autoplay = true
+bus = &"Sfx"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_okdfp")
+bus = &"Sfx"
+
+[node name="Interactable" type="Area3D" parent="."]
+script = ExtResource("6_okdfp")
+metadata/_custom_type_script = "uid://dp0vf037p565f"
+
+[editable path="vending_machine"]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://2t0u6ijv2mx5"
+path="res://.godot/imported/open_door.dialogue-b2fb718adf6abf915f3c8c51c051dd9e.tres"
+
+[deps]
+
+source_file="res://resources/dialogue/open_door.dialogue"
+dest_files=["res://.godot/imported/open_door.dialogue-b2fb718adf6abf915f3c8c51c051dd9e.tres"]
+
+[params]
+
+defaults=true

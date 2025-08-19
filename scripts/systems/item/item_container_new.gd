@@ -7,47 +7,58 @@ extends Node3D
 @export var ammo_label: Label
 @export var item_animation: AnimationPlayer
 @export var item_audio: AudioStreamPlayer
-@export var full_auto_timer: Timer
+@export var primary_timer: Timer
+@export var secondary_timer: Timer
 @export var item: Item
 
-var shoot_mesh
+var item_node: Node3D
+var current_recoil: Vector3 = Vector3.ZERO
+var default_position: Vector3
+var default_rotation: Vector3
 
 
 func _ready() -> void:
+	default_position = item_pos.position
+	default_rotation = item_pos.rotation_degrees
 	if item:
 		setup_item()
+
+func _process(delta: float) -> void:
+	camera.rotation_degrees = camera.rotation_degrees.lerp(Vector3.ZERO, delta * 2.0)
+	item_pos.rotation_degrees = item_pos.rotation_degrees.lerp(default_rotation, delta * 4.0)
+	item_pos.position = item_pos.position.lerp(default_position, delta * 2.0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !item or !item.equipable:
 		return
-	
+
 	if event.is_action_pressed("click"):
 		if item.get("full_auto") != null:
 			if item.full_auto:
-				item.on_full_auto_start()  # Start full auto
+				item.on_full_auto_start()
 			else:
-				item.on_primary_action()   # Single shot
+				item.on_primary_action()
 		elif item.has_method("on_primary_action"):
 			item.on_primary_action()
-	
+
 	elif event.is_action_released("click"):
 		if item.get("full_auto") != null:
 			if item.full_auto:
-				item.on_full_auto_stop()   # Stop full auto
-	
+				item.on_full_auto_stop()
+
 	elif event.is_action_pressed("reload"):
 		if item.has_method("on_reload"):
 			item.on_reload()
 
 func setup_item() -> void:
-	var item_node
 	if !item or !item.equipable:
 		return
 	
 	item_node = item.item_model.instantiate()
 	
 	for child in item_pos.get_children():
-		child.queue_free()
+		if not child is Marker3D:
+			child.queue_free()
 	
 	item_pos.add_child(item_node)
 	item.initialize(self)
@@ -63,8 +74,6 @@ func setup_item() -> void:
 		item.update_ammo.connect(_update_ammo)
 		_update_ammo()
 		
-		if item_node.get_node_or_null("ShootMesh"):
-			shoot_mesh = item_node.get_node_or_null("ShootMesh")
 	else:
 		ammo_label.visible = false
 

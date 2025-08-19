@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="RangedWeaponItem" load_steps=6 format=3 uid="uid://cpp1251llgws4"]
+
+[ext_resource type="Script" uid="uid://35e0sxv41p52" path="res://scripts/systems/item/ranged_item.gd" id="1_2aqxi"]
+[ext_resource type="PackedScene" uid="uid://tqiakixyhq04" path="res://scenes/props/items/weapons/revolver.tscn" id="1_c1fbm"]
+[ext_resource type="Texture2D" uid="uid://6tj2r71vfjaw" path="res://assets/textures/props/items/item_thumbnail/revolver.png" id="2_xis8y"]
+[ext_resource type="AudioStream" uid="uid://dowt7cpc7qi84" path="res://assets/audio/sound/props/items/weapons/no_ammo.ogg" id="3_cynrb"]
+[ext_resource type="AudioStream" uid="uid://dbbcamrkvtatm" path="res://assets/audio/sound/props/items/weapons/pistol_shoot.ogg" id="5_s6j0o"]
+
+[resource]
+script = ExtResource("1_2aqxi")
+ammo_type = "magnum"
+magazine_ammo = 6
+max_magazine_ammo = 6
+full_auto = false
+bullet_count = 1
+spread = 2.5
+shoot_damage = 40
+shoot_speed = 1.0
+reload_time = 4.0
+shoot_range = 10.0
+shoot_sound = ExtResource("5_s6j0o")
+no_ammo_sound = ExtResource("3_cynrb")
+reload_anim = &"reload"
+recoil_amount = 1.5
+equipable = true
+consumable = false
+pull_out_time = 2.0
+item_name = "revolver"
+item_description = "this is a revolver"
+item_model = ExtResource("1_c1fbm")
+item_thumbnail = ExtResource("2_xis8y")
+metadata/_custom_type_script = "uid://35e0sxv41p52"

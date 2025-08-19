@@ -13,7 +13,6 @@ signal start_game
 @onready var back_button: Button = %BackButton
 @onready var menu_ui_audio: AudioStreamPlayer = $MenuUiAudio
 
-const PLAYER = preload("res://main/player/player.tscn")
 const ROTATION_STEP = 72.0
 const TWEEN_DURATION = 0.5
 
@@ -44,7 +43,7 @@ func rotate_carousel(direction: String) -> void:
 	var tween := get_tree().create_tween()
 	var rotation_change := Vector3(0, ROTATION_STEP if direction == "right" else -ROTATION_STEP, 0)
 	
-	menu_ui_audio.stream = preload("res://assets/audio/sound/ui/menu_move.ogg")
+	menu_ui_audio.stream = preload(Constants.AUDIO_PATHS.menu_move)
 	menu_ui_audio.pitch_scale = randf_range(1.0, 1.2) if direction == "right" else randf_range(0.8, 1.0)
 	menu_ui_audio.play()
 	
@@ -81,7 +80,7 @@ func perform_menu_action(menu_item: String) -> void:
 		_:
 			print("No menu action assigned to: ", menu_item)
 	
-	menu_ui_audio.stream = preload("res://assets/audio/sound/ui/item_select.ogg")
+	menu_ui_audio.stream = preload(Constants.AUDIO_PATHS.item_select)
 	menu_ui_audio.pitch_scale = 1.0
 	menu_ui_audio.play()
 
@@ -109,10 +108,12 @@ func _on_load_carousel_hidden() -> void:
 	load_carousel.visible = false
 
 func _on_left_button_pressed() -> void:
-	rotate_carousel("left")
+	if can_move:
+		rotate_carousel("left")
 
 func _on_right_button_pressed() -> void:
-	rotate_carousel("right")
+	if can_move:
+		rotate_carousel("right")
 
 func _on_menu_item_button_pressed() -> void:
 	perform_menu_action(menu_items[item_idx].name)
@@ -123,7 +124,7 @@ func _on_back_button_pressed() -> void:
 	populate_menu_array(current_carousel)
 	select_item(item_idx)
 	
-	menu_ui_audio.stream = preload("res://assets/audio/sound/ui/item_select.ogg")
+	menu_ui_audio.stream = preload(Constants.AUDIO_PATHS.item_select)
 	menu_ui_audio.pitch_scale = 1.0
 	menu_ui_audio.play()
 

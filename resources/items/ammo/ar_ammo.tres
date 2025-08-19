@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AmmoItem" load_steps=4 format=3 uid="uid://cmepolnp2l077"]
+
+[ext_resource type="PackedScene" uid="uid://cd1sft6mbjn4a" path="res://scenes/props/items/ammo/ammo_9_mm.tscn" id="1_4ha1g"]
+[ext_resource type="Script" uid="uid://cys0mw18edt22" path="res://scripts/systems/item/ammo_item.gd" id="1_cqys2"]
+[ext_resource type="Texture2D" uid="uid://fbq27h5cjmwj" path="res://assets/textures/props/items/item_thumbnail/9mm_ammo.png" id="2_kyd3n"]
+
+[resource]
+script = ExtResource("1_cqys2")
+ammo_type = "ar"
+ammo_count = 30
+equipable = false
+consumable = false
+item_name = "ar ammo"
+item_description = "this is ar ammo"
+item_model = ExtResource("1_4ha1g")
+item_thumbnail = ExtResource("2_kyd3n")
+metadata/_custom_type_script = "uid://cys0mw18edt22"

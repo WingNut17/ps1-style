@@ -1,0 +1,8 @@
+~ start
+You have {{DialogueEvents.item}}, would you like to use it to enter this door?
+- Yes
+	do DialogueEvents.unlock_door.emit()
+	The door is now unlocked.
+- No
+	You did not unlock the door.
+=> END

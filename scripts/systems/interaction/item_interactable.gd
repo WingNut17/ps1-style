@@ -5,26 +5,26 @@ extends Interactable
 @export var item: Item
 @export var dialogue_id: DialogueResource
 @export var use_camera: bool = true
+@export var item_node: Node3D
 
 @onready var sprite: Sprite3D = $Sprite3D
 @onready var camera: Camera3D = $Camera3D
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
-var item_model: Node3D
 var item_picked_up: bool
+var player_instance: CharacterBody3D
+var camera_switched: bool = false
 
 
 func _ready() -> void:
-	if item:
-		item_model = item.item_model.instantiate()
-		add_child(item_model)
-	else:
+	if not item:
 		collision_shape.disabled = true
 		sprite.visible = false
+		item_node.visible = false
 
 func interact(player: CharacterBody3D) -> void:
-	# Check if we should block interaction
+	player_instance = player
 	if GameState.should_block_player_input():
 		return
 		
@@ -32,40 +32,55 @@ func interact(player: CharacterBody3D) -> void:
 		print("no item resource")
 		return
 	
-	DialogueVariables.item = item.item_name
+	DialogueEvents.item = item.item_name
 	
 	if use_camera:
-		toggle_camera(null, player)
-		DialogueManager.dialogue_ended.connect(toggle_camera.bind(player))
+		switch_to_interaction_camera(player)
+		
+		# Connect dialogue end signal only if not already connected
+		if not DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
+			DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	
-	# Start dialogue - GameState will automatically handle player movement blocking
 	DialogueManager.show_dialogue_balloon(dialogue_id, "")
-	DialogueVariables.pick_up_item.connect(_on_pick_up_item)
+	
+	if DialogueEvents.pick_up_item.is_connected(_on_pick_up_item):
+		DialogueEvents.pick_up_item.disconnect(_on_pick_up_item)
+	DialogueEvents.pick_up_item.connect(_on_pick_up_item)
 
-func toggle_camera(_val, player: CharacterBody3D) -> void:
-	if player.camera.current:
+func switch_to_interaction_camera(player: CharacterBody3D) -> void:
+	"""Switch from player camera to interaction camera"""
+	if not camera_switched:
 		player.camera.current = false
 		camera.current = true
 		player.visible = false
-	else:
-		player.camera.current = true
+		camera_switched = true
+
+func switch_to_player_camera() -> void:
+	"""Switch back to player camera"""
+	if camera_switched and player_instance:
+		player_instance.camera.current = true
 		camera.current = false
-		player.visible = true
+		player_instance.visible = true
+		camera_switched = false
+
+func _on_dialogue_ended(_val) -> void:
+	"""Called when dialogue ends - switch back to player camera"""
+	switch_to_player_camera()
 	
-	if item_picked_up:
-		return
-	
-	sprite.visible = !sprite.visible
+	# Clean up the signal connection
+	if DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
+		DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
 
 func _on_pick_up_item() -> void:
 	collision_shape.queue_free()
 	audio.play()
-	item_model.visible = false
+	item_node.visible = false
 	sprite.visible = false
 	
 	item_picked_up = true
 	
 	if item is AmmoItem:
+		# TODO create the ammo adding to inventory system
 		pass
 	else:
 		Inventory.add_item(item)

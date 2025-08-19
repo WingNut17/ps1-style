@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5g0ixr6w08bq"]
 
-[ext_resource type="Environment" uid="uid://cdn107mv7e8ox" path="res://resources/world_environment.tres" id="1_vslqh"]
+[ext_resource type="Environment" uid="uid://cdn107mv7e8ox" path="res://resources/environments/world_environment.tres" id="1_vslqh"]
 [ext_resource type="Script" uid="uid://d2oi448oyaa28" path="res://scripts/other/world_environment.gd" id="2_ssq76"]
 
 [node name="WorldEnvironment" type="WorldEnvironment"]

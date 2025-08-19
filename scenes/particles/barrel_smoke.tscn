@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckacb1wxobqqf"]
+
+[ext_resource type="Script" uid="uid://b8fsjqwfqtef2" path="res://scripts/systems/one_shot_particle.gd" id="1_fg14b"]
+[ext_resource type="Texture2D" uid="uid://cfohpjuoex5wt" path="res://assets/textures/props/wet_stain.png" id="1_m8ktf"]
+
+[sub_resource type="Curve" id="Curve_ea3xl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -6.19747, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f82a2"]
+curve = SubResource("Curve_ea3xl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dx3u1"]
+lifetime_randomness = 0.1
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0.15, 0)
+scale_curve = SubResource("CurveTexture_f82a2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnpa7"]
+transparency = 1
+blend_mode = 1
+albedo_texture = ExtResource("1_m8ktf")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_sb1t1"]
+material = SubResource("StandardMaterial3D_lnpa7")
+size = Vector2(0.05, 0.05)
+
+[node name="BarrelSmoke" type="GPUParticles3D"]
+emitting = false
+amount = 16
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_dx3u1")
+draw_pass_1 = SubResource("QuadMesh_sb1t1")
+script = ExtResource("1_fg14b")
+metadata/_custom_type_script = "uid://b8fsjqwfqtef2"

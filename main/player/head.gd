@@ -20,10 +20,12 @@ func _ready() -> void:
 	GameState.dialogue_started.connect(_on_movement_blocked)
 	GameState.cutscene_started.connect(_on_movement_blocked)
 	GameState.menu_opened.connect(_on_movement_blocked)
+	GameState.loading.connect(_on_loading)
 	
 	GameState.dialogue_ended.connect(_on_movement_allowed)
 	GameState.cutscene_ended.connect(_on_movement_allowed)
 	GameState.menu_closed.connect(_on_movement_allowed)
+	GameState.done_loading.connect(_on_loading)
 
 func _process(delta: float) -> void:
 	if hand:
@@ -43,15 +45,18 @@ func _input(event: InputEvent) -> void:
 		rotation_degrees.x -= movement.y * sensitivity
 		rotation_degrees.x = clampf(rotation_degrees.x, -90, 90)
 
-func _on_movement_blocked():
+func _on_loading() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _on_movement_blocked() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-func _on_movement_allowed():
+func _on_movement_allowed() -> void:
 	# Only re-enable if no other blocking states are active
 	if not GameState.is_any_blocking_state_active():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func look_at_object(object_position: Vector3, duration: float):
+func look_at_object(object_position: Vector3, duration: float) -> void:
 	var head_transform = global_transform
 	head_transform = head_transform.looking_at(object_position, Vector3.UP)
 	

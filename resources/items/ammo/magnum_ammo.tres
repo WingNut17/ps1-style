@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AmmoItem" load_steps=4 format=3 uid="uid://c1kg5vbxdyno"]
+
+[ext_resource type="PackedScene" uid="uid://cd1sft6mbjn4a" path="res://scenes/props/items/ammo/ammo_9_mm.tscn" id="1_4gsg6"]
+[ext_resource type="Script" uid="uid://cys0mw18edt22" path="res://scripts/systems/item/ammo_item.gd" id="1_kn35i"]
+[ext_resource type="Texture2D" uid="uid://fbq27h5cjmwj" path="res://assets/textures/props/items/item_thumbnail/9mm_ammo.png" id="2_kij3e"]
+
+[resource]
+script = ExtResource("1_kn35i")
+ammo_type = "magnum"
+ammo_count = 12
+equipable = false
+consumable = false
+pull_out_time = 2.0
+item_name = "magnum"
+item_description = ""
+item_model = ExtResource("1_4gsg6")
+item_thumbnail = ExtResource("2_kij3e")
+metadata/_custom_type_script = "uid://cys0mw18edt22"

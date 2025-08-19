@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="RangedWeaponItem" load_steps=7 format=3 uid="uid://bffoyc8mc0dvl"]
+
+[ext_resource type="PackedScene" uid="uid://cf38kfbdreup" path="res://scenes/props/items/weapons/desert_eagle.tscn" id="1_nbnqc"]
+[ext_resource type="Script" uid="uid://35e0sxv41p52" path="res://scripts/systems/item/ranged_item.gd" id="1_ylt6s"]
+[ext_resource type="Texture2D" uid="uid://v5yjadr25m8o" path="res://assets/textures/props/items/item_thumbnail/desert_eagle.png" id="2_6y083"]
+[ext_resource type="AudioStream" uid="uid://dowt7cpc7qi84" path="res://assets/audio/sound/props/items/weapons/no_ammo.ogg" id="3_nj4ok"]
+[ext_resource type="AudioStream" uid="uid://dooecsc0ju2do" path="res://assets/audio/sound/props/items/weapons/pistol_reload.ogg" id="4_6823i"]
+[ext_resource type="AudioStream" uid="uid://dbbcamrkvtatm" path="res://assets/audio/sound/props/items/weapons/pistol_shoot.ogg" id="6_g4p5f"]
+
+[resource]
+script = ExtResource("1_ylt6s")
+ammo_type = "50cal"
+magazine_ammo = 12
+max_magazine_ammo = 12
+full_auto = false
+bullet_count = 1
+spread = 2.5
+shoot_damage = 50
+shoot_speed = 0.75
+reload_time = 2.0
+shoot_range = 10.0
+shoot_sound = ExtResource("6_g4p5f")
+no_ammo_sound = ExtResource("3_nj4ok")
+reload_sound = ExtResource("4_6823i")
+reload_anim = &"reload"
+recoil_amount = 2.0
+equipable = true
+consumable = false
+pull_out_time = 2.0
+item_name = "deagle"
+item_description = "desert eagle"
+item_model = ExtResource("1_nbnqc")
+item_thumbnail = ExtResource("2_6y083")
+metadata/_custom_type_script = "uid://35e0sxv41p52"

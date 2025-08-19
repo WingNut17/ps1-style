@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2hwvwii0qeap"]
+
+[ext_resource type="Script" uid="uid://bcj2k7dbhiq3b" path="res://scripts/systems/weapon/ranged_weapon.gd" id="1_6dn4k"]
+[ext_resource type="PlaneMesh" uid="uid://6ua2sdg2exgj" path="res://resources/items/weapons/shoot mesh/default_shoot_mesh.tres" id="2_swjfr"]
+[ext_resource type="Script" uid="uid://dlvil5gy37dtq" path="res://scripts/other/shoot_mesh.gd" id="3_21yid"]
+
+[node name="WeaponExample" type="Node3D" node_paths=PackedStringArray("shoot_mesh", "barrel_pos")]
+script = ExtResource("1_6dn4k")
+shoot_mesh = NodePath("BarrelPos/ShootMesh")
+barrel_pos = NodePath("BarrelPos")
+metadata/_custom_type_script = "uid://bcj2k7dbhiq3b"
+
+[node name="BarrelPos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703663, 0.0614662, 0)
+
+[node name="ShootMesh" type="MeshInstance3D" parent="BarrelPos"]
+mesh = ExtResource("2_swjfr")
+skeleton = NodePath("../..")
+script = ExtResource("3_21yid")

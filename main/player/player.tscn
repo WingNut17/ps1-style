@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=26 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
@@ -6,11 +6,13 @@
 [ext_resource type="Script" uid="uid://da6fmxaqqi7jv" path="res://scripts/systems/health/hurtbox.gd" id="3_8ifdq"]
 [ext_resource type="Shader" uid="uid://drqr45oe5lnt1" path="res://scripts/shaders/dither.gdshader" id="3_ssv3l"]
 [ext_resource type="Script" uid="uid://opmftn7c8q3n" path="res://main/player/interact_ray.gd" id="4_4bbr4"]
-[ext_resource type="Texture2D" uid="uid://c15ais4d1hqmw" path="res://assets/textures/items/flashlight.png" id="4_f8m1i"]
+[ext_resource type="Texture2D" uid="uid://c15ais4d1hqmw" path="res://assets/textures/props/items/flashlight.png" id="4_f8m1i"]
 [ext_resource type="Script" uid="uid://di1x6n3vm2s6q" path="res://main/player/foot_cast.gd" id="5_f8m1i"]
+[ext_resource type="Script" uid="uid://dewy6vcv32kft" path="res://scripts/systems/one_shot_audio.gd" id="7_6xqwf"]
 [ext_resource type="Script" uid="uid://csmpgo0gyiac0" path="res://scripts/systems/item/item_container_new.gd" id="7_gkpck"]
 [ext_resource type="Script" uid="uid://cvrie2incxdu" path="res://main/player/player_ui.gd" id="11_6xqwf"]
 [ext_resource type="PackedScene" uid="uid://cnui3gpbmr30b" path="res://scenes/ui/inventory_ui.tscn" id="12_6xqwf"]
+[ext_resource type="Script" uid="uid://bq6pk6qrlsw1f" path="res://main/player/label.gd" id="12_gkpck"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f8m1i"]
 
@@ -43,19 +45,18 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Head/Camera3D:rotation")
+tracks/2/path = NodePath("ItemContainer/ItemPos:quaternion")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Quaternion(0, -0.707107, 0, 0.707107)]
 }
 
 [sub_resource type="Animation" id="Animation_kgdvm"]
 resource_name = "equip"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -63,7 +64,7 @@ tracks/0/path = NodePath("ItemContainer/ItemPos:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1.92039e-06, -1.5708, 0.559186), Vector3(0, -1.5708, 0)]
@@ -75,10 +76,94 @@ tracks/1/path = NodePath("ItemContainer/ItemPos:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.25, -0.45, -0.425), Vector3(0.25, -0.2, -0.5)]
+"values": [Vector3(0.25, -0.69313, -0.520515), Vector3(0.25, -0.2, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_eoovf"]
+resource_name = "kitchen_knife_attack1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemContainer/ItemPos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.200848, -0.00677925, -0.5), Vector3(0.487639, -0.446523, -0.511105)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemContainer/ItemPos:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.0472, -1.5708, -6.27001e-06), Vector3(1.0184, -0.772786, 2.70024)]
+}
+
+[sub_resource type="Animation" id="Animation_8ifdq"]
+resource_name = "knife_attack2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemContainer/ItemPos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.488702, 0.0175516, -0.5), Vector3(-0.169995, -0.378271, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemContainer/ItemPos:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.523599, -1.5708, 2.09e-06), Vector3(-0.523003, -1.30761, 2.21585)]
+}
+
+[sub_resource type="Animation" id="Animation_own1o"]
+resource_name = "knife_attack3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemContainer/ItemPos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.284814, -0.2, -0.5), Vector3(0.458487, -0.2, -0.472806)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemContainer/ItemPos:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(-0.226221, 0.740868, -0.556713, -0.300016), Quaternion(-0.362128, -0.610442, 0.672398, -0.210012)]
 }
 
 [sub_resource type="Animation" id="Animation_7hvb5"]
@@ -111,52 +196,15 @@ tracks/1/keys = {
 "values": [Vector3(0.25, -0.2, -0.5), Vector3(0.25, -0.441356, -0.434769), Vector3(0.25, -0.2, -0.5)]
 }
 
-[sub_resource type="Animation" id="Animation_6xqwf"]
-resource_name = "shoot"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ItemContainer/ItemPos:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.5708, -0.261799), Vector3(0, -1.5708, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ItemContainer/ItemPos:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.25, -0.2, -0.5), Vector3(0.25, -0.1, -0.4), Vector3(0.25, -0.2, -0.5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Head/Camera3D:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.0872665, 0, 0), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gkpck"]
 _data = {
 &"RESET": SubResource("Animation_gkpck"),
 &"equip": SubResource("Animation_kgdvm"),
+&"knife_attack1": SubResource("Animation_eoovf"),
+&"knife_attack2": SubResource("Animation_8ifdq"),
+&"knife_attack3": SubResource("Animation_own1o"),
 &"no_ammo": SubResource("Animation_7hvb5"),
-&"reload": SubResource("Animation_r10t4"),
-&"shoot": SubResource("Animation_6xqwf")
+&"reload": SubResource("Animation_r10t4")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bbr4"]
@@ -187,6 +235,7 @@ script = ExtResource("2_eoovf")
 metadata/_custom_type_script = "uid://jn8kf3ruep6u"
 
 [node name="HurtBox" type="Area3D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 2
 script = ExtResource("3_8ifdq")
 health = NodePath("../Health")
 metadata/_custom_type_script = "uid://da6fmxaqqi7jv"
@@ -221,7 +270,7 @@ crosshair = NodePath("../../PlayerUi/Crosshair")
 [node name="Hand" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
-[node name="ItemContainer" type="Node3D" parent="Hand" node_paths=PackedStringArray("head", "camera", "item_pos", "ammo_label", "item_animation", "item_audio", "full_auto_timer")]
+[node name="ItemContainer" type="Node3D" parent="Hand" node_paths=PackedStringArray("head", "camera", "item_pos", "ammo_label", "item_animation", "item_audio", "primary_timer")]
 script = ExtResource("7_gkpck")
 head = NodePath("../../Head")
 camera = NodePath("../../Head/Camera3D")
@@ -229,10 +278,11 @@ item_pos = NodePath("ItemPos")
 ammo_label = NodePath("../../PlayerUi/MarginContainer/AmmoLabel")
 item_animation = NodePath("ItemAnimation")
 item_audio = NodePath("ItemAudio")
-full_auto_timer = NodePath("FullAutoTimer")
+primary_timer = NodePath("PrimaryTimer")
 
 [node name="ItemPos" type="Marker3D" parent="Hand/ItemContainer"]
-transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0.25, -0.2, -0.5)
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0.25, -0.2, -0.5)
+rotation_edit_mode = 1
 
 [node name="ItemAnimation" type="AnimationPlayer" parent="Hand/ItemContainer"]
 root_node = NodePath("../..")
@@ -242,12 +292,13 @@ libraries = {
 
 [node name="ItemAudio" type="AudioStreamPlayer" parent="Hand/ItemContainer"]
 bus = &"Sfx"
+script = ExtResource("7_6xqwf")
+metadata/_custom_type_script = "uid://dewy6vcv32kft"
 
-[node name="FullAutoTimer" type="Timer" parent="Hand/ItemContainer"]
+[node name="PrimaryTimer" type="Timer" parent="Hand/ItemContainer"]
 one_shot = true
 
 [node name="FlashLight" type="SpotLight3D" parent="Hand"]
-visible = false
 light_energy = 10.0
 light_projector = ExtResource("4_f8m1i")
 shadow_enabled = true
@@ -263,6 +314,7 @@ one_shot = true
 
 [node name="WalkAudio" type="AudioStreamPlayer" parent="FootCast"]
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Shaders" type="CanvasLayer" parent="."]
 
@@ -298,6 +350,11 @@ grow_vertical = 2
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("12_6xqwf")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 8.0
+script = ExtResource("12_gkpck")
 
 [node name="PlayerUi" type="CanvasLayer" parent="."]
 script = ExtResource("11_6xqwf")
@@ -349,6 +406,7 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="AmmoLabel" type="Label" parent="PlayerUi/MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8

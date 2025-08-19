@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cid1ll6n11be"]
+[gd_scene load_steps=8 format=3 uid="uid://cid1ll6n11be"]
 
 [ext_resource type="Script" uid="uid://chioelcubq4bg" path="res://main/main.gd" id="1_grrlh"]
 [ext_resource type="Script" uid="uid://dapoa64fdjd3u" path="res://main/world.gd" id="3_xwkvk"]
@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://bj1itl834o74y" path="res://assets/fonts/GothicPixels.ttf" id="5_kfbq2"]
 [ext_resource type="Shader" uid="uid://bs658o3w41slt" path="res://scripts/shaders/melt.gdshader" id="6_kfbq2"]
 [ext_resource type="AudioStream" uid="uid://d3w3mbagj6gwa" path="res://assets/audio/sound/environment/gong.ogg" id="7_4dugh"]
-[ext_resource type="AudioStream" uid="uid://fckurvm5svj4" path="res://assets/audio/music/suspense_loop.ogg" id="8_67ri8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4dugh"]
 shader = ExtResource("6_kfbq2")
@@ -18,8 +17,9 @@ shader_parameter/random_seed = 0.0
 script = ExtResource("1_grrlh")
 world = NodePath("World")
 
-[node name="World" type="Node" parent="." groups=["World"]]
+[node name="World" type="Node" parent="." node_paths=PackedStringArray("scene_transition") groups=["World"]]
 script = ExtResource("3_xwkvk")
+scene_transition = NodePath("SceneTransitionVisual")
 
 [node name="SceneTransitionVisual" type="CanvasLayer" parent="World"]
 layer = 128
@@ -57,8 +57,3 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="World/SceneTransitionVisual"]
 stream = ExtResource("7_4dugh")
 volume_db = -5.0
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_67ri8")
-autoplay = true
-bus = &"Music"

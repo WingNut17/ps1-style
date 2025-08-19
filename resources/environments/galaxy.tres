@@ -1,0 +1,27 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://batnnvqr1ghe0"]
+
+[ext_resource type="Texture2D" uid="uid://dwsy4511ghk6d" path="res://assets/textures/skybox/milky_way.png" id="1_hejd7"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmcm1"]
+panorama = ExtResource("1_hejd7")
+filter = false
+
+[sub_resource type="Sky" id="Sky_iga4a"]
+sky_material = SubResource("PanoramaSkyMaterial_bmcm1")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_iga4a")
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 8.0
+glow_strength = 0.25
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_light_color = Color(0, 0, 0, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.0
+volumetric_fog_sky_affect = 0.8
