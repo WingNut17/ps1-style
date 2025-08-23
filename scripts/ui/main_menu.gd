@@ -12,6 +12,7 @@ signal start_game
 @onready var menu_item_button: Button = %MenuItemButton
 @onready var back_button: Button = %BackButton
 @onready var menu_ui_audio: AudioStreamPlayer = $MenuUiAudio
+@onready var load_ui: Control = %LoadUi
 
 const ROTATION_STEP = 72.0
 const TWEEN_DURATION = 0.5
@@ -58,7 +59,7 @@ func rotate_carousel(direction: String) -> void:
 func select_item(index: int) -> void:
 	for i in menu_items.size():
 		menu_items[i].item_selected = (i == index)
-	menu_item_button.text = menu_items[index].name
+	menu_item_button.text = menu_items[index].button_name
 
 func _on_tween_finished() -> void:
 	can_move = true
@@ -78,7 +79,7 @@ func perform_menu_action(menu_item: String) -> void:
 		"Load1", "Load2", "Load3", "Load4", "Load5":
 			print(menu_item)
 		_:
-			print("No menu action assigned to: ", menu_item)
+			print_debug("No menu action assigned to: ", menu_item)
 	
 	menu_ui_audio.stream = preload(Constants.AUDIO_PATHS.item_select)
 	menu_ui_audio.pitch_scale = 1.0
@@ -97,6 +98,8 @@ func open_load_carousel() -> void:
 	tween.tween_property(load_carousel, "scale", Vector3.ONE, TWEEN_DURATION)
 	tween.parallel().tween_property(carousel, "scale", Vector3(0.05, 0.05, 0.05), TWEEN_DURATION)
 	tween.connect("finished", _on_carousel_hidden)
+	
+	load_ui.visible = true
 
 func change_ui() -> void:
 	pass
@@ -135,3 +138,4 @@ func _on_back_button_pressed() -> void:
 	tween.tween_property(carousel, "scale", Vector3.ONE, TWEEN_DURATION)
 	tween.parallel().tween_property(load_carousel, "scale", Vector3(0.05, 0.05, 0.05), TWEEN_DURATION)
 	tween.connect("finished", _on_load_carousel_hidden)
+	load_ui.visible = false

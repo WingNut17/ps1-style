@@ -6,7 +6,7 @@ extends Interactable
 
 func interact(player: CharacterBody3D) -> void:
 	if not dialogue_id:
-		print("No dialogue has been added to ", get_parent().name, "...")
+		print_debug("No dialogue has been added to ", get_parent().name, "...")
 		return
 	
 	# Check if we should block interaction

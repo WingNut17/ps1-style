@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var button_name: String
 
 var default_rotation: Vector3
 var mouse_position: Vector2

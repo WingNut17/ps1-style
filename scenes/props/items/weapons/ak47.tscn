@@ -191,10 +191,11 @@ metadata/_custom_type_script = "uid://bcj2k7dbhiq3b"
 transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.0851118, -0.0559306, 0)
 
 [node name="AssaultRifle_4" parent="AssaultRifle_4" index="0"]
+transform = Transform3D(100, -9.09495e-13, -1.0842e-19, 0, -1.19209e-05, 100, -9.09495e-13, -100, -1.19209e-05, -0.545594, -0.0519613, -4.76974e-08)
 mesh = SubResource("ArrayMesh_wby4g")
 
 [node name="BarrelPos" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703663, 0.0614662, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.593777, 0.0481017, 0)
 
 [node name="ShootMesh" type="MeshInstance3D" parent="BarrelPos"]
 mesh = ExtResource("4_agp1a")

@@ -161,14 +161,14 @@ barrel_pos = NodePath("BarrelPos")
 metadata/_custom_type_script = "uid://bcj2k7dbhiq3b"
 
 [node name="AssaultRifle2_1" parent="." instance=ExtResource("3_ge6lh")]
-transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.0865106, -0.0553101, -5.51729e-08)
+transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.177093, -0.0671897, -5.51729e-08)
 
 [node name="AssaultRifle2_1" parent="AssaultRifle2_1" index="0"]
 transform = Transform3D(100, -9.09495e-13, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nhxbc")
 
 [node name="BarrelPos" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.654554, 0.0715514, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562487, 0.0567019, 0)
 
 [node name="ShootMesh" type="MeshInstance3D" parent="BarrelPos"]
 mesh = ExtResource("4_jw7cj")

@@ -1,8 +1,8 @@
 ~ start
-Would you like to pick up {{DialogueEvents.item}}?
+Would you like to pick up {{DialogueVariables.item}}?
 - Yes
-	do DialogueEvents.pick_up_item.emit()
-	You picked up {{DialogueEvents.item}}.
+	do DialogueVariables.pick_up_item.emit()
+	You picked up {{DialogueVariables.item}}.
 - No
-	You did not pick up {{DialogueEvents.item}}.
+	You did not pick up {{DialogueVariables.item}}.
 => END

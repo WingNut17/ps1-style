@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ct7w2tqrbrf3e" path="res://scenes/props/environment/vent_cover.tscn" id="7_rc74e"]
 [ext_resource type="PackedScene" uid="uid://tt8ehnrsextb" path="res://scenes/props/environment/wood_table.tscn" id="8_6t1s3"]
 [ext_resource type="PackedScene" uid="uid://d1h27ymqrv0l" path="res://scenes/props/environment/locker.tscn" id="9_8ks8p"]
-[ext_resource type="PackedScene" uid="uid://ca88jo1k7a5u7" path="res://scenes/props/items/interactable/old_key_interactable.tscn" id="10_u4eb0"]
+[ext_resource type="PackedScene" uid="uid://w6tcgcbpaojg" path="res://scenes/props/items/interactable/old_key_interactable.tscn" id="10_u4eb0"]
 [ext_resource type="PackedScene" uid="uid://6iuif41vvgce" path="res://scenes/props/environment/ceiling_light.tscn" id="11_wk26c"]
 [ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="12_7ex6x"]
 [ext_resource type="Script" uid="uid://bmybto1ttwjgm" path="res://scripts/other/directional_light_3d.gd" id="13_ggmu5"]
@@ -86,9 +86,8 @@ material = SubResource("StandardMaterial3D_5byf4")
 
 [node name="WoodenDoor" parent="Props/Doors" instance=ExtResource("6_p3yo6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.425, 0.125, 0)
-monitoring = false
+collision_layer = 4
 scene = "uid://vu68h5sot7hb"
-locked = false
 
 [node name="Other" type="Node3D" parent="Props"]
 
@@ -103,11 +102,8 @@ transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 
 
 [node name="Items" type="Node3D" parent="Props"]
 
-[node name="OldKeyInteractable" parent="Props/Items" instance=ExtResource("10_u4eb0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18219, 1.56601, -2.19047)
-
-[node name="Camera3D" parent="Props/Items/OldKeyInteractable" index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.151337, 0.293552)
+[node name="Key" parent="Props/Items" instance=ExtResource("10_u4eb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22649, 1.60969, -2.20761)
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -123,5 +119,3 @@ enabled_in_editor = false
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("13_ggmu5")
-
-[editable path="Props/Items/OldKeyInteractable"]

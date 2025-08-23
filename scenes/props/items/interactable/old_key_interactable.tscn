@@ -1,35 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca88jo1k7a5u7"]
+[gd_scene load_steps=5 format=3 uid="uid://w6tcgcbpaojg"]
 
-[ext_resource type="Script" uid="uid://dq3sa5p82hnh4" path="res://scripts/systems/interaction/item_interactable.gd" id="1_iolyt"]
-[ext_resource type="Resource" uid="uid://ccx3nxb0onu40" path="res://resources/dialogue/item_dialogue.dialogue" id="2_56qgh"]
+[ext_resource type="PackedScene" uid="uid://ckipaj03gwnyo" path="res://scenes/props/item_interactable.tscn" id="1_d4pxm"]
 [ext_resource type="Resource" uid="uid://dwxo5qpb34e06" path="res://resources/items/keys/old_key.tres" id="2_hrscx"]
 [ext_resource type="PackedScene" uid="uid://dwd2mhqlfxjwp" path="res://scenes/props/items/keys/old_key_1.tscn" id="3_hrscx"]
-[ext_resource type="Texture2D" uid="uid://btewe2llrnguy" path="res://assets/textures/particles/item_sprite.png" id="4_dykat"]
-[ext_resource type="AudioStream" uid="uid://dnuynm0yojx4v" path="res://assets/audio/sound/ui/item_select.ogg" id="5_yt87j"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5s1ai"]
-size = Vector3(0.41, 0.13, 0.17)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ltpqg"]
+size = Vector3(0.45, 0.2, 0.2)
 
-[node name="OldKeyInteractable" type="Area3D" node_paths=PackedStringArray("item_node")]
-script = ExtResource("1_iolyt")
+[node name="OldKeyInteractable" type="Node3D"]
+
+[node name="ItemInteractable" parent="." node_paths=PackedStringArray("collision_shape", "item_node") instance=ExtResource("1_d4pxm")]
+collision_layer = 0
+collision_mask = 0
 item = ExtResource("2_hrscx")
-dialogue_id = ExtResource("2_56qgh")
-item_node = NodePath("OldKey1")
-metadata/_custom_type_script = "uid://dq3sa5p82hnh4"
+collision_shape = NodePath("CollisionShape3D")
+item_node = NodePath("../OldKey1")
+
+[node name="Camera3D" parent="ItemInteractable" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.188844, 0.356324)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ItemInteractable"]
+shape = SubResource("BoxShape3D_ltpqg")
 
 [node name="OldKey1" parent="." instance=ExtResource("3_hrscx")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0212451, 0.0207623)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0207381, 0.0207382)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_5s1ai")
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-billboard = 1
-texture_filter = 2
-texture = ExtResource("4_dykat")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_yt87j")
-bus = &"Sfx"
+[editable path="ItemInteractable"]

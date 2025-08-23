@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=27 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
 [ext_resource type="Script" uid="uid://jn8kf3ruep6u" path="res://scripts/systems/health/health.gd" id="2_eoovf"]
+[ext_resource type="Script" uid="uid://ckieim2xsa3c1" path="res://main/player/player_inputs.gd" id="2_r10t4"]
 [ext_resource type="Script" uid="uid://da6fmxaqqi7jv" path="res://scripts/systems/health/hurtbox.gd" id="3_8ifdq"]
 [ext_resource type="Shader" uid="uid://drqr45oe5lnt1" path="res://scripts/shaders/dither.gdshader" id="3_ssv3l"]
 [ext_resource type="Script" uid="uid://opmftn7c8q3n" path="res://main/player/interact_ray.gd" id="4_4bbr4"]
@@ -230,6 +231,16 @@ collision_shape = NodePath("CollisionShape3D")
 foot_cast = NodePath("FootCast")
 flashlight = NodePath("Hand/FlashLight")
 
+[node name="PlayerInputs" type="Node" parent="." node_paths=PackedStringArray("player", "head", "item_container", "inventory", "flashlight", "interact_ray")]
+script = ExtResource("2_r10t4")
+player = NodePath("..")
+head = NodePath("../Head")
+item_container = NodePath("../Hand/ItemContainer")
+inventory = NodePath("../CanvasLayer/Inventory")
+flashlight = NodePath("../Hand/FlashLight")
+interact_ray = NodePath("../Head/InteractRay")
+mouse_sensitivity = 0.2
+
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_eoovf")
 metadata/_custom_type_script = "uid://jn8kf3ruep6u"
@@ -248,12 +259,12 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 shape = SubResource("CapsuleShape3D_f8m1i")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("hand", "subviewport_camera")]
+[node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("hand")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 script = ExtResource("1_vuxkg")
 hand = NodePath("../Hand")
 sensitivity = 0.35
-subviewport_camera = NodePath("../Shaders/SubViewportContainer/SubViewport/SubViewportCamera")
+hand_lag_amount = 0.25
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 cull_mask = 524287
@@ -261,6 +272,7 @@ current = true
 
 [node name="InteractRay" type="RayCast3D" parent="Head" node_paths=PackedStringArray("player", "crosshair")]
 target_position = Vector3(0, 0, -2)
+collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("4_4bbr4")
@@ -299,7 +311,7 @@ metadata/_custom_type_script = "uid://dewy6vcv32kft"
 one_shot = true
 
 [node name="FlashLight" type="SpotLight3D" parent="Hand"]
-light_energy = 10.0
+light_energy = 0.0
 light_projector = ExtResource("4_f8m1i")
 shadow_enabled = true
 spot_angle = 20.0

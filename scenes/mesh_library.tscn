@@ -1,0 +1,427 @@
+[gd_scene load_steps=101 format=3 uid="uid://1uwbdjbbep7f"]
+
+[ext_resource type="PackedScene" uid="uid://b5ea2rx7jer4k" path="res://assets/models/structural/kenney_retro_urban_kit/balcony-ladder-bottom.fbx" id="1_kyx05"]
+[ext_resource type="PackedScene" uid="uid://d1de1urmvsu87" path="res://assets/models/structural/kenney_retro_urban_kit/balcony-ladder-top.fbx" id="2_l6pgw"]
+[ext_resource type="PackedScene" uid="uid://bsmsdmq4rjr3c" path="res://assets/models/structural/kenney_retro_urban_kit/balcony-type-a.fbx" id="3_vp3x2"]
+[ext_resource type="PackedScene" uid="uid://cogple0cls5wa" path="res://assets/models/structural/kenney_retro_urban_kit/cliff-corner.fbx" id="4_sl4tw"]
+[ext_resource type="PackedScene" uid="uid://dgvk040njxntl" path="res://assets/models/structural/kenney_retro_urban_kit/cliff-side.fbx" id="5_3uj8j"]
+[ext_resource type="PackedScene" uid="uid://chnjlijnun1d1" path="res://assets/models/structural/kenney_retro_urban_kit/detail-awning-small.fbx" id="6_358yt"]
+[ext_resource type="PackedScene" uid="uid://dqybmyq47i7n" path="res://assets/models/structural/kenney_retro_urban_kit/detail-awning-wide.fbx" id="7_ilq61"]
+[ext_resource type="PackedScene" uid="uid://ctigylcq08tth" path="res://assets/models/structural/kenney_retro_urban_kit/detail-light-double.fbx" id="22_4tvdg"]
+[ext_resource type="PackedScene" uid="uid://bmmkx60r34mc6" path="res://assets/models/structural/kenney_retro_urban_kit/detail-light-single.fbx" id="23_b0xmm"]
+[ext_resource type="PackedScene" uid="uid://bt14jdsnkwbkk" path="res://assets/models/structural/kenney_retro_urban_kit/detail-light-traffic.fbx" id="24_ehr6m"]
+[ext_resource type="PackedScene" uid="uid://cpk14lgmlso" path="res://assets/models/structural/kenney_retro_urban_kit/door-type-a.fbx" id="25_or2w2"]
+[ext_resource type="PackedScene" uid="uid://dy2anhj2ar5g7" path="res://assets/models/structural/kenney_retro_urban_kit/door-type-b.fbx" id="26_ibm75"]
+[ext_resource type="PackedScene" uid="uid://dhqu6f4py8ftj" path="res://assets/models/structural/kenney_retro_urban_kit/grass-corner-inner.fbx" id="27_1fomo"]
+[ext_resource type="PackedScene" uid="uid://dx1mss1y3a05" path="res://assets/models/structural/kenney_retro_urban_kit/grass-corner.fbx" id="28_fu43v"]
+[ext_resource type="PackedScene" uid="uid://6cxiuowsrfja" path="res://assets/models/structural/kenney_retro_urban_kit/grass-hill.fbx" id="29_xo1vj"]
+[ext_resource type="PackedScene" uid="uid://brnbu6k8sn2ya" path="res://assets/models/structural/kenney_retro_urban_kit/grass.fbx" id="30_mfnqj"]
+[ext_resource type="PackedScene" uid="uid://dm61j5ltwut6n" path="res://assets/models/structural/kenney_retro_urban_kit/road-asphalt-center.fbx" id="34_xgnxg"]
+[ext_resource type="PackedScene" uid="uid://cfei0rihsjouj" path="res://assets/models/structural/kenney_retro_urban_kit/road-asphalt-corner-inner.fbx" id="35_6c3s1"]
+[ext_resource type="PackedScene" uid="uid://irh078cy7pti" path="res://assets/models/structural/kenney_retro_urban_kit/road-asphalt-corner-outer.fbx" id="36_ww5wd"]
+[ext_resource type="PackedScene" uid="uid://cjjf3ckwuc5u1" path="res://assets/models/structural/kenney_retro_urban_kit/road-asphalt-corner.fbx" id="37_yy2ni"]
+[ext_resource type="PackedScene" uid="uid://d04137kwqu3nf" path="res://assets/models/structural/kenney_retro_urban_kit/road-asphalt-damaged.fbx" id="38_ra106"]
+[ext_resource type="PackedScene" uid="uid://b1ikiyve5rdod" path="res://assets/models/structural/kenney_retro_urban_kit/road-asphalt-pavement.fbx" id="39_lmyqm"]
+[ext_resource type="PackedScene" uid="uid://vbd1v0hu3bxc" path="res://assets/models/structural/kenney_retro_urban_kit/road-asphalt-side.fbx" id="40_i2dp7"]
+[ext_resource type="PackedScene" uid="uid://cwfv8d1qjlftp" path="res://assets/models/structural/kenney_retro_urban_kit/road-asphalt-straight.fbx" id="41_tn2m4"]
+[ext_resource type="PackedScene" uid="uid://66lru10qaxjn" path="res://assets/models/structural/kenney_retro_urban_kit/road-dirt-center.fbx" id="42_mudus"]
+[ext_resource type="PackedScene" uid="uid://gbblpwq32hqc" path="res://assets/models/structural/kenney_retro_urban_kit/road-dirt-corner-inner.fbx" id="43_32kg1"]
+[ext_resource type="PackedScene" uid="uid://q5tl40awy3d7" path="res://assets/models/structural/kenney_retro_urban_kit/road-dirt-corner-outer.fbx" id="44_sap2h"]
+[ext_resource type="PackedScene" uid="uid://dn3u6pvs6xiad" path="res://assets/models/structural/kenney_retro_urban_kit/road-dirt-corner.fbx" id="45_o6w7r"]
+[ext_resource type="PackedScene" uid="uid://bm27csbkjnqbw" path="res://assets/models/structural/kenney_retro_urban_kit/road-dirt-damaged.fbx" id="46_knwlp"]
+[ext_resource type="PackedScene" uid="uid://1h1vqj81rwdf" path="res://assets/models/structural/kenney_retro_urban_kit/road-dirt-pavement.fbx" id="47_bkplh"]
+[ext_resource type="PackedScene" uid="uid://c5l4dkp5by1v0" path="res://assets/models/structural/kenney_retro_urban_kit/road-dirt-side.fbx" id="48_rpw6h"]
+[ext_resource type="PackedScene" uid="uid://l0t05ii08vgl" path="res://assets/models/structural/kenney_retro_urban_kit/road-dirt-straight.fbx" id="49_7tt0i"]
+[ext_resource type="PackedScene" uid="uid://tbkhp4e8tbet" path="res://assets/models/structural/kenney_retro_urban_kit/road-dirt-tile.fbx" id="50_hscm8"]
+[ext_resource type="PackedScene" uid="uid://c8ysndce0srwh" path="res://assets/models/structural/kenney_retro_urban_kit/roof-metal-poles.fbx" id="51_10mns"]
+[ext_resource type="PackedScene" uid="uid://d22q6ru0xvlcu" path="res://assets/models/structural/kenney_retro_urban_kit/roof-metal-type-a.fbx" id="52_dhknj"]
+[ext_resource type="PackedScene" uid="uid://dc61mdtyx5whs" path="res://assets/models/structural/kenney_retro_urban_kit/roof-metal-type-b.fbx" id="53_xwtnq"]
+[ext_resource type="PackedScene" uid="uid://b3s6rp135grgj" path="res://assets/models/structural/kenney_retro_urban_kit/scaffolding-floor.fbx" id="54_7w4ms"]
+[ext_resource type="PackedScene" uid="uid://ib1aabc6uqcg" path="res://assets/models/structural/kenney_retro_urban_kit/scaffolding-poles.fbx" id="55_bfdwy"]
+[ext_resource type="PackedScene" uid="uid://fg5322lu6td4" path="res://assets/models/structural/kenney_retro_urban_kit/scaffolding-structure.fbx" id="56_sdua8"]
+[ext_resource type="PackedScene" uid="uid://g6j4dvw3uw7h" path="res://assets/models/structural/kenney_retro_urban_kit/truck-flat.fbx" id="64_oao78"]
+[ext_resource type="PackedScene" uid="uid://bqdl0kssnp0sk" path="res://assets/models/structural/kenney_retro_urban_kit/truck-green-cargo.fbx" id="65_klwx3"]
+[ext_resource type="PackedScene" uid="uid://btnd52cj36tab" path="res://assets/models/structural/kenney_retro_urban_kit/truck-green.fbx" id="66_4f35l"]
+[ext_resource type="PackedScene" uid="uid://bxm277qg633s3" path="res://assets/models/structural/kenney_retro_urban_kit/truck-grey-cargo.fbx" id="67_wndr2"]
+[ext_resource type="PackedScene" uid="uid://dk6461ouyhhkk" path="res://assets/models/structural/kenney_retro_urban_kit/truck-grey.fbx" id="68_04bb0"]
+[ext_resource type="PackedScene" uid="uid://b0ccmib01ldli" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-column-painted.fbx" id="69_qrcgm"]
+[ext_resource type="PackedScene" uid="uid://cvjpiyqmgdg14" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-column.fbx" id="70_yb3tw"]
+[ext_resource type="PackedScene" uid="uid://ebkpyp1rnhwr" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-corner-painted.fbx" id="71_uxpox"]
+[ext_resource type="PackedScene" uid="uid://ci6uldmbcyees" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-corner.fbx" id="72_dn7mc"]
+[ext_resource type="PackedScene" uid="uid://cvhl27bpjd01a" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-detail-painted.fbx" id="73_ya77x"]
+[ext_resource type="PackedScene" uid="uid://b7cc24jdkxp43" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-detail.fbx" id="74_qb05w"]
+[ext_resource type="PackedScene" uid="uid://dteot6se0gx2v" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-diagonal.fbx" id="75_2pj0c"]
+[ext_resource type="PackedScene" uid="uid://fkmxneukyduf" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-door.fbx" id="76_1ntun"]
+[ext_resource type="PackedScene" uid="uid://dx2xny4j4y731" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-flat-garage.fbx" id="77_s7m5l"]
+[ext_resource type="PackedScene" uid="uid://cw7f80ffvt850" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-flat-painted.fbx" id="78_17wrm"]
+[ext_resource type="PackedScene" uid="uid://dnki47hnd7bu1" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-flat-window.fbx" id="79_77en4"]
+[ext_resource type="PackedScene" uid="uid://b15pu0xj74qie" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-flat.fbx" id="80_bt1pm"]
+[ext_resource type="PackedScene" uid="uid://c4pcp8kkjv4ix" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-garage.fbx" id="81_a0u4v"]
+[ext_resource type="PackedScene" uid="uid://c8bt1m2lx0mdy" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-low-painted.fbx" id="82_25e8w"]
+[ext_resource type="PackedScene" uid="uid://giesdr6481e4" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-low.fbx" id="83_qd7g4"]
+[ext_resource type="PackedScene" uid="uid://cb15qtljflre3" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-open.fbx" id="84_a7hhu"]
+[ext_resource type="PackedScene" uid="uid://dr2l8hy8p32ug" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-painted-diagonal.fbx" id="85_0qwkq"]
+[ext_resource type="PackedScene" uid="uid://bl4unkjjyavdb" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-painted.fbx" id="86_bjtc8"]
+[ext_resource type="PackedScene" uid="uid://cv8b0qujfwrfb" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-roof-detailed.fbx" id="87_8jhru"]
+[ext_resource type="PackedScene" uid="uid://be1gg8frmjgi" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-roof-slant-detailed.fbx" id="88_0ihm7"]
+[ext_resource type="PackedScene" uid="uid://dkvrj0dvi0lss" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-roof-slant.fbx" id="89_8oqla"]
+[ext_resource type="PackedScene" uid="uid://wel1rcreedct" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-roof.fbx" id="90_rcrek"]
+[ext_resource type="PackedScene" uid="uid://c05pxf846dy0p" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a-window.fbx" id="91_fsjra"]
+[ext_resource type="PackedScene" uid="uid://dpb2kob1hdfx" path="res://assets/models/structural/kenney_retro_urban_kit/wall-a.fbx" id="92_4mw0g"]
+[ext_resource type="PackedScene" uid="uid://dj3244tyb35pq" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-column.fbx" id="93_kacfw"]
+[ext_resource type="PackedScene" uid="uid://48cwh4nxgcyv" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-corner.fbx" id="94_dxhgr"]
+[ext_resource type="PackedScene" uid="uid://cps5qmkegkrcr" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-detail-painted.fbx" id="95_73mc5"]
+[ext_resource type="PackedScene" uid="uid://dsbg03582gqma" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-diagonal.fbx" id="96_isa0t"]
+[ext_resource type="PackedScene" uid="uid://bmuyjo8xvsnfq" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-door.fbx" id="97_6mxp2"]
+[ext_resource type="PackedScene" uid="uid://bmp7x05xlpi8c" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-flat-garage.fbx" id="98_1y442"]
+[ext_resource type="PackedScene" uid="uid://cb7u1pdfrjyqp" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-flat-window.fbx" id="99_0ch7d"]
+[ext_resource type="PackedScene" uid="uid://cqtmwucsmdjrf" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-flat.fbx" id="100_8lhu3"]
+[ext_resource type="PackedScene" uid="uid://c2747xfu5mts8" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-garage.fbx" id="101_5nheb"]
+[ext_resource type="PackedScene" uid="uid://ddmwitiskh0r1" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-low.fbx" id="102_06f70"]
+[ext_resource type="PackedScene" uid="uid://cg27f3lvnhywv" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-open.fbx" id="103_310kg"]
+[ext_resource type="PackedScene" uid="uid://cyl3v7e7eqp4y" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-roof-detailed.fbx" id="104_xe14s"]
+[ext_resource type="PackedScene" uid="uid://bjn47o8ycncav" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-roof-slant-detailed.fbx" id="105_rxa6w"]
+[ext_resource type="PackedScene" uid="uid://ca2lrk5uubkp" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-roof-slant.fbx" id="106_f5mds"]
+[ext_resource type="PackedScene" uid="uid://dbxw1ul70rqfy" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-roof.fbx" id="107_yvojl"]
+[ext_resource type="PackedScene" uid="uid://brtvryo61s4y2" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b-window.fbx" id="108_b8yqe"]
+[ext_resource type="PackedScene" uid="uid://b1h8ew15sl6m" path="res://assets/models/structural/kenney_retro_urban_kit/wall-b.fbx" id="109_fbedf"]
+[ext_resource type="PackedScene" uid="uid://b77tblb1vcxff" path="res://assets/models/structural/kenney_retro_urban_kit/wall-broken-type-a.fbx" id="110_bi5pn"]
+[ext_resource type="PackedScene" uid="uid://2mo4woptpciw" path="res://assets/models/structural/kenney_retro_urban_kit/wall-broken-type-b.fbx" id="111_cajdl"]
+[ext_resource type="PackedScene" uid="uid://quvlryl0phhl" path="res://assets/models/structural/kenney_retro_urban_kit/wall-c-flat-low.fbx" id="112_14qqb"]
+[ext_resource type="PackedScene" uid="uid://8etprwbl5h71" path="res://assets/models/structural/kenney_retro_urban_kit/wall-c-flat.fbx" id="113_ka73w"]
+[ext_resource type="PackedScene" uid="uid://p58cxqprupr0" path="res://assets/models/structural/kenney_retro_urban_kit/wall-fence.fbx" id="114_skkd3"]
+[ext_resource type="PackedScene" uid="uid://dgix18gk05723" path="res://assets/models/structural/kenney_retro_urban_kit/wall-steps-type-a.fbx" id="115_r0ucl"]
+[ext_resource type="PackedScene" uid="uid://dxedgcyh1hd2c" path="res://assets/models/structural/kenney_retro_urban_kit/wall-steps-type-b.fbx" id="116_phnhu"]
+[ext_resource type="PackedScene" uid="uid://cwmjuo1sv3ori" path="res://assets/models/structural/kenney_retro_urban_kit/wall-type-a.fbx" id="117_o0mnx"]
+[ext_resource type="PackedScene" uid="uid://4qsgfkamt80c" path="res://assets/models/structural/kenney_retro_urban_kit/wall-type-b.fbx" id="118_1sfx3"]
+[ext_resource type="PackedScene" uid="uid://bl7ylm0b051ho" path="res://assets/models/structural/kenney_retro_urban_kit/window-small-type-a.fbx" id="119_e8uve"]
+[ext_resource type="PackedScene" uid="uid://bg3353acxk1db" path="res://assets/models/structural/kenney_retro_urban_kit/window-small-type-b.fbx" id="120_4nge2"]
+[ext_resource type="PackedScene" uid="uid://cs5b67ct0fnnh" path="res://assets/models/structural/kenney_retro_urban_kit/window-wide-type-a.fbx" id="121_djc5y"]
+[ext_resource type="PackedScene" uid="uid://dd78ok0gd6f0x" path="res://assets/models/structural/kenney_retro_urban_kit/window-wide-type-b.fbx" id="122_nx4p6"]
+[ext_resource type="PackedScene" uid="uid://4pdnqurgijyi" path="res://assets/models/structural/kenney_retro_urban_kit/window-wide-type-c.fbx" id="123_0ceui"]
+[ext_resource type="PackedScene" uid="uid://bhrykfehh1fyx" path="res://assets/models/structural/kenney_retro_urban_kit/window-wide-type-d.fbx" id="124_54m6x"]
+
+[node name="Library" type="Node3D"]
+
+[node name="balcony-ladder-bottom" parent="." instance=ExtResource("1_kyx05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+
+[node name="balcony-ladder-top" parent="." instance=ExtResource("2_l6pgw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+
+[node name="balcony-type-a" parent="." instance=ExtResource("3_vp3x2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+
+[node name="cliff-corner" parent="." instance=ExtResource("4_sl4tw")]
+visible = false
+
+[node name="cliff-side" parent="." instance=ExtResource("5_3uj8j")]
+visible = false
+
+[node name="detail-awning-small" parent="." instance=ExtResource("6_358yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+visible = false
+
+[node name="detail-awning-wide" parent="." instance=ExtResource("7_ilq61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+visible = false
+
+[node name="detail-light-double" parent="." instance=ExtResource("22_4tvdg")]
+visible = false
+
+[node name="detail-light-single" parent="." instance=ExtResource("23_b0xmm")]
+visible = false
+
+[node name="detail-light-traffic" parent="." instance=ExtResource("24_ehr6m")]
+visible = false
+
+[node name="door-type-a" parent="." instance=ExtResource("25_or2w2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.975)
+visible = false
+
+[node name="door-type-b" parent="." instance=ExtResource("26_ibm75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.975)
+visible = false
+
+[node name="grass-corner-inner" parent="." instance=ExtResource("27_1fomo")]
+visible = false
+
+[node name="grass-corner" parent="." instance=ExtResource("28_fu43v")]
+visible = false
+
+[node name="grass-hill" parent="." instance=ExtResource("29_xo1vj")]
+visible = false
+
+[node name="grass" parent="." instance=ExtResource("30_mfnqj")]
+visible = false
+
+[node name="road-asphalt-center" parent="." instance=ExtResource("34_xgnxg")]
+visible = false
+
+[node name="road-asphalt-corner-inner" parent="." instance=ExtResource("35_6c3s1")]
+visible = false
+
+[node name="road-asphalt-corner-outer" parent="." instance=ExtResource("36_ww5wd")]
+visible = false
+
+[node name="road-asphalt-corner" parent="." instance=ExtResource("37_yy2ni")]
+visible = false
+
+[node name="road-asphalt-damaged" parent="." instance=ExtResource("38_ra106")]
+visible = false
+
+[node name="road-asphalt-pavement" parent="." instance=ExtResource("39_lmyqm")]
+visible = false
+
+[node name="road-asphalt-side" parent="." instance=ExtResource("40_i2dp7")]
+visible = false
+
+[node name="road-asphalt-straight" parent="." instance=ExtResource("41_tn2m4")]
+visible = false
+
+[node name="road-dirt-center" parent="." instance=ExtResource("42_mudus")]
+visible = false
+
+[node name="road-dirt-corner-inner" parent="." instance=ExtResource("43_32kg1")]
+visible = false
+
+[node name="road-dirt-corner-outer" parent="." instance=ExtResource("44_sap2h")]
+visible = false
+
+[node name="road-dirt-corner" parent="." instance=ExtResource("45_o6w7r")]
+visible = false
+
+[node name="road-dirt-damaged" parent="." instance=ExtResource("46_knwlp")]
+visible = false
+
+[node name="road-dirt-pavement" parent="." instance=ExtResource("47_bkplh")]
+visible = false
+
+[node name="road-dirt-side" parent="." instance=ExtResource("48_rpw6h")]
+visible = false
+
+[node name="road-dirt-straight" parent="." instance=ExtResource("49_7tt0i")]
+visible = false
+
+[node name="road-dirt-tile" parent="." instance=ExtResource("50_hscm8")]
+visible = false
+
+[node name="roof-metal-poles" parent="." instance=ExtResource("51_10mns")]
+visible = false
+
+[node name="roof-metal-type-a" parent="." instance=ExtResource("52_dhknj")]
+visible = false
+
+[node name="roof-metal-type-b" parent="." instance=ExtResource("53_xwtnq")]
+visible = false
+
+[node name="scaffolding-floor" parent="." instance=ExtResource("54_7w4ms")]
+visible = false
+
+[node name="scaffolding-poles" parent="." instance=ExtResource("55_bfdwy")]
+visible = false
+
+[node name="scaffolding-structure" parent="." instance=ExtResource("56_sdua8")]
+visible = false
+
+[node name="truck-flat" parent="." instance=ExtResource("64_oao78")]
+visible = false
+
+[node name="truck-green-cargo" parent="." instance=ExtResource("65_klwx3")]
+visible = false
+
+[node name="truck-green" parent="." instance=ExtResource("66_4f35l")]
+visible = false
+
+[node name="truck-grey-cargo" parent="." instance=ExtResource("67_wndr2")]
+visible = false
+
+[node name="truck-grey" parent="." instance=ExtResource("68_04bb0")]
+visible = false
+
+[node name="wall-a-column-painted" parent="." instance=ExtResource("69_qrcgm")]
+visible = false
+
+[node name="wall-a-column" parent="." instance=ExtResource("70_yb3tw")]
+visible = false
+
+[node name="wall-a-corner-painted" parent="." instance=ExtResource("71_uxpox")]
+visible = false
+
+[node name="wall-a-corner" parent="." instance=ExtResource("72_dn7mc")]
+visible = false
+
+[node name="wall-a-detail-painted" parent="." instance=ExtResource("73_ya77x")]
+visible = false
+
+[node name="wall-a-detail" parent="." instance=ExtResource("74_qb05w")]
+visible = false
+
+[node name="wall-a-diagonal" parent="." instance=ExtResource("75_2pj0c")]
+visible = false
+
+[node name="wall-a-door" parent="." instance=ExtResource("76_1ntun")]
+visible = false
+
+[node name="wall-a-flat-garage" parent="." instance=ExtResource("77_s7m5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+
+[node name="wall-a-flat-painted" parent="." instance=ExtResource("78_17wrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+
+[node name="wall-a-flat-window" parent="." instance=ExtResource("79_77en4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+
+[node name="wall-a-flat" parent="." instance=ExtResource("80_bt1pm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+
+[node name="wall-a-garage" parent="." instance=ExtResource("81_a0u4v")]
+visible = false
+
+[node name="wall-a-low-painted" parent="." instance=ExtResource("82_25e8w")]
+visible = false
+
+[node name="wall-a-low" parent="." instance=ExtResource("83_qd7g4")]
+visible = false
+
+[node name="wall-a-open" parent="." instance=ExtResource("84_a7hhu")]
+visible = false
+
+[node name="wall-a-painted-diagonal" parent="." instance=ExtResource("85_0qwkq")]
+visible = false
+
+[node name="wall-a-painted" parent="." instance=ExtResource("86_bjtc8")]
+visible = false
+
+[node name="wall-a-roof-detailed" parent="." instance=ExtResource("87_8jhru")]
+visible = false
+
+[node name="wall-a-roof-slant-detailed" parent="." instance=ExtResource("88_0ihm7")]
+visible = false
+
+[node name="wall-a-roof-slant" parent="." instance=ExtResource("89_8oqla")]
+visible = false
+
+[node name="wall-a-roof" parent="." instance=ExtResource("90_rcrek")]
+visible = false
+
+[node name="wall-a-window" parent="." instance=ExtResource("91_fsjra")]
+visible = false
+
+[node name="wall-a" parent="." instance=ExtResource("92_4mw0g")]
+visible = false
+
+[node name="wall-b-column" parent="." instance=ExtResource("93_kacfw")]
+visible = false
+
+[node name="wall-b-corner" parent="." instance=ExtResource("94_dxhgr")]
+visible = false
+
+[node name="wall-b-detail-painted" parent="." instance=ExtResource("95_73mc5")]
+visible = false
+
+[node name="wall-b-diagonal" parent="." instance=ExtResource("96_isa0t")]
+visible = false
+
+[node name="wall-b-door" parent="." instance=ExtResource("97_6mxp2")]
+visible = false
+
+[node name="wall-b-flat-garage" parent="." instance=ExtResource("98_1y442")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+
+[node name="wall-b-flat-window" parent="." instance=ExtResource("99_0ch7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+
+[node name="wall-b-flat" parent="." instance=ExtResource("100_8lhu3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+
+[node name="wall-b-garage" parent="." instance=ExtResource("101_5nheb")]
+visible = false
+
+[node name="wall-b-low" parent="." instance=ExtResource("102_06f70")]
+visible = false
+
+[node name="wall-b-open" parent="." instance=ExtResource("103_310kg")]
+visible = false
+
+[node name="wall-b-roof-detailed" parent="." instance=ExtResource("104_xe14s")]
+visible = false
+
+[node name="wall-b-roof-slant-detailed" parent="." instance=ExtResource("105_rxa6w")]
+visible = false
+
+[node name="wall-b-roof-slant" parent="." instance=ExtResource("106_f5mds")]
+visible = false
+
+[node name="wall-b-roof" parent="." instance=ExtResource("107_yvojl")]
+visible = false
+
+[node name="wall-b-window" parent="." instance=ExtResource("108_b8yqe")]
+visible = false
+
+[node name="wall-b" parent="." instance=ExtResource("109_fbedf")]
+visible = false
+
+[node name="wall-broken-type-a" parent="." instance=ExtResource("110_bi5pn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.465121)
+visible = false
+
+[node name="wall-broken-type-b" parent="." instance=ExtResource("111_cajdl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.465121)
+visible = false
+
+[node name="wall-c-flat-low" parent="." instance=ExtResource("112_14qqb")]
+visible = false
+
+[node name="wall-c-flat" parent="." instance=ExtResource("113_ka73w")]
+visible = false
+
+[node name="wall-fence" parent="." instance=ExtResource("114_skkd3")]
+visible = false
+
+[node name="wall-steps-type-a" parent="." instance=ExtResource("115_r0ucl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.465121)
+visible = false
+
+[node name="wall-steps-type-b" parent="." instance=ExtResource("116_phnhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.465121)
+visible = false
+
+[node name="wall-type-a" parent="." instance=ExtResource("117_o0mnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.465121)
+visible = false
+
+[node name="wall-type-b" parent="." instance=ExtResource("118_1sfx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.465121)
+visible = false
+
+[node name="window-small-type-a" parent="." instance=ExtResource("119_e8uve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.525)
+visible = false
+
+[node name="window-small-type-b" parent="." instance=ExtResource("120_4nge2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.525)
+visible = false
+
+[node name="window-wide-type-a" parent="." instance=ExtResource("121_djc5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.525)
+visible = false
+
+[node name="window-wide-type-b" parent="." instance=ExtResource("122_nx4p6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.525)
+visible = false
+
+[node name="window-wide-type-c" parent="." instance=ExtResource("123_0ceui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.525)
+visible = false
+
+[node name="window-wide-type-d" parent="." instance=ExtResource("124_54m6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.525)
+visible = false

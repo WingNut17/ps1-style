@@ -33,11 +33,11 @@ func interact(player: CharacterBody3D) -> void:
 				DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 		
 		if required_item in Inventory.inventory_list:
-			DialogueEvents.item = required_item.item_name
+			DialogueVariables.item = required_item.item_name
 		
-			if DialogueEvents.unlock_door.is_connected(_on_locked_door_unlocked):
-				DialogueEvents.unlock_door.disconnect(_on_locked_door_unlocked)
-			DialogueEvents.unlock_door.connect(_on_locked_door_unlocked)
+			if DialogueVariables.unlock_door.is_connected(_on_locked_door_unlocked):
+				DialogueVariables.unlock_door.disconnect(_on_locked_door_unlocked)
+			DialogueVariables.unlock_door.connect(_on_locked_door_unlocked)
 		
 			DialogueManager.show_dialogue_balloon(unlocked_door_dialogue, "")
 		else:
@@ -60,9 +60,10 @@ func interact(player: CharacterBody3D) -> void:
 		DialogueManager.show_dialogue_balloon(knock_dialogue, "")
 		
 	else:
-		print(self.name, " room scene and knock dialogue not found.")
+		print_debug(self.name, " room scene and knock dialogue not found.")
 
 func _on_locked_door_unlocked() -> void:
+	Inventory.remove_item(required_item)
 	locked = false
 
 func switch_to_interaction_camera(player: CharacterBody3D) -> void:

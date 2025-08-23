@@ -1,3 +1,4 @@
+class_name ItemContainer
 extends Node3D
 
 
@@ -27,28 +28,6 @@ func _process(delta: float) -> void:
 	camera.rotation_degrees = camera.rotation_degrees.lerp(Vector3.ZERO, delta * 2.0)
 	item_pos.rotation_degrees = item_pos.rotation_degrees.lerp(default_rotation, delta * 4.0)
 	item_pos.position = item_pos.position.lerp(default_position, delta * 2.0)
-
-func _unhandled_input(event: InputEvent) -> void:
-	if !item or !item.equipable:
-		return
-
-	if event.is_action_pressed("click"):
-		if item.get("full_auto") != null:
-			if item.full_auto:
-				item.on_full_auto_start()
-			else:
-				item.on_primary_action()
-		elif item.has_method("on_primary_action"):
-			item.on_primary_action()
-
-	elif event.is_action_released("click"):
-		if item.get("full_auto") != null:
-			if item.full_auto:
-				item.on_full_auto_stop()
-
-	elif event.is_action_pressed("reload"):
-		if item.has_method("on_reload"):
-			item.on_reload()
 
 func setup_item() -> void:
 	if !item or !item.equipable:

@@ -77,11 +77,11 @@ func shoot() -> void:
 	else:
 		HitscanSystem.perform_hitscan(item_container.camera, shoot_range, shoot_damage, spread)
 	
-	var camera_recoil = Vector3(randf_range(5,10), randf_range(-2,2), randf_range(-5,5)) * recoil_amount
+	var camera_recoil = Vector3(randf_range(5,10), randf_range(-2,2), randf_range(-5,5)) * recoil_amount * 0.5
 	item_container.camera.rotation_degrees += camera_recoil
-	item_container.head.rotation_degrees.x += randi_range(1, 4) * recoil_amount
+	item_container.head.rotation_degrees.x += randi_range(1, 3) * recoil_amount
 	
-	var gun_recoil = Vector3(randf_range(-3,3), randf_range(-5,5), randf_range(-40,-35)) * recoil_amount
+	var gun_recoil = Vector3(randf_range(-3,3), randf_range(-5,5), randf_range(-35,-25)) * recoil_amount
 	item_container.item_pos.rotation_degrees += gun_recoil
 	item_container.item_pos.position += Vector3(randf_range(-0.05,0.05), randf_range(0.1,0.15), randf_range(0.1,0.15)) * recoil_amount
 	

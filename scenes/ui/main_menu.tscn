@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://c35bmvjx4x8iu"]
+[gd_scene load_steps=53 format=4 uid="uid://c35bmvjx4x8iu"]
 
 [ext_resource type="Script" uid="uid://c1dhww7hknp2n" path="res://scripts/ui/main_menu.gd" id="1_8ekit"]
 [ext_resource type="PackedScene" uid="uid://bgpjnf0yncr3w" path="res://assets/models/props/Gear.fbx" id="1_m1kxf"]
@@ -11,11 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cirpm8lllu03t" path="res://assets/textures/ui/cd.png" id="5_btxxm"]
 [ext_resource type="PackedScene" uid="uid://ditks6tsk643t" path="res://assets/models/props/old_book.fbx" id="6_8g5eo"]
 [ext_resource type="Texture2D" uid="uid://b6sd4wfax5xy0" path="res://assets/textures/ui/book.png" id="7_7suek"]
-[ext_resource type="PackedScene" uid="uid://n2sfk1fp3b5y" path="res://assets/models/props/environment/doorway.fbx" id="8_otr3d"]
 [ext_resource type="PackedScene" uid="uid://b6bg6vry86whs" path="res://scenes/props/environment/streetlight.tscn" id="8_qilvv"]
 [ext_resource type="Texture2D" uid="uid://efvklimf0bcu" path="res://assets/textures/general/concrete.png" id="9_4ovp2"]
-[ext_resource type="Texture2D" uid="uid://bi6bvdjjgphbx" path="res://assets/textures/general/wood_medium.png" id="9_8ekit"]
-[ext_resource type="Shader" uid="uid://cqki2n8633n07" path="res://scripts/shaders/main_menu.gdshader" id="10_otr3d"]
 [ext_resource type="Texture2D" uid="uid://l85ug8kxod53" path="res://assets/textures/general/black_metal.png" id="11_1mexh"]
 [ext_resource type="Shader" uid="uid://drqr45oe5lnt1" path="res://scripts/shaders/dither.gdshader" id="11_7suek"]
 [ext_resource type="Texture2D" uid="uid://dem83su767iot" path="res://assets/textures/props/ceiling_light.png" id="12_6ud2m"]
@@ -24,69 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cyh0j8khbnyf7" path="res://scenes/props/environment/exit_sign.tscn" id="15_jbte4"]
 [ext_resource type="FontFile" uid="uid://bv0v1f5ps517b" path="res://assets/fonts/alagard.ttf" id="16_ayp64"]
 [ext_resource type="Texture2D" uid="uid://dletov5bxg7ge" path="res://assets/textures/props/exit_sign.png" id="16_e0hcc"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ayp64"]
-render_priority = 0
-shader = ExtResource("2_x2yvf")
-shader_parameter/point_size = 0.0
-shader_parameter/roughness = 0.0
-shader_parameter/specular = 0.0
-shader_parameter/metallic = 0.0
-shader_parameter/texture_albedo = ExtResource("9_8ekit")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/uv1_scale = Vector3(2, 2, 2)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
-shader_parameter/emission = Color(0, 0, 0, 1)
-shader_parameter/emission_energy = 0.0
-shader_parameter/use_triplanar = false
-shader_parameter/triplanar_scale = 1.0
-shader_parameter/triplanar_blend_sharpness = 4.0
-shader_parameter/resolution = Vector2i(320, 240)
-shader_parameter/affine_mapping = true
-shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.5
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_3n4fs"]
-_surfaces = [{
-"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
-"format": 34359742465,
-"index_count": 84,
-"index_data": PackedByteArray("AAABAAIAAwACAAEAAgAEAAAAAgADAAUABQAEAAIABQADAAYABgADAAEABwAEAAUABgAHAAUABwAAAAQABwAGAAgABwAJAAAACAAJAAcAAQAAAAoACQAKAAAABgABAAsACgALAAEACAAGAAsACwAKAAwACQANAAoADQAJAAgADQAMAAoADAAOAAsADgAMAA0ACAALAA4ADQAPAA4ACAAOAA8ACAAPAA0A"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 16,
-"vertex_data": PackedByteArray("CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8bxIDvArXI7wK1yO8CtcjvArXIzwK1yO8bxIDvArXIzwK1yO8bxIDvArXI7yWQws8bxIDvArXIzyWQws8bxIDPArXI7yWQws8bxIDPArXIzyWQws8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8CtcjPArXIzwK1yO8bxIDPArXIzwK1yO8CtcjPArXI7wK1yO8bxIDPArXI7wK1yO8")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_y2j7i"]
-resource_name = "Cube_001"
-_surfaces = [{
-"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
-"attribute_data": PackedByteArray("AAAgPwAAQD8AACA/AACAPwAAwD4AAIA/AADAPgAAQD80Mxs/mpk5PwAAwD4AAEA/AADAPpqZOT8AACA/AABAPzQzGz9mZgY/AAAgPwAAAD8AAMA+ZmYGPwAAwD4AAAA/AAAgPwAAgD4AACA/AAAAPwAAwD4AAAA/AADAPgAAgD40Mxs/bGZmPgAAwD4AAIA+AADAPmhmZj4AACA/AACAPjQzGz+gzMw8AAAgPwAAAAAAAMA+wMzMPAAAwD4AAAAAAADAPgAAgD4AAMA+AAAAPzMzsz4AAAA/MzOzPgAAgD6ZmRk+AAAAPwAAAD4AAAA/AAAAPgAAgD6ZmRk+AACAPgAAYD8AAIA+AABgPwAAAD8AACA/AAAAPwAAID8AAIA+AAAgPwAAaj8AACA/AABWP5qZyT4AAFY/mZnJPgAAaj+Zmck+AADUPgAAID8AANQ+AAAgPwAArD6amck+AACsPgAAID8AAKw+AAAgPwAA1D4AAGA/AADUPgAAYD8AAKw+"),
-"format": 34359742487,
-"index_count": 84,
-"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABAAHAAUABAAIAAcACAAJAAcACAAKAAkACgALAAkADAANAA4ADgAPAAwAEAARABIAEAATABEAEAAUABMAFAAVABMAFAAWABUAFgAXABUAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwA"),
-"material": SubResource("ShaderMaterial_ayp64"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 48,
-"vertex_data": PackedByteArray("CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8bxIDvArXIzyWQws8CtcjvArXIzwK1yO8bxIDvArXIzwK1yO8CtcjvArXIzwK1yM8bxIDPArXIzyWQws8CtcjPArXIzwK1yM8bxIDPArXIzwK1yO8CtcjPArXIzwK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yO8CtcjPArXI7wK1yO8bxIDPArXI7yWQws8CtcjPArXI7wK1yO8bxIDPArXI7wK1yO8CtcjPArXI7wK1yM8bxIDvArXI7yWQws8CtcjvArXI7wK1yM8bxIDvArXI7wK1yO8CtcjvArXI7wK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8bxIDPArXIzwK1yO8bxIDPArXI7wK1yO8bxIDvArXIzwK1yO8CtcjvArXIzwK1yO8CtcjvArXI7wK1yO8bxIDvArXI7wK1yO8CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8bxIDvArXI7yWQws8bxIDvArXIzyWQws8bxIDvArXIzwK1yO8bxIDvArXI7wK1yO8bxIDPArXIzwK1yO8bxIDPArXIzyWQws8bxIDPArXI7yWQws8bxIDPArXI7wK1yO8bxIDPArXI7yWQws8bxIDPArXIzyWQws8bxIDvArXIzyWQws8bxIDvArXI7yWQws8AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7//f////3//v/9/////f/+//3////9//7//f////3//v/9/////f/+//3////9//7//f////3//v/9/////f/+/////f/9//7////9//3//v////3//f/+/////f/9//7//fwAA/3//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9/AAD/f/+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/9//38AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+/////f/9//z////9//3//P////3//f/8/////f/9//z8AAP9//3//PwAA/3//f/8/AAD/f/9//z8AAP9//3//P/////8AAP8//////wAA/z//////AAD/P/////8AAP8/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_3n4fs")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ekit"]
-render_priority = 0
-shader = ExtResource("10_otr3d")
-shader_parameter/albedo = Color(0.796078, 0.0666667, 0.254902, 1)
-shader_parameter/animation_speed = 1.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_pw24t"]
-material = SubResource("ShaderMaterial_8ekit")
-size = Vector2(1.25, 1.85)
-orientation = 2
+[ext_resource type="FontFile" uid="uid://elsvp0u2hgvi" path="res://assets/fonts/Pixeled English Font.ttf" id="20_jbte4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qilvv"]
 render_priority = 0
@@ -468,24 +403,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 
 [node name="JanitorRoom" parent="." instance=ExtResource("2_y1h5l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
-[node name="Play" parent="." instance=ExtResource("8_otr3d")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1, 0, 0)
-visible = false
-script = ExtResource("3_n4uci")
-
-[node name="Cube" parent="Play" index="0"]
-transform = Transform3D(-3.27835e-06, -10, -4.37114e-06, 0, -4.37114e-07, 100, -75, 4.37114e-07, 1.91069e-13, 0, 0, 0)
-mesh = SubResource("ArrayMesh_y2j7i")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Play"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0164673, -0.0823367, 0)
-mesh = SubResource("PlaneMesh_pw24t")
-
 [node name="Carousel" type="Node3D" parent="."]
 
 [node name="Play" type="Node3D" parent="Carousel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 script = ExtResource("3_n4uci")
+button_name = "Play"
 
 [node name="Streetlight5" parent="Carousel/Play" instance=ExtResource("8_qilvv")]
 transform = Transform3D(-5.36422e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -5.36422e-09, 0, -0.174665, 0.0973164)
@@ -516,6 +439,7 @@ mesh = SubResource("BoxMesh_qqxfm")
 [node name="Settings" parent="Carousel" instance=ExtResource("1_m1kxf")]
 transform = Transform3D(-0.1345, -0.0618033, -0.134499, 0.141421, -1.24192e-07, -0.141422, 0.0437016, -0.190211, 0.0437016, 0.309, 0, 0.951)
 script = ExtResource("3_n4uci")
+button_name = "Settings"
 
 [node name="Cylinder" parent="Carousel/Settings" index="0"]
 mesh = SubResource("ArrayMesh_q85j6")
@@ -523,6 +447,7 @@ mesh = SubResource("ArrayMesh_q85j6")
 [node name="Credits" parent="Carousel" instance=ExtResource("6_8g5eo")]
 transform = Transform3D(0.146946, -0.190057, -0.0691752, 0, 0.0855052, -0.234924, 0.202254, 0.138085, 0.0502587, -0.809, 0, 0.588)
 script = ExtResource("3_n4uci")
+button_name = "Credits"
 
 [node name="Cube" parent="Carousel/Credits" index="0"]
 mesh = SubResource("ArrayMesh_877pj")
@@ -530,6 +455,7 @@ mesh = SubResource("ArrayMesh_877pj")
 [node name="Load" parent="Carousel" instance=ExtResource("4_uhagc")]
 transform = Transform3D(-8.84081e-09, -0.202254, -0.146946, 0.25, -1.09278e-08, 0, -6.42323e-09, -0.146946, 0.202254, -0.809, 0, -0.588)
 script = ExtResource("3_n4uci")
+button_name = "Load"
 
 [node name="Cylinder" parent="Carousel/Load" index="0"]
 mesh = SubResource("ArrayMesh_8g5eo")
@@ -537,6 +463,7 @@ mesh = SubResource("ArrayMesh_8g5eo")
 [node name="Exit" parent="Carousel" instance=ExtResource("15_jbte4")]
 transform = Transform3D(-0.231763, 0, -0.713292, 0, 0.75, 0, 0.713292, 0, -0.231763, 0.309, 0, -0.951)
 script = ExtResource("3_n4uci")
+button_name = "Exit Game"
 
 [node name="Cube" parent="Carousel/Exit/exit_sign" index="0"]
 mesh = SubResource("ArrayMesh_4ovp2")
@@ -548,6 +475,7 @@ visible = false
 [node name="Load4" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
 transform = Transform3D(-1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0, 0.25, 1, 0, 0)
 script = ExtResource("3_n4uci")
+button_name = "Load File 4"
 
 [node name="Cylinder" parent="LoadCarousel/Load4" index="0"]
 mesh = SubResource("ArrayMesh_8g5eo")
@@ -555,6 +483,7 @@ mesh = SubResource("ArrayMesh_8g5eo")
 [node name="Load3" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
 transform = Transform3D(-0.168125, -0.0772541, -0.168124, 0.176776, -1.55241e-07, -0.176777, 0.054627, -0.237764, 0.0546269, 0.309, 0, 0.951)
 script = ExtResource("3_n4uci")
+button_name = "Load File 3"
 
 [node name="Cylinder" parent="LoadCarousel/Load3" index="0"]
 mesh = SubResource("ArrayMesh_8g5eo")
@@ -562,6 +491,7 @@ mesh = SubResource("ArrayMesh_8g5eo")
 [node name="Load2" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
 transform = Transform3D(0.146946, -0.202254, 8.8408e-09, 0, -1.09278e-08, -0.25, 0.202254, 0.146946, -6.42322e-09, -0.809, 0, 0.588)
 script = ExtResource("3_n4uci")
+button_name = "Load File 2"
 
 [node name="Cylinder" parent="LoadCarousel/Load2" index="0"]
 mesh = SubResource("ArrayMesh_8g5eo")
@@ -569,6 +499,7 @@ mesh = SubResource("ArrayMesh_8g5eo")
 [node name="Load1" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
 transform = Transform3D(-8.84081e-09, -0.202254, -0.146946, 0.25, -1.09278e-08, 0, -6.42323e-09, -0.146946, 0.202254, -0.809, 0, -0.588)
 script = ExtResource("3_n4uci")
+button_name = "Load File 1"
 
 [node name="Cylinder" parent="LoadCarousel/Load1" index="0"]
 mesh = SubResource("ArrayMesh_8g5eo")
@@ -576,6 +507,7 @@ mesh = SubResource("ArrayMesh_8g5eo")
 [node name="Load5" parent="LoadCarousel" instance=ExtResource("4_uhagc")]
 transform = Transform3D(3.37689e-09, 0.0772541, -0.237764, 0.25, -1.09278e-08, 0, -1.0393e-08, -0.237764, -0.0772541, 0.309, 0, -0.951)
 script = ExtResource("3_n4uci")
+button_name = "Load File 5"
 
 [node name="Cylinder" parent="LoadCarousel/Load5" index="0"]
 mesh = SubResource("ArrayMesh_8g5eo")
@@ -596,7 +528,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LoadUi" type="Control" parent="CanvasLayer"]
-visible = false
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -613,7 +545,7 @@ offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_fonts/normal_font = ExtResource("16_ayp64")
+theme_override_fonts/normal_font = ExtResource("20_jbte4")
 theme_override_font_sizes/normal_font_size = 16
 text = "Name: 
 level:
@@ -843,7 +775,6 @@ size_flags_vertical = 3
 [connection signal="pressed" from="CanvasLayer/MainMenuUi/HBoxContainer/MenuItemButton" to="." method="_on_menu_item_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenuUi/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]
 
-[editable path="Play"]
 [editable path="Carousel/Play/Streetlight5"]
 [editable path="Carousel/Settings"]
 [editable path="Carousel/Credits"]

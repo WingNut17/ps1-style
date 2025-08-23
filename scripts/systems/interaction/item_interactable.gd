@@ -3,6 +3,7 @@ extends Interactable
 
 
 @export var item: Item
+@export var collision_shape: CollisionShape3D
 @export var dialogue_id: DialogueResource
 @export var use_camera: bool = true
 @export var item_node: Node3D
@@ -10,7 +11,7 @@ extends Interactable
 @onready var sprite: Sprite3D = $Sprite3D
 @onready var camera: Camera3D = $Camera3D
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
-@onready var collision_shape: CollisionShape3D = $CollisionShape3D
+@onready var player_detect: Area3D = $PlayerDetect
 
 var item_picked_up: bool
 var player_instance: CharacterBody3D
@@ -18,21 +19,45 @@ var camera_switched: bool = false
 
 
 func _ready() -> void:
+	super()
+	if not collision_shape:
+		print_debug("no collision shape: %s " % get_parent().name)
+		can_interact = false
+	if not item_node:
+		print_debug("no item node: %s " % get_parent().name)
+		can_interact = false
 	if not item:
-		collision_shape.disabled = true
-		sprite.visible = false
-		item_node.visible = false
+		print_debug("no item resource: %s " % get_parent().name)
+		can_interact = false
+	
+	sprite.visible = false
+	
+	player_detect.body_entered.connect(_on_body_entered)
+	player_detect.body_exited.connect(_on_body_exited)
+	audio.finished.connect(_on_audio_finished)
+
+func _process(delta: float) -> void:
+	if player_instance:
+		var player_pos = player_instance.global_position
+		var item_pos = self.global_position
+		var distance = player_pos.distance_to(item_pos)
+		sprite.transparency = distance/2
 
 func interact(player: CharacterBody3D) -> void:
+	if not can_interact:
+		print_debug(debug_error)
+		return
+	
 	player_instance = player
 	if GameState.should_block_player_input():
 		return
 		
 	if not item:
-		print("no item resource")
+		print_debug("no item resource: ", name)
 		return
 	
-	DialogueEvents.item = item.item_name
+	# Sets the variable name in the global dialogue variables
+	DialogueVariables.set("item", item.item_name)
 	
 	if use_camera:
 		switch_to_interaction_camera(player)
@@ -43,9 +68,9 @@ func interact(player: CharacterBody3D) -> void:
 	
 	DialogueManager.show_dialogue_balloon(dialogue_id, "")
 	
-	if DialogueEvents.pick_up_item.is_connected(_on_pick_up_item):
-		DialogueEvents.pick_up_item.disconnect(_on_pick_up_item)
-	DialogueEvents.pick_up_item.connect(_on_pick_up_item)
+	if DialogueVariables.pick_up_item.is_connected(_on_pick_up_item):
+		DialogueVariables.pick_up_item.disconnect(_on_pick_up_item)
+	DialogueVariables.pick_up_item.connect(_on_pick_up_item)
 
 func switch_to_interaction_camera(player: CharacterBody3D) -> void:
 	"""Switch from player camera to interaction camera"""
@@ -84,3 +109,16 @@ func _on_pick_up_item() -> void:
 		pass
 	else:
 		Inventory.add_item(item)
+
+func _on_audio_finished() -> void:
+	queue_free()
+
+func _on_body_entered(body: Node3D) -> void:
+	if body is Player:
+		player_instance = body
+		sprite.visible = true
+
+func _on_body_exited(body: Node3D) -> void:
+	if body is Player:
+		player_instance = null
+		sprite.visible = false

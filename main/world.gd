@@ -9,7 +9,7 @@ var spawn_points: Dictionary = {}
 
 func switch_to_level(level_uid: String, delete: bool = true, keep_running: bool = false):
 	if level_uid not in Constants.LEVEL_PATHS.values():
-		print("level not in registry")
+		print_debug("level not in registry: %s" % level_uid)
 		return
 	
 	if current_level:
