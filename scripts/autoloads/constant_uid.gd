@@ -1,36 +1,46 @@
 extends Node
 
 
-const LEVEL_PATHS : Dictionary[String, String] = {
+const LEVEL_PATHS: Dictionary[String, String] = {
 	"main_menu": "uid://c35bmvjx4x8iu",
 	"floor_1": "uid://chimn3gxcbey7",
 	"janitors_room": "uid://b02i8t36xvyu6",
 	"main_floor": "uid://vu68h5sot7hb",
-	"tile_level": "uid://oukrlyvriv3s"
-}
+	"tile_level": "uid://oukrlyvriv3s",
+	"outside": "uid://emxcv0h4fsnh",
+	"example": "uid://bpneg4mn4gyph",
+	"cabin": "uid://bltjrudagg0dn"
+	}
 
-const SCENE_PATHS : Dictionary[String, String] = {
+const SCENE_PATHS: Dictionary[String, String] = {
 	"player": "uid://b5k7b61oxm2pt",
 	"main_menu": "uid://c35bmvjx4x8iu",
 	"shoot_smoke": "uid://dqli2a3bq4n45",
 	"barrel_smoke": "uid://ckacb1wxobqqf",
 	"bullet_impact": "uid://dmicaoqtjq1bf"
-}
+	}
 
-const RESOURCE_PATHS : Dictionary[String, String] = {
+const OBJECTS: Dictionary[String, String] = {
+	"poop": "poo"
+	}
+const ITEMS: Dictionary[String, String] = {
+	"poop": "uid://yb2j6afil372"
+	}
+
+const RESOURCE_PATHS: Dictionary[String, String] = {
 	"environment": "uid://cdn107mv7e8ox",
 	"shoot_mesh": "uid://6ua2sdg2exgj"
-}
+	}
 
-const AUDIO_PATHS : Dictionary[String, String] = {
+const AUDIO_PATHS: Dictionary[String, String] = {
 	"menu_move": "uid://crh6tg4yexskn",
 	"item_select": "uid://dnuynm0yojx4v"
-}
+	}
 
-const MUSIC_PATHS : Dictionary[String, String] = {
+const MUSIC_PATHS: Dictionary[String, String] = {
 	"tile_music": "uid://fat0r0wemb5m",
 	"tile_music2": "uid://di7ax3jmdpuv2"
-}
+	}
 
 static func get_scene(scene_id: String) -> PackedScene:
 	"""

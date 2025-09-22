@@ -39,8 +39,9 @@ func perform_hitscan(camera: Camera3D, shoot_distance: float, damage: int, sprea
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	
 	query.collide_with_areas = true
-	query.collision_mask = 1
 	query.collide_with_bodies = true
+	query.collision_mask = 1
+	
 	
 	var result = space_state.intersect_ray(query)
 	
@@ -52,6 +53,11 @@ func handle_hit(result: Dictionary, damage: int) -> void:
 		var hurtbox = result.collider as HurtBox
 		hurtbox.take_damage_from_hitscan(damage)
 		create_impact_effect(result, hurtbox.type)
+		
+	elif result.collider is RigidBody3D:
+		result.collider.apply_impulse(-result.normal / result.collider.mass)
+		create_impact_effect(result, "")
+	
 	else:
 		create_impact_effect(result, "")
 

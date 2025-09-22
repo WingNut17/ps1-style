@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=30 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
@@ -14,8 +14,13 @@
 [ext_resource type="Script" uid="uid://cvrie2incxdu" path="res://main/player/player_ui.gd" id="11_6xqwf"]
 [ext_resource type="PackedScene" uid="uid://cnui3gpbmr30b" path="res://scenes/ui/inventory_ui.tscn" id="12_6xqwf"]
 [ext_resource type="Script" uid="uid://bq6pk6qrlsw1f" path="res://main/player/label.gd" id="12_gkpck"]
+[ext_resource type="PackedScene" uid="uid://x3hgs6hkplyp" path="res://scenes/ui/debug_ui.tscn" id="14_eoovf"]
+[ext_resource type="FontFile" uid="uid://bv0v1f5ps517b" path="res://assets/fonts/alagard.ttf" id="15_7hvb5"]
+[ext_resource type="FontFile" uid="uid://sci6uvpk7sue" path="res://assets/fonts/mythic-pixels.ttf" id="15_kgdvm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f8m1i"]
+radius = 0.4
+height = 1.75
 
 [sub_resource type="Animation" id="Animation_gkpck"]
 length = 0.001
@@ -260,7 +265,7 @@ shape = SubResource("CapsuleShape3D_f8m1i")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("hand")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
 script = ExtResource("1_vuxkg")
 hand = NodePath("../Hand")
 sensitivity = 0.35
@@ -280,7 +285,7 @@ player = NodePath("../..")
 crosshair = NodePath("../../PlayerUi/Crosshair")
 
 [node name="Hand" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
 
 [node name="ItemContainer" type="Node3D" parent="Hand" node_paths=PackedStringArray("head", "camera", "item_pos", "ammo_label", "item_animation", "item_audio", "primary_timer")]
 script = ExtResource("7_gkpck")
@@ -368,6 +373,9 @@ offset_right = 40.0
 offset_bottom = 8.0
 script = ExtResource("12_gkpck")
 
+[node name="DebugUI" parent="CanvasLayer" instance=ExtResource("14_eoovf")]
+visible = false
+
 [node name="PlayerUi" type="CanvasLayer" parent="."]
 script = ExtResource("11_6xqwf")
 
@@ -401,6 +409,9 @@ offset_bottom = 9.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_kgdvm")
+theme_override_font_sizes/font_size = 5
 text = "
 interact"
 horizontal_alignment = 1
@@ -422,7 +433,9 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 10
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("15_7hvb5")
+theme_override_font_sizes/font_size = 16
 text = "Ammo: "
 
 [connection signal="equip_item" from="CanvasLayer/Inventory" to="Hand/ItemContainer" method="_on_inventory_equip_item"]

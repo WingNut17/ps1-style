@@ -6,7 +6,6 @@ render_mode blend_mix,
 	diffuse_burley,
 	specular_schlick_ggx,
 	depth_prepass_alpha,
-	shadows_disabled,
 	skip_vertex_transform;
 
 varying float w_comp;

@@ -13,7 +13,7 @@ shader_parameter/progress = 0.0
 shader_parameter/column_count = 160
 shader_parameter/random_seed = 0.0
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("world")]
+[node name="Main" type="Node" node_paths=PackedStringArray("world")]
 script = ExtResource("1_grrlh")
 world = NodePath("World")
 

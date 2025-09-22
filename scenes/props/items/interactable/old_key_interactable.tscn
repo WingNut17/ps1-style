@@ -19,6 +19,9 @@ item_node = NodePath("../OldKey1")
 [node name="Camera3D" parent="ItemInteractable" index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.188844, 0.356324)
 
+[node name="PlayerDetect" parent="ItemInteractable" index="3"]
+collision_layer = 0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ItemInteractable"]
 shape = SubResource("BoxShape3D_ltpqg")
 

@@ -1,0 +1,315 @@
+[gd_scene load_steps=29 format=3 uid="uid://boow5t2duj08b"]
+
+[ext_resource type="MeshLibrary" uid="uid://tqs3duppqf8r" path="res://resources/tree_mesh_library_low_poly.tres" id="1_kcawe"]
+[ext_resource type="Script" uid="uid://cjxo4pgssm6yw" path="res://scripts/levels/forest.gd" id="1_lpqlp"]
+[ext_resource type="Shader" uid="uid://c3ww3i4fy2p58" path="res://scripts/shaders/ps1.gdshader" id="2_b3fe0"]
+[ext_resource type="Texture2D" uid="uid://cqgfvjmi4y5t" path="res://assets/models/structural/kenney_retro_urban_kit/Textures/grass.png" id="3_ag05v"]
+[ext_resource type="Shader" uid="uid://da2b64l1177jv" path="res://scripts/shaders/sky.gdshader" id="5_b3fe0"]
+[ext_resource type="PackedScene" uid="uid://bcuu0bgp0vtmp" path="res://assets/models/props/environment/FarmAnimals/Cow.fbx" id="6_ag05v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6c4vn"]
+render_priority = 0
+shader = ExtResource("2_b3fe0")
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_albedo = ExtResource("3_ag05v")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(25, 25, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/use_triplanar = false
+shader_parameter/triplanar_scale = 1.0
+shader_parameter/triplanar_blend_sharpness = 4.0
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/affine_mapping = true
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_b3fe0"]
+material = SubResource("ShaderMaterial_6c4vn")
+size = Vector2(40, 40)
+subdivide_width = 50
+subdivide_depth = 50
+orientation = 1
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v780r"]
+load_path = "res://.godot/imported/purepng.com-tree-skylinenaturetreegreensummer-8315240022953ulot.png-4b46825fba3ede510d4302e35890bd2a.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrk8v"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+albedo_texture = SubResource("CompressedTexture2D_v780r")
+texture_filter = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ngvce"]
+material = SubResource("StandardMaterial3D_lrk8v")
+size = Vector2(35, 10)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_17a4m"]
+material = SubResource("StandardMaterial3D_lrk8v")
+size = Vector2(35, 10)
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_ag05v"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_su47n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ngvce"]
+color_ramp = SubResource("Gradient_ag05v")
+noise = SubResource("FastNoiseLite_su47n")
+
+[sub_resource type="Gradient" id="Gradient_v780r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lrk8v"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_17a4m"]
+seamless = true
+color_ramp = SubResource("Gradient_v780r")
+noise = SubResource("FastNoiseLite_lrk8v")
+
+[sub_resource type="Gradient" id="Gradient_su47n"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ngvce"]
+noise_type = 3
+seed = 1115
+frequency = 0.1523
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_v780r"]
+seamless = true
+normalize = false
+color_ramp = SubResource("Gradient_su47n")
+noise = SubResource("FastNoiseLite_ngvce")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_17a4m"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_pmt0o"]
+width = 128
+height = 128
+seamless = true
+noise = SubResource("FastNoiseLite_17a4m")
+
+[sub_resource type="Gradient" id="Gradient_b3fe0"]
+offsets = PackedFloat32Array(0, 0.167, 0.333, 0.5, 0.667, 0.833, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.47451, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0.607843, 0, 1, 1, 0.466667, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ag05v"]
+gradient = SubResource("Gradient_b3fe0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmt0o"]
+shader = ExtResource("5_b3fe0")
+shader_parameter/use_debanding = true
+shader_parameter/atmosphere_sample_count = 64
+shader_parameter/elevation = 0.0
+shader_parameter/rayleigh_strength = 1.0
+shader_parameter/mie_strength = 1.0
+shader_parameter/ozone_strength = 5.0
+shader_parameter/mie_anisotropy_factor = 0.75
+shader_parameter/atmosphere_density = 1.0
+shader_parameter/exposure = 10.0
+shader_parameter/sun_disc_feather = 0.5
+shader_parameter/sundisc_intensity = 100.0
+shader_parameter/stars_exposure = 5.0
+shader_parameter/stars_rotation = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/dim_stars_at_day = true
+shader_parameter/moon_dist = PackedFloat32Array(0, 0, 0)
+shader_parameter/moon_uv_x_offset = PackedFloat32Array(0, 0, 0)
+shader_parameter/moon_textures = Array[Texture2D]([])
+shader_parameter/hole_in_center = false
+shader_parameter/hole_radius = 5.0
+shader_parameter/hole_feather = 10.0
+shader_parameter/cloud_falloff_coeff = 1.0
+shader_parameter/clouds_alpha_lower_bound = 0.0
+shader_parameter/clouds_alpha_upper_bound = 0.15
+shader_parameter/cloud_color_texture = SubResource("NoiseTexture2D_17a4m")
+shader_parameter/cloud_base_color = Color(0.85, 0.85, 0.9, 1)
+shader_parameter/cloud_overcast_color = Color(0.35, 0.4, 0.45, 1)
+shader_parameter/coverage = 0.35
+shader_parameter/cloud_smoothness = 0.05
+shader_parameter/apply_stochastic_jitter = false
+shader_parameter/stochastic_jitter_amount = 0.1
+shader_parameter/cloud_base_march_dist = 10.0
+shader_parameter/cloud_marches = 64
+shader_parameter/density_coeff = 2.0
+shader_parameter/cloud_noise_factor = 0.723
+shader_parameter/cloud_shape = SubResource("NoiseTexture3D_pmt0o")
+shader_parameter/cloud_shape_size = 5.0
+shader_parameter/cloud_shape_offset = Vector3(0, 0, 0)
+shader_parameter/cloud_noise = SubResource("NoiseTexture3D_v780r")
+shader_parameter/cloud_noise_size = 1.0
+shader_parameter/cloud_noise_offset = Vector3(0.36, -0.155, -0.265)
+shader_parameter/clouds_anisotropy_factor = 0.25
+shader_parameter/light_marches = 8
+shader_parameter/light_max_dist = 5.0
+shader_parameter/light_strength = 15.0
+shader_parameter/use_cirrus = false
+shader_parameter/cirrus_texture = SubResource("NoiseTexture2D_ngvce")
+shader_parameter/cirrus_squish = Vector2(4, 1)
+shader_parameter/cirrus_scale = 1.0
+shader_parameter/cirrus_treshold = 0.75
+shader_parameter/cirrus_feather = 0.25
+shader_parameter/cirrus_offset = Vector2(0, 0)
+shader_parameter/cirrus_distortion_scale = 1.0
+shader_parameter/cirrus_distortion_strength = 0.4
+shader_parameter/cirrus_distortion_offset = Vector2(0, 0)
+shader_parameter/cirrus_mask_scale = 1.0
+shader_parameter/cirrus_mask_treshold = 0.6
+shader_parameter/cirrus_mask_feather = 0.4
+shader_parameter/cirrus_opacity = 0.2
+shader_parameter/use_rainbow = true
+shader_parameter/behind_clouds = false
+shader_parameter/rainbow_gradient = SubResource("GradientTexture1D_ag05v")
+shader_parameter/rainbow_width = 0.05
+shader_parameter/rainbow_offset = 0.735
+shader_parameter/rainbow_opacity = 0.1
+shader_parameter/double_rainbow = false
+
+[sub_resource type="Sky" id="Sky_b3fe0"]
+sky_material = SubResource("ShaderMaterial_pmt0o")
+
+[sub_resource type="Environment" id="Environment_ag05v"]
+background_mode = 2
+sky = SubResource("Sky_b3fe0")
+ambient_light_source = 3
+reflected_light_source = 2
+ssao_enabled = true
+sdfgi_enabled = true
+fog_sky_affect = 0.25
+
+[node name="Forest" type="Node3D"]
+script = ExtResource("1_lpqlp")
+curves = "STRING"
+
+[node name="Geometry" type="Node3D" parent="."]
+
+[node name="GridMap" type="GridMap" parent="Geometry"]
+unique_name_in_owner = true
+mesh_library = ExtResource("1_kcawe")
+data = {
+"cells": PackedInt32Array(65535, 65535, 655436, 1, 0, 655436, 0, 65533, 655436, 65533, 65534, 655436, 65534, 65532, 655436, 65531, 1, 655439, 5, 65535, 655436, 4, 2, 655436, 3, 65532, 655436, 2, 4, 655436, 65534, 4, 655436, 0, 6, 655436, 65534, 1, 655436, 65529, 65533, 655440, 65532, 65529, 655436, 4, 65529, 655436, 7, 65532, 655436, 6, 7, 655436, 2, 9, 655436, 65532, 7, 655439, 65530, 4, 655436, 65526, 4, 655436, 65528, 0, 655436, 65526, 65532, 655436, 65529, 65529, 655436, 65535, 65530, 655437, 65531, 65534, 655439, 2, 65534, 655437, 2, 2, 655437, 65531, 3, 655437, 65534, 7, 655437, 4, 4, 655437, 3, 8, 655437, 5, 65533, 655437, 3, 0, 655437, 2, 65530, 655437, 65532, 65530, 655437, 65527, 65535, 655437, 65529, 3, 655437, 65528, 7, 655437, 65530, 5, 655438, 65526, 1, 655438, 65528, 65533, 655438, 65527, 65531, 655438, 65533, 65531, 655438, 65535, 65528, 655438, 2, 65532, 655438, 65533, 0, 655438, 65532, 4, 655438, 65535, 3, 655438, 5, 1, 655439, 3, 65533, 655438, 2, 6, 655438, 0, 4, 655438, 0, 9, 655438, 7, 1, 655438, 65533, 9, 655438, 4, 8, 655439, 3, 65534, 655439, 65535, 65531, 655439, 1, 65530, 655439, 65531, 0, 655439, 65528, 65534, 655439, 65531, 65531, 655439, 65529, 2, 655439, 65526, 3, 655439, 65531, 7, 655439, 65533, 2, 655439, 65535, 5, 655439, 2, 1, 655439, 0, 65529, 655439, 65533, 65528, 655439, 65534, 65529, 655440, 65533, 65535, 655440, 65535, 65532, 655440, 2, 65533, 655440, 3, 3, 655440, 0, 1, 655440, 4, 65534, 655440, 65534, 65533, 655440, 65529, 65535, 655440, 65532, 5, 655440, 0, 7, 655440, 5, 4, 655440, 7, 0, 655440, 4, 65531, 655440, 65529, 65531, 655440, 65528, 1, 655440, 65528, 4, 655440, 5, 65531, 655440, 2, 65528, 655440, 65531, 65528, 655440, 65545, 65533, 655440, 65545, 2, 655438, 65546, 65534, 655437, 65546, 65530, 655438, 65545, 65528, 655437, 65542, 65527, 655436, 65537, 65526, 655437, 131070, 65527, 655438, 65539, 65527, 655439, 65544, 65526, 655439, 65544, 65530, 655437, 6, 65529, 655437)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="GridMap2" type="GridMap" parent="Geometry"]
+unique_name_in_owner = true
+mesh_library = ExtResource("1_kcawe")
+data = {
+"cells": PackedInt32Array(4, 65535, 655456, 0, 65535, 655464, 65535, 65533, 655469, 65532, 65535, 655467, 65534, 65531, 655467, 65532, 65532, 655467, 2, 65529, 655468, 5, 65532, 655469, 2, 0, 655466, 1, 2, 655461, 5, 2, 655460, 6, 65534, 655460, 5, 65529, 655459, 65533, 65529, 655456, 131071, 65527, 655461, 65540, 65527, 655463, 65537, 65527, 655458, 65543, 65526, 655462, 65544, 65532, 655456, 65544, 65535, 655469, 1, 65534, 655477, 0, 65532, 655478, 3, 1, 655477, 2, 65535, 655451, 65534, 65534, 655451, 65534, 0, 655451, 0, 3, 655451, 65533, 1, 655451, 65533, 65533, 655451, 1, 65532, 655451, 65534, 65530, 655451, 1, 65529, 655451, 2, 65531, 655451, 5, 65530, 655451, 4, 65533, 655451, 4, 0, 655451, 3, 2, 655451, 6, 0, 655451, 1, 1, 655451, 2, 3, 655451, 6, 2, 655451, 6, 65531, 655451, 7, 65530, 655451, 65544, 65533, 655451, 65545, 65529, 655451, 65544, 65527, 655451, 65541, 65527, 655451, 65538, 65526, 655451, 65536, 65526, 655451, 131069, 65527, 655451, 65545, 0, 655451, 65544, 2, 655451)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("QuadMesh_b3fe0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 12.5, 1, -6)
+mesh = SubResource("QuadMesh_b3fe0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 6, 1, -12.5)
+mesh = SubResource("QuadMesh_b3fe0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 7, -24.5)
+mesh = SubResource("PlaneMesh_ngvce")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Geometry"]
+transform = Transform3D(-1.19249e-08, 0, -1, 0, 1, 0, -1, 0, 1.19249e-08, 24.5, 7, -7.02)
+mesh = SubResource("PlaneMesh_17a4m")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -3, 1.71067, -3)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ag05v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866025, 0.5, 0.5, -0.433013, 0.75, 0, 3, 0)
+
+[node name="Cow" parent="." instance=ExtResource("6_ag05v")]
+transform = Transform3D(-0.075, 0, -0.129904, 0, 0.15, 0, 0.129904, 0, -0.075, -1, 1, -3)
+
+[node name="Skeleton3D" parent="Cow/Armature" index="0"]
+bones/1/rotation = Quaternion(0.707107, -6.20965e-07, -6.20964e-07, 0.707107)
+bones/1/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(-0.0102351, 0.0102348, 0.707033, 0.707033)
+bones/5/position = Vector3(1.31839e-16, 0.00602558, -6.67572e-10)
+bones/5/rotation = Quaternion(0.703962, -0.697455, -0.0808372, 0.107051)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(-1.40396e-10, 0.00924815, 3.74061e-11)
+bones/6/rotation = Quaternion(0.21892, -0.0185221, 0.00415651, 0.975558)
+bones/6/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.0104298, -0.0104306, 0.70703, 0.70703)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/position = Vector3(-3.81639e-17, 0.00469583, 1.90736e-10)
+bones/9/rotation = Quaternion(0.675439, -0.681193, 0.184019, -0.214232)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/position = Vector3(7.2902e-10, 0.0117551, -3.09954e-10)
+bones/10/rotation = Quaternion(-0.361916, 0.0180394, 0.00700491, 0.93201)
+bones/10/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.707034, 0.707034, -0.0101261, 0.010126)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/position = Vector3(-1.52656e-16, 0.00602559, 6.67572e-10)
+bones/13/rotation = Quaternion(-0.0574347, -0.130329, 0.706256, 0.693482)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/position = Vector3(-4.59458e-10, 0.00924815, -5.70533e-09)
+bones/14/rotation = Quaternion(0.21867, 0.0510186, -0.0114493, 0.974397)
+bones/14/scale = Vector3(1, 1, 1)
+bones/16/rotation = Quaternion(0.707032, 0.707032, 0.0102899, -0.0102906)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/position = Vector3(1.73472e-17, 0.00469583, -1.90734e-10)
+bones/17/rotation = Quaternion(0.190796, 0.207644, 0.673556, 0.68323)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/position = Vector3(1.83422e-10, 0.0117551, -1.75008e-09)
+bones/18/rotation = Quaternion(-0.361964, -0.00885833, -0.0034399, 0.932144)
+bones/18/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(0.600803, -0.0301612, 0.0352671, 0.798049)
+bones/21/position = Vector3(0.000111687, 0.00396934, -0.0137541)
+bones/21/rotation = Quaternion(0.988856, 3.14741e-08, 2.23642e-07, -0.148875)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/position = Vector3(-2.57146e-11, 0.00836347, -9.43333e-09)
+bones/22/rotation = Quaternion(-0.623153, 9.05751e-08, -7.58948e-08, 0.7821)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/position = Vector3(-2.15459e-12, 0.00727335, -2.59481e-09)
+bones/23/rotation = Quaternion(0.0790711, 0.982994, -0.165698, 0.00388115)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/position = Vector3(3.3664e-13, 0.00699334, -2.83767e-09)
+bones/24/rotation = Quaternion(-0.0479242, -0.0151444, -0.0642609, 0.996667)
+bones/24/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(0.00544397, 0.86556, 0.500295, -0.0219301)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/position = Vector3(1.89718e-10, 0.0131892, -5.73125e-10)
+bones/27/rotation = Quaternion(0.151115, -0.0179603, -0.0124379, 0.988275)
+bones/28/position = Vector3(-2.16015e-10, 0.0135733, 4.84598e-10)
+bones/28/rotation = Quaternion(-0.627949, -0.199401, 0.153682, 0.736411)
+bones/30/rotation = Quaternion(3.57659e-06, 0.670507, 0.741903, 3.22894e-06)
+bones/31/position = Vector3(-1.24997e-14, 0.0192582, -1.29026e-09)
+bones/31/rotation = Quaternion(0.0863902, 0.00120385, -0.0134951, 0.996169)
+bones/31/scale = Vector3(1, 1, 1)
+bones/33/rotation = Quaternion(0.707107, -6.20965e-07, -6.20964e-07, 0.707107)
+bones/33/scale = Vector3(1, 1, 1)
+bones/35/rotation = Quaternion(0.707107, -9.5814e-07, -9.58139e-07, 0.707107)
+bones/35/scale = Vector3(1, 1, 1)
+bones/37/rotation = Quaternion(0.707107, -9.5814e-07, -9.58139e-07, 0.707107)
+bones/37/scale = Vector3(1, 1, 1)
+
+[node name="AnimationPlayer" parent="Cow" index="1"]
+autoplay = "Armature|Idle"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[editable path="Cow"]

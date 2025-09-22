@@ -34,7 +34,6 @@ func _ready() -> void:
 	
 	player_detect.body_entered.connect(_on_body_entered)
 	player_detect.body_exited.connect(_on_body_exited)
-	audio.finished.connect(_on_audio_finished)
 
 func _process(delta: float) -> void:
 	if player_instance:
@@ -95,6 +94,8 @@ func _on_dialogue_ended(_val) -> void:
 	# Clean up the signal connection
 	if DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
 		DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
+	
+	queue_free()
 
 func _on_pick_up_item() -> void:
 	collision_shape.queue_free()
@@ -109,9 +110,6 @@ func _on_pick_up_item() -> void:
 		pass
 	else:
 		Inventory.add_item(item)
-
-func _on_audio_finished() -> void:
-	queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:

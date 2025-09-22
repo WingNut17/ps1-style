@@ -34,6 +34,7 @@ size = Vector3(0.4, 0.1, 0.4)
 
 [node name="CeilingLight" type="Node3D"]
 script = ExtResource("1_qeclm")
+flickering = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)

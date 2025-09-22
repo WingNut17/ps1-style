@@ -58,7 +58,7 @@ func setup_item() -> void:
 
 func _update_ammo() -> void:
 	if item is RangedWeaponItem:
-		ammo_label.text = str("ammo: ", item.magazine_ammo, "/", Inventory.get_ammo_count(item.ammo_type))
+		ammo_label.text = str("Ammo: ", item.magazine_ammo, "/", Inventory.get_ammo_count(item.ammo_type))
 
 func _on_inventory_equip_item(item_resource: Item) -> void:
 	if item == item_resource:

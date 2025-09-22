@@ -1,6 +1,5 @@
 extends Node
 
-
 @export var player: CharacterBody3D
 @export var head: Head
 @export var item_container: ItemContainer
@@ -13,7 +12,6 @@ extends Node
 
 var flashlight_toggled: bool = false
 var inventory_open: bool = false
-
 
 func _ready() -> void:
 	# Initialize mouse mode
@@ -30,7 +28,6 @@ func _ready() -> void:
 	GameState.menu_closed.connect(_on_movement_allowed)
 	GameState.done_loading.connect(_on_loading)
 
-
 func _input(event: InputEvent) -> void:
 	# Handle mouse look
 	if event is InputEventMouseMotion and not GameState.should_block_player_input():
@@ -46,12 +43,10 @@ func _input(event: InputEvent) -> void:
 	_handle_interact_input(event)
 	_handle_ui_input(event)
 
-
 func _unhandled_input(event: InputEvent) -> void:
 	# Early return for blocked input
 	if GameState.should_block_player_input():
 		return
-
 
 func _handle_mouse_look(event: InputEventMouseMotion) -> void:
 	if not head:
@@ -61,7 +56,6 @@ func _handle_mouse_look(event: InputEventMouseMotion) -> void:
 	head.rotation_degrees.y -= movement.x * mouse_sensitivity
 	head.rotation_degrees.x -= movement.y * mouse_sensitivity
 	head.rotation_degrees.x = clampf(head.rotation_degrees.x, -90, 90)
-
 
 func _handle_player_input(event: InputEvent) -> void:
 	if not player:
@@ -83,7 +77,6 @@ func _handle_player_input(event: InputEvent) -> void:
 	if event.is_action_pressed("flashlight"):
 		_toggle_flashlight()
 
-
 func _handle_ui_input(event: InputEvent) -> void:
 	# Inventory toggle
 	if event.is_action_pressed("inventory"):
@@ -96,7 +89,6 @@ func _handle_ui_input(event: InputEvent) -> void:
 		
 		if inventory:
 			inventory.visible = !inventory.visible
-
 
 func _handle_item_input(event: InputEvent) -> void:
 	if not item_container or not item_container.item:
@@ -131,7 +123,6 @@ func _handle_item_input(event: InputEvent) -> void:
 		if item.has_method("on_reload"):
 			item.on_reload()
 
-
 func _handle_interact_input(event) -> void:
 	if event.is_action_pressed("interact"):
 		var body = interact_ray.get_collider()
@@ -139,7 +130,6 @@ func _handle_interact_input(event) -> void:
 		if body is Interactable:
 			if body.has_method("interact"):
 				body.interact(player)
-
 
 func _toggle_flashlight() -> void:
 	if not flashlight:
@@ -152,7 +142,6 @@ func _toggle_flashlight() -> void:
 	
 	flashlight_toggled = !flashlight_toggled
 
-
 func _process(_delta: float) -> void:
 	if GameState.should_block_player_input():
 		return
@@ -161,14 +150,11 @@ func _process(_delta: float) -> void:
 		var input_direction = Input.get_vector("left", "right", "forward", "backward")
 		player.input_direction = input_direction
 
-
 func _on_loading() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-
 func _on_movement_blocked() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
 
 func _on_movement_allowed() -> void:
 	if not GameState.is_any_blocking_state_active():

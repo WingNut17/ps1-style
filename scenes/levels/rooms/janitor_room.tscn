@@ -86,7 +86,6 @@ material = SubResource("StandardMaterial3D_5byf4")
 
 [node name="WoodenDoor" parent="Props/Doors" instance=ExtResource("6_p3yo6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.425, 0.125, 0)
-collision_layer = 4
 scene = "uid://vu68h5sot7hb"
 
 [node name="Other" type="Node3D" parent="Props"]
@@ -110,7 +109,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22649, 1.60969, -2.20761)
 [node name="CeilingLight" parent="Lights" instance=ExtResource("11_wk26c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.85, 0)
 toggled = false
-flickering = true
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("12_7ex6x")]
 environment = null
