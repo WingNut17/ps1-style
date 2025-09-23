@@ -7,10 +7,15 @@ var current_level: Node3D
 var spawn_points: Dictionary = {}
 
 
-func switch_to_level(level_uid: String, delete: bool = true, keep_running: bool = false):
-	if level_uid not in Constants.LEVEL_PATHS.values():
-		print_debug("level not in registry: %s" % level_uid)
-		return
+func switch_to_level(level_id: String, delete: bool = true, keep_running: bool = false):
+	if level_id.begins_with("uid://"):
+		if level_id not in Constants.LEVEL_PATHS.values():
+			print_debug("level not in registry: %s" % level_id)
+			return
+	else:
+		if level_id not in Constants.LEVEL_PATHS.keys():
+			print_debug("level not in registry: %s" % level_id)
+			return
 	
 	if current_level:
 		if delete:
@@ -21,7 +26,7 @@ func switch_to_level(level_uid: String, delete: bool = true, keep_running: bool 
 			remove_child(current_level)
 	
 	# Load and instantiate the level scene directly
-	var scene = Constants.get_scene(level_uid)
+	var scene = Constants.get_scene(level_id)
 	if scene:
 		current_level = scene.instantiate()
 		add_child(current_level)
@@ -44,7 +49,7 @@ func switch_to_level(level_uid: String, delete: bool = true, keep_running: bool 
 		await get_tree().process_frame
 		teleport_player_to_spawn()
 	else:
-		push_error("Scene for UID '%s' not found" % level_uid)
+		push_error("Scene for UID '%s' not found" % level_id)
 
 func collect_spawn_points() -> void:
 	spawn_points.clear()

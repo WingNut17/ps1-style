@@ -21,6 +21,15 @@ const STONE_STEP = [
 	preload("res://assets/audio/sound/characters/step/stone_step6.ogg")
 ]
 
+const WOOD_STEP = [
+	preload("res://assets/audio/sound/characters/step/wood_step1.ogg"),
+	preload("res://assets/audio/sound/characters/step/wood_step2.ogg"),
+	preload("res://assets/audio/sound/characters/step/wood_step3.ogg"),
+	preload("res://assets/audio/sound/characters/step/wood_step4.ogg"),
+	preload("res://assets/audio/sound/characters/step/wood_step5.ogg"),
+	preload("res://assets/audio/sound/characters/step/wood_step6.ogg")
+]
+
 
 @onready var walk_timer: Timer = $WalkTimer
 @onready var walk_audio: AudioStreamPlayer = $WalkAudio
@@ -41,13 +50,13 @@ func try_to_play_audio() -> void:
 			if material:
 				match material:
 					"carpet":
-						walk_audio.stream = CARPET_STEP[randi_range(0,CARPET_STEP.size()-1)]
+						walk_audio.stream = CARPET_STEP.pick_random()
 					"stone":
-						walk_audio.stream = STONE_STEP[randi_range(0,STONE_STEP.size()-1)]
+						walk_audio.stream = STONE_STEP.pick_random()
 					"dirt":
 						pass
 					"wood":
-						pass
+						walk_audio.stream = WOOD_STEP[randi_range(0, WOOD_STEP.size() - 1)]
 					_:
 						pass
 			

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://bwkwgclkl7j0t"]
+[gd_scene load_steps=12 format=4 uid="uid://bwkwgclkl7j0t"]
 
 [ext_resource type="Script" uid="uid://d26jlfdvbp8v7" path="res://scripts/systems/interaction/door_interactable.gd" id="1_etbtq"]
 [ext_resource type="Texture2D" uid="uid://c3cj1qkrtfn06" path="res://assets/textures/props/old_wooden_door.png" id="2_srf21"]
+[ext_resource type="AudioStream" uid="uid://cogka5y2m7fb1" path="res://assets/audio/sound/props/old_door_open.ogg" id="2_wxqt2"]
 [ext_resource type="Texture2D" uid="uid://gtr7vpb0msnm" path="res://assets/textures/general/wood_wall.png" id="3_wxqt2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovaye"]
@@ -63,6 +64,8 @@ collision_layer = 4
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_etbtq")
+scene = "main_floor"
+door_enter_audio = ExtResource("2_wxqt2")
 metadata/_custom_type_script = "uid://d26jlfdvbp8v7"
 
 [node name="DoorFront" type="MeshInstance3D" parent="."]

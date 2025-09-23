@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b5k7b61oxm2pt"]
+[gd_scene load_steps=33 format=3 uid="uid://b5k7b61oxm2pt"]
 
 [ext_resource type="Script" uid="uid://drumaywc3tyua" path="res://main/player/player.gd" id="1_howr1"]
 [ext_resource type="Script" uid="uid://qlq5aju864cb" path="res://main/player/head.gd" id="1_vuxkg"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dewy6vcv32kft" path="res://scripts/systems/one_shot_audio.gd" id="7_6xqwf"]
 [ext_resource type="Script" uid="uid://csmpgo0gyiac0" path="res://scripts/systems/item/item_container_new.gd" id="7_gkpck"]
 [ext_resource type="Script" uid="uid://cvrie2incxdu" path="res://main/player/player_ui.gd" id="11_6xqwf"]
+[ext_resource type="Script" uid="uid://c7a5mipe4ldbw" path="res://main/player/shaders.gd" id="11_8ifdq"]
 [ext_resource type="PackedScene" uid="uid://cnui3gpbmr30b" path="res://scenes/ui/inventory_ui.tscn" id="12_6xqwf"]
 [ext_resource type="Script" uid="uid://bq6pk6qrlsw1f" path="res://main/player/label.gd" id="12_gkpck"]
 [ext_resource type="PackedScene" uid="uid://x3hgs6hkplyp" path="res://scenes/ui/debug_ui.tscn" id="14_eoovf"]
@@ -20,7 +21,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f8m1i"]
 radius = 0.4
-height = 1.75
+height = 1.83
 
 [sub_resource type="Animation" id="Animation_gkpck"]
 length = 0.001
@@ -213,6 +214,14 @@ _data = {
 &"reload": SubResource("Animation_r10t4")
 }
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_own1o"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ebh7k"]
+width = 320
+height = 240
+noise = SubResource("FastNoiseLite_own1o")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bbr4"]
 shader = ExtResource("3_ssv3l")
 shader_parameter/fog_color = Color(0, 0, 0, 1)
@@ -265,7 +274,7 @@ shape = SubResource("CapsuleShape3D_f8m1i")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="Head" type="Node3D" parent="." node_paths=PackedStringArray("hand")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
 script = ExtResource("1_vuxkg")
 hand = NodePath("../Hand")
 sensitivity = 0.35
@@ -285,7 +294,7 @@ player = NodePath("../..")
 crosshair = NodePath("../../PlayerUi/Crosshair")
 
 [node name="Hand" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.675, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
 
 [node name="ItemContainer" type="Node3D" parent="Hand" node_paths=PackedStringArray("head", "camera", "item_pos", "ammo_label", "item_animation", "item_audio", "primary_timer")]
 script = ExtResource("7_gkpck")
@@ -322,7 +331,7 @@ shadow_enabled = true
 spot_angle = 20.0
 
 [node name="FootCast" type="RayCast3D" parent="."]
-target_position = Vector3(0, -1.25, 0)
+target_position = Vector3(0, -0.95, 0)
 script = ExtResource("5_f8m1i")
 walk_audio_speed = 0.55
 
@@ -330,29 +339,20 @@ walk_audio_speed = 0.55
 one_shot = true
 
 [node name="WalkAudio" type="AudioStreamPlayer" parent="FootCast"]
-volume_db = -10.0
 bus = &"Sfx"
 
 [node name="Shaders" type="CanvasLayer" parent="."]
+script = ExtResource("11_8ifdq")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Shaders"]
+[node name="TextureRect" type="TextureRect" parent="Shaders"]
 visible = false
+modulate = Color(1, 0.714868, 0.669018, 0.196078)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="SubViewport" type="SubViewport" parent="Shaders/SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(320, 240)
-render_target_update_mode = 0
-
-[node name="SubViewportCamera" type="Camera3D" parent="Shaders/SubViewportContainer/SubViewport"]
-unique_name_in_owner = true
-visible = false
-cull_mask = 1
+texture = SubResource("NoiseTexture2D_ebh7k")
 
 [node name="ColorRect" type="ColorRect" parent="Shaders"]
 material = SubResource("ShaderMaterial_4bbr4")

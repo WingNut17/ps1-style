@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="RangedWeaponItem" load_steps=7 format=3 uid="uid://kr6njbqwsike"]
+
+[ext_resource type="PackedScene" uid="uid://8oge521plh42" path="res://scenes/props/items/weapons/old_shotgun.tscn" id="1_wxts2"]
+[ext_resource type="Texture2D" uid="uid://b4ewx5p1b8q1l" path="res://assets/textures/props/items/item_thumbnail/shotgun.png" id="2_iwqo0"]
+[ext_resource type="AudioStream" uid="uid://dowt7cpc7qi84" path="res://assets/audio/sound/props/items/weapons/no_ammo.ogg" id="3_8em2t"]
+[ext_resource type="AudioStream" uid="uid://bbqo00inctlc6" path="res://assets/audio/sound/props/items/weapons/shotgun_reload.ogg" id="4_8iim7"]
+[ext_resource type="Script" uid="uid://35e0sxv41p52" path="res://scripts/systems/item/ranged_item.gd" id="5_j08lu"]
+[ext_resource type="AudioStream" uid="uid://dj2o7quf5r5di" path="res://assets/audio/sound/props/items/weapons/shotgun_shoot.ogg" id="6_4x018"]
+
+[resource]
+script = ExtResource("5_j08lu")
+ammo_type = "shotgun"
+magazine_ammo = 5
+max_magazine_ammo = 5
+full_auto = false
+bullet_count = 8
+spread = 7.5
+shoot_damage = 8
+shoot_speed = 1.0
+reload_time = 4.0
+shoot_range = 10.0
+shoot_sound = ExtResource("6_4x018")
+no_ammo_sound = ExtResource("3_8em2t")
+reload_sound = ExtResource("4_8iim7")
+reload_anim = &"reload"
+recoil_amount = 1.5
+equipable = true
+consumable = false
+pull_out_time = 2.0
+item_name = "Old Shotgun"
+item_description = "this is a shotgun"
+item_model = ExtResource("1_wxts2")
+item_thumbnail = ExtResource("2_iwqo0")
+metadata/_custom_type_script = "uid://35e0sxv41p52"

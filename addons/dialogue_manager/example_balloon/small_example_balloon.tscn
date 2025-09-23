@@ -94,12 +94,11 @@ alignment = 2
 
 [node name="DialogueAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qcu78")
-volume_db = -15.0
 bus = &"Dialogue"
 script = ExtResource("5_2q4kx")
 
 [node name="DialogueUIAudio" type="AudioStreamPlayer" parent="."]
-volume_db = -15.0
+volume_db = -5.0
 bus = &"Sfx"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]

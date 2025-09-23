@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://bltjrudagg0dn"]
+[gd_scene load_steps=81 format=4 uid="uid://bltjrudagg0dn"]
 
 [ext_resource type="Script" uid="uid://cpasc565t4v6v" path="res://main/level.gd" id="1_75qhe"]
 [ext_resource type="PackedScene" uid="uid://b5g0ixr6w08bq" path="res://scenes/other/world_environment.tscn" id="2_33iwe"]
@@ -23,6 +23,8 @@
 [ext_resource type="AudioStream" uid="uid://brioybtwmb86b" path="res://assets/audio/sound/environment/wood_creaking.ogg" id="18_eqjcv"]
 [ext_resource type="Texture2D" uid="uid://c5k4d8ww3drpd" path="res://assets/textures/props/eyes.png" id="19_21rrr"]
 [ext_resource type="AudioStream" uid="uid://cn4gk185sgr0t" path="res://assets/audio/sound/environment/creak_and_wind.ogg" id="19_ydsu2"]
+[ext_resource type="Script" uid="uid://dkok0pec8hqa2" path="res://scripts/systems/interaction/dialogue_interact.gd" id="20_yd4e1"]
+[ext_resource type="Resource" uid="uid://t6nq5b5uundf" path="res://resources/dialogue/opening_dialogue.dialogue" id="21_j61wo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydsu2"]
 albedo_texture = ExtResource("6_2hp47")
@@ -41,14 +43,6 @@ transparency = 1
 cull_mode = 2
 albedo_texture = ExtResource("5_r3p88")
 uv1_scale = Vector3(2, 2, 2)
-uv1_triplanar = true
-texture_filter = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3p88"]
-albedo_texture = ExtResource("2_o4rw7")
-normal_enabled = true
-normal_texture = ExtResource("3_fnbpd")
-uv1_scale = Vector3(0.75, 0.75, 0.75)
 uv1_triplanar = true
 texture_filter = 2
 
@@ -96,6 +90,14 @@ uv1_scale = Vector3(0.75, 0.75, 0.75)
 uv1_triplanar = true
 texture_filter = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3p88"]
+albedo_texture = ExtResource("2_o4rw7")
+normal_enabled = true
+normal_texture = ExtResource("3_fnbpd")
+uv1_scale = Vector3(0.75, 0.75, 0.75)
+uv1_triplanar = true
+texture_filter = 2
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eqjcv"]
 albedo_texture = ExtResource("6_fnbpd")
 normal_texture = ExtResource("7_2hp47")
@@ -117,6 +119,9 @@ albedo_color = Color(0.517647, 0, 0, 1)
 albedo_texture = ExtResource("15_eqjcv")
 uv1_triplanar = true
 texture_filter = 2
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_21rrr"]
+data = PackedVector3Array(-3, -0.125, 3.5, -3, -0.125, -3.5, -3, 0.125, -3.5, 3, -0.125, -3.5, -3, -0.125, -3.5, -3, -0.125, 3.5, -3, 0.125, -3.5, -3, -0.125, -3.5, 3, -0.125, -3.5, -3, 0.125, -3.5, -3, 0.125, 3.5, -3, -0.125, 3.5, -3, -0.125, 3.5, -3, 0.125, 3.5, 3, 0.125, 3.5, 3, 0.125, 3.5, -3, 0.125, 3.5, -3, 0.125, -3.5, -3, -0.125, 3.5, 3, -0.125, 3.5, 3, -0.125, -3.5, 3, 0.125, 3.5, 3, -0.125, 3.5, -3, -0.125, 3.5, 3, -0.125, -3.5, 3, -0.125, 3.5, 3, 0.125, 3.5, 3, -0.125, -3.5, 3, 0.125, -3.5, -3, 0.125, -3.5, -3, 0.125, -3.5, 3, 0.125, -3.5, 3, 0.125, 3.5, 3, 0.125, 3.5, 3, 0.125, -3.5, 3, -0.125, -3.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33rql"]
 albedo_texture = ExtResource("9_6qgub")
@@ -446,14 +451,41 @@ _surfaces = [{
 size = Vector3(1, 1, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0nnn"]
+depth_draw_mode = 2
 albedo_texture = ExtResource("19_21rrr")
-emission_enabled = true
 emission_texture = ExtResource("19_21rrr")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2r54k"]
 material = SubResource("StandardMaterial3D_u0nnn")
 size = Vector2(0.5, 0.5)
-orientation = 0
+orientation = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_21rrr"]
+emission_shape_scale = Vector3(0.35, 0.35, 0.35)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0.75, 0)
+scale_min = 0.0
+scale_max = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6pgl"]
+transparency = 1
+albedo_color = Color(0.366595, 0.366595, 0.366595, 1)
+albedo_texture = ExtResource("6_qault")
+texture_filter = 2
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xpwyi"]
+material = SubResource("StandardMaterial3D_o6pgl")
+orientation = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j61wo"]
+radius = 0.35
 
 [node name="HuntingCabin" type="Node3D"]
 script = ExtResource("1_75qhe")
@@ -530,14 +562,6 @@ material = SubResource("StandardMaterial3D_2hp47")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Geometry"]
 use_collision = true
 
-[node name="Floor" type="CSGCombiner3D" parent="Geometry/CSGCombiner3D"]
-editor_description = "carpet"
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Geometry/CSGCombiner3D/Floor"]
-size = Vector3(6, 0.25, 7)
-material = SubResource("StandardMaterial3D_r3p88")
-
 [node name="Wall" type="CSGCombiner3D" parent="Geometry/CSGCombiner3D"]
 use_collision = true
 
@@ -594,6 +618,13 @@ material = SubResource("StandardMaterial3D_faa2f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 size = Vector3(0.99, 1.49, 0.05)
 material = SubResource("StandardMaterial3D_pcv60")
+
+[node name="Floor" type="CSGCombiner3D" parent="Geometry/CSGCombiner3D"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Geometry/CSGCombiner3D/Floor"]
+size = Vector3(6, 0.25, 7)
+material = SubResource("StandardMaterial3D_r3p88")
 
 [node name="Ceiling" type="CSGCombiner3D" parent="Geometry/CSGCombiner3D"]
 use_collision = true
@@ -665,6 +696,12 @@ material = SubResource("StandardMaterial3D_yd4e1")
 transform = Transform3D(0.499973, 0, 0.00309965, 0.000917585, 0.246025, -0.0532823, -0.00508394, 0.0444043, 0.295214, -0.205862, 0.33751, -0.801072)
 radial_segments = 6
 material = SubResource("StandardMaterial3D_yd4e1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Geometry"]
+editor_description = "wood"
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="Geometry/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_21rrr")
 
 [node name="Props" type="Node3D" parent="."]
 
@@ -768,10 +805,27 @@ skeleton = NodePath("../../../../Geometry")
 shape = SubResource("BoxShape3D_eqjcv")
 
 [node name="Eyes" type="Node3D" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00326991, 0.631315, -0.941816)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Eyes"]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -3.99673, 1.42293, -1.43718)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_2r54k")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Props/Eyes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.164125, 0)
+amount = 256
+lifetime = 1.5
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_21rrr")
+draw_pass_1 = SubResource("PlaneMesh_xpwyi")
+
+[node name="DialogueInteract" type="Area3D" parent="Props/Eyes"]
+script = ExtResource("20_yd4e1")
+dialogue_id = ExtResource("21_j61wo")
+metadata/_custom_type_script = "uid://dkok0pec8hqa2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Eyes/DialogueInteract"]
+shape = SubResource("SphereShape3D_j61wo")
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.072202, 0)

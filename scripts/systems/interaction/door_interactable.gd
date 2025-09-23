@@ -4,6 +4,7 @@ extends Interactable
 
 
 @export var scene: String
+@export var door_enter_audio: AudioStreamOggVorbis
 
 @export_category("Locked Door")
 @export var locked_door_dialogue: DialogueResource
@@ -46,6 +47,11 @@ func interact(player: CharacterBody3D) -> void:
 		return
 		
 	elif scene:
+		var audio = OneShotAudio.new()
+		get_tree().root.get_node_or_null("Main").add_child(audio)
+		audio.stream = door_enter_audio
+		audio.initialize(true)
+		
 		get_tree().get_first_node_in_group("World").switch_to_level(scene)
 		
 	elif knock_dialogue:

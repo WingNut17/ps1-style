@@ -10,10 +10,10 @@ func _ready():
 		load("res://resources/items/weapons/glock_19.tres"),
 		load("res://resources/items/weapons/m4a1.tres"),
 		load("res://resources/items/weapons/ak47.tres"),
-		load("res://resources/items/weapons/revolver.tres"),
+		load("res://resources/items/weapons/revolver_old.tres"),
 		load("res://resources/items/weapons/desert_eagle.tres"),
 		load("res://resources/items/ammo/magnum_ammo.tres"),
-		load("res://resources/items/weapons/shotgun.tres"),
+		load("res://resources/items/weapons/old_shotgun.tres"),
 		load("res://resources/items/ammo/shotgun_ammo.tres"),
 		load("res://resources/items/ammo/ar_ammo.tres"),
 		load("res://resources/items/weapons/kitchen_knife.tres")

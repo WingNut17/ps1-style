@@ -10,7 +10,7 @@ signal unlock_door
 		item = str("[color=", item_color, "]", value, "[/color]")
 
 const NPC_NAMES : Dictionary[String, Color] = {
-	"shawns": Color.LIGHT_CORAL
+	"shawn": Color.LIGHT_CORAL
 }
 
 func get_npc(npc_name: String) -> String:
